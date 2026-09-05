@@ -168,8 +168,8 @@
                                 <div class="mb-3">
                                     <div class="upload-profile">
                                         <div class="item">
-                                            <div class="img-box">
-                                                <svg width="32" height="32" viewBox="0 0 50 50" fill="red"
+                                            <div class="img-box" id="customerImagePreviewBox" style="width: 84px; height: 70px; border-radius: 6px; background: #f2f2f2; display: flex; justify-content: center; align-items: center; overflow: hidden; border: 1px solid #e2e8f0; position: relative;">
+                                                <svg id="customerImageDefaultSvg" width="32" height="32" viewBox="0 0 50 50" fill="red"
                                                     xmlns="http://www.w3.org/2000/svg"
                                                     xmlns:xlink="http://www.w3.org/1999/xlink">
                                                     <rect width="50" height="50" fill="url(#pattern0_1204_6)"
@@ -181,17 +181,18 @@
                                                             <use xlink:href="#image0_1204_6" transform="scale(0.005)" />
                                                         </pattern>
                                                         <image id="image0_1204_6" width="200" height="200"
-                                                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAMsklEQVR4Ae2daYwtRRmG34uAIF5RDMTlYkABvSJuP1BccMHgRtyiqNG4EI1bcCOBaDCaKEYMYlwIEBRRf7j9UHFBRBJQEgyIIJtKLmiAXGVRUAT35bzDNH40M13Vc/qcqT71VHLS1dN9znQ99T1dvVR3SSQIQAACEIAABCAAAQhAAAIQgAAEIAABCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgAAEIAABCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgAAEIAABCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgAAEIAABCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgAAEIAABCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgAAEInB0A/4Ps8I87+ZzL/0AAAAASUVORK5CYII=" />
+                                                            xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAMsklEQVR4Ae2daYwtRRmG34uAIF5RDMTlYkABvSJuP1BccMHgRtyiqNG4EI1bcCOBaDCaKEYMYlwIEBRRf7j9UHFBRBJQEgyIIJtKLmiAXGVRUAT35bzDNH40M13Vc/qcqT71VHLS1dN9znQ99T1dvVR3SSQIQAACEIAABCAAAQhAAAIQgAAEIAABCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgAAEIAABCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgAAEIAABCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgAAEIAABCEAAAhCAAAQgAAEIQAACEIAABCAAAQhAAAIQgAAEInB0A/4Ps8I87+ZzL/0AAAAASUVORK5CYII=" />
                                                     </defs>
                                                 </svg>
+                                                <img id="customerImagePreviewImg" src="" alt="Preview" style="display: none; width: 100%; height: 100%; object-fit: cover;" />
                                             </div>
 
                                             <div class="profile-wrapper">
                                                 <label class="custom-file-input-wrapper">
                                                     <input type="file" class="custom-file-input" id="CreateCustomerImage"
-                                                        aria-label="Upload Photo" />
+                                                        aria-label="Upload Photo" accept="image/*" onchange="previewCustomerImage(event)" />
                                                 </label>
-                                                <p>PNG, JPEG or GIF (up to 1 MB)</p>
+                                                <p id="customerImageInfo">PNG, JPEG or GIF (up to 1 MB)</p>
                                             </div>
                                         </div>
                                     </div>
@@ -295,12 +296,60 @@
         if (modal) modal.style.display = 'none';
     }
 
+    function previewCustomerImage(event) {
+        const file = event.target.files && event.target.files[0];
+        const previewImg = document.getElementById('customerImagePreviewImg');
+        const defaultSvg = document.getElementById('customerImageDefaultSvg');
+        const infoP = document.getElementById('customerImageInfo');
+
+        if (file) {
+            let sizeFormatted = file.size < 1048576 
+                ? (file.size / 1024).toFixed(1) + ' KB' 
+                : (file.size / (1024 * 1024)).toFixed(2) + ' MB';
+
+            if (infoP) {
+                infoP.innerHTML = `<span style="color: #15803d; font-weight: 700;"><i class="fa-solid fa-circle-check me-1"></i>${file.name}</span> <span style="background: #e2e8f0; color: #334155; font-size: 11px; padding: 2px 6px; border-radius: 4px; font-weight: 600; margin-left: 4px;">${sizeFormatted}</span>`;
+            }
+
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                if (previewImg) {
+                    previewImg.src = e.target.result;
+                    previewImg.style.display = 'block';
+                }
+                if (defaultSvg) {
+                    defaultSvg.style.display = 'none';
+                }
+            };
+            reader.readAsDataURL(file);
+        } else {
+            resetCustomerImagePreview();
+        }
+    }
+
+    function resetCustomerImagePreview() {
+        const previewImg = document.getElementById('customerImagePreviewImg');
+        const defaultSvg = document.getElementById('customerImageDefaultSvg');
+        const infoP = document.getElementById('customerImageInfo');
+        if (previewImg) {
+            previewImg.src = '';
+            previewImg.style.display = 'none';
+        }
+        if (defaultSvg) {
+            defaultSvg.style.display = 'block';
+        }
+        if (infoP) {
+            infoP.textContent = 'PNG, JPEG or GIF (up to 1 MB)';
+        }
+    }
+
     function closeCustomerModal() {
         const modal = document.getElementById('createProduct');
         if (modal) {
             modal.style.display = 'none';
             document.documentElement.style.overflowY = 'auto';
             document.body.style.overflow = '';
+            resetCustomerImagePreview();
         }
     }
 

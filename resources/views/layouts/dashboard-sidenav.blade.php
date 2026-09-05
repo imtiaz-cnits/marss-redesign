@@ -67,11 +67,77 @@
       background: linear-gradient(165deg, #064e3b 0%, #047857 35%, #0d9488 70%, #0f766e 100%) !important;
       border-right: 1px solid rgba(255, 255, 255, 0.12) !important;
       box-shadow: 4px 0 25px rgba(4, 120, 87, 0.25) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      height: 100vh !important;
+      overflow: hidden !important;
     }
 
-    /* Prevent Duplicate Logo on Topbar */
+    /* Prevent Duplicate Logo on Topbar on Desktop */
     #page-topbar .navbar-brand-box {
       display: none !important;
+    }
+
+    @media (min-width: 992px) {
+      .navbar-top-logo-link {
+        display: none !important;
+      }
+      #page-topbar .vertical-menu-btn {
+        margin-left: 1rem !important; /* ms-3 on desktop */
+      }
+    }
+
+    /* Hide any collapse button on sidebar itself */
+    .vertical-menu .vertical-menu-btn,
+    .vertical-menu .vertical-menu-btn2 {
+      display: none !important;
+    }
+
+    /* Stylish Modern Vertical Menu Toggle Button on Topbar */
+    #page-topbar .vertical-menu-btn {
+      width: 38px !important;
+      height: 38px !important;
+      border-radius: 10px !important;
+      background: #f0fdf4 !important;
+      border: 1px solid #bbf7d0 !important;
+      color: #047857 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 0 !important;
+      box-shadow: 0 2px 4px rgba(4, 120, 87, 0.08) !important;
+      transition: all 0.22s ease-in-out !important;
+    }
+
+    #page-topbar .vertical-menu-btn i {
+      font-size: 17px !important;
+      color: #047857 !important;
+      transition: all 0.22s ease-in-out !important;
+    }
+
+    #page-topbar .vertical-menu-btn:hover {
+      background: #dcfce7 !important;
+      border-color: #86efac !important;
+      transform: scale(1.05);
+    }
+
+    #page-topbar .vertical-menu-btn:hover i {
+      color: #065f46 !important;
+    }
+
+    body[light-mode="dark"] #page-topbar .vertical-menu-btn {
+      background: #1e293b !important;
+      border-color: #334155 !important;
+      color: #34d399 !important;
+      box-shadow: none !important;
+    }
+
+    body[light-mode="dark"] #page-topbar .vertical-menu-btn i {
+      color: #34d399 !important;
+    }
+
+    body[light-mode="dark"] #page-topbar .vertical-menu-btn:hover {
+      background: #334155 !important;
     }
 
     .navbar-top-logo {
@@ -88,14 +154,21 @@
       }
     }
 
+    /* Sidebar Logo Header - In Normal Flex Flow so Dashboard Menu Never Enters Behind It */
     .vertical-menu .navbar-brand-box {
+      position: relative !important;
+      top: auto !important;
+      left: auto !important;
+      right: auto !important;
+      width: 100% !important;
       background: rgba(6, 78, 59, 0.95) !important;
       border-bottom: 1px solid rgba(255, 255, 255, 0.12) !important;
       height: 72px !important;
       display: flex !important;
       align-items: center !important;
-      padding: 0 16px !important;
+      padding: 0 14px !important;
       box-shadow: none !important;
+      flex-shrink: 0 !important;
     }
 
     /* Expanded Sidebar Logo Rules */
@@ -127,27 +200,69 @@
       margin: 0 auto !important;
     }
 
-    .vertical-menu #sidebar-menu {
-      padding-top: 12px !important;
+    /* Sidebar Menu Container - Exactly ONE Smooth Scrollbar Managed by SimpleBar */
+    .vertical-menu .sidebar-menu-scroll {
+      flex: 1 1 auto !important;
+      height: calc(100vh - 138px) !important;
+      max-height: calc(100vh - 138px) !important;
+      overflow: hidden !important; /* Hide browser default scrollbar */
+      scrollbar-width: none !important;
+      -ms-overflow-style: none !important;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
     }
 
+    .vertical-menu .sidebar-menu-scroll::-webkit-scrollbar,
+    .vertical-menu .simplebar-content-wrapper::-webkit-scrollbar {
+      display: none !important;
+      width: 0 !important;
+      height: 0 !important;
+    }
+
+    .vertical-menu .simplebar-track.simplebar-vertical {
+      width: 6px !important;
+      right: 2px !important;
+    }
+
+    .vertical-menu .simplebar-scrollbar:before {
+      background: rgba(255, 255, 255, 0.35) !important;
+      border-radius: 4px !important;
+    }
+
+    .vertical-menu .simplebar-scrollbar.simplebar-visible:before {
+      opacity: 0.8 !important;
+    }
+
+    .vertical-menu #sidebar-menu {
+      padding-top: 8px !important;
+      padding-bottom: 8px !important;
+      margin-bottom: 0 !important;
+    }
+
+    .vertical-menu #sidebar-menu .menu ul {
+      padding-left: 0 !important;
+      margin: 0 !important;
+    }
+
+    /* Sidebar Menu Links - Aligned with Top Logo (Padding & Margin Balanced) */
     .vertical-menu #sidebar-menu ul li a {
       color: #f1f5f9 !important;
       font-weight: 500 !important;
       font-size: 14px !important;
-      padding: 10px 14px !important;
-      margin: 4px 12px !important;
-      border-radius: 10px !important;
+      padding: 9px 10px !important;
+      margin: 3px 8px !important;
+      border-radius: 9px !important;
       transition: all 0.22s ease-in-out !important;
-      border-left: 4px solid transparent !important;
+      border-left: 3px solid transparent !important;
     }
 
     .vertical-menu #sidebar-menu ul li a i.icon {
       color: #a7f3d0 !important;
       font-size: 16px !important;
-      width: 26px !important;
+      width: 24px !important;
       text-align: center !important;
       transition: all 0.22s ease-in-out !important;
+      flex-shrink: 0 !important;
     }
 
     /* Hover State */
@@ -168,7 +283,7 @@
       background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
       color: #ffffff !important;
       font-weight: 600 !important;
-      border-left: 4px solid #34d399 !important;
+      border-left: 3px solid #34d399 !important;
       box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35) !important;
     }
 
@@ -182,44 +297,107 @@
       color: #ffffff !important;
     }
 
-    /* Submenu items */
-    .vertical-menu .menu .sub-menu {
-      background: rgba(0, 0, 0, 0.18) !important;
-      margin-left: 20px !important;
-      padding-left: 8px !important;
-      border-left: 2px dashed rgba(255, 255, 255, 0.25) !important;
-      border-radius: 0 0 10px 10px !important;
+    /* Submenu Container & Items - Matches Other Menus Spacing & Margin */
+    .vertical-menu #sidebar-menu .menu ul.sub-menu {
+      background: rgba(0, 0, 0, 0.22) !important;
+      margin: 4px 8px 8px 8px !important;
+      padding: 6px 4px !important;
+      border-left: 2px dashed rgba(255, 255, 255, 0.3) !important;
+      border-radius: 10px !important;
     }
 
-    .vertical-menu .menu .sub-menu li a {
+    .vertical-menu #sidebar-menu .menu ul.sub-menu li {
+      margin-bottom: 2px !important;
+    }
+
+    .vertical-menu #sidebar-menu .menu ul.sub-menu li a {
       color: #cbd5e1 !important;
       font-size: 13px !important;
       padding: 8px 12px !important;
       margin: 2px 4px !important;
+      border-radius: 8px !important;
+      border-left: none !important;
+      display: flex !important;
+      align-items: center !important;
+      background: transparent !important;
+      transition: all 0.2s ease-in-out !important;
     }
 
-    .vertical-menu .menu .sub-menu li a:hover {
+    .vertical-menu #sidebar-menu .menu ul.sub-menu li a:hover {
       color: #a7f3d0 !important;
-      background: rgba(255, 255, 255, 0.12) !important;
+      background: rgba(255, 255, 255, 0.14) !important;
     }
 
-    /* Logout Button */
-    .vertical-menu .log-out {
-      background: rgba(6, 78, 59, 0.95) !important;
-      border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
-    }
-
-    .vertical-menu .log-out a {
-      color: #fca5a5 !important;
-      font-weight: 600 !important;
-      padding: 10px 14px !important;
-      border-radius: 10px !important;
-      transition: all 0.2s !important;
-    }
-
-    .vertical-menu .log-out a:hover {
-      background: rgba(239, 68, 68, 0.2) !important;
+    .vertical-menu #sidebar-menu .menu ul.sub-menu li.active>a,
+    .vertical-menu #sidebar-menu .menu ul.sub-menu li a.active {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
       color: #ffffff !important;
+      font-weight: 600 !important;
+      border-radius: 8px !important;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35) !important;
+    }
+
+    /* Fixed Bottom Logout Section - Harmonious Emerald Green Theme */
+    .vertical-menu .sidebar-bottom-logout {
+      flex-shrink: 0 !important;
+      margin-top: auto !important;
+      padding: 10px 8px !important;
+      border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
+      background: rgba(6, 78, 59, 0.95) !important;
+      box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.15) !important;
+    }
+
+    .vertical-menu .sidebar-bottom-logout .sidebar-logout-btn {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+      color: #d1fae5 !important;
+      font-weight: 600 !important;
+      font-size: 14px !important;
+      padding: 9px 12px !important;
+      border-radius: 9px !important;
+      text-decoration: none !important;
+      background: rgba(255, 255, 255, 0.09) !important;
+      border: 1px solid rgba(255, 255, 255, 0.18) !important;
+      transition: all 0.22s ease-in-out !important;
+    }
+
+    .vertical-menu .sidebar-bottom-logout .sidebar-logout-btn:hover {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.85) 0%, rgba(5, 150, 105, 0.95) 100%) !important;
+      color: #ffffff !important;
+      border-color: rgba(52, 211, 153, 0.5) !important;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 14px rgba(6, 78, 59, 0.45) !important;
+    }
+
+    .vertical-menu .sidebar-bottom-logout .sidebar-logout-btn i.icon {
+      color: #6ee7b7 !important;
+      font-size: 16px !important;
+      width: 24px !important;
+      text-align: center !important;
+      transition: all 0.22s ease-in-out !important;
+    }
+
+    .vertical-menu .sidebar-bottom-logout .sidebar-logout-btn:hover i.icon {
+      color: #ffffff !important;
+      transform: scale(1.15);
+    }
+
+    /* Collapsed Sidebar (sm) Rules for Fixed Logout */
+    body[data-sidebar-size="sm"] .vertical-menu .sidebar-bottom-logout {
+      padding: 8px 4px !important;
+    }
+
+    body[data-sidebar-size="sm"] .vertical-menu .sidebar-bottom-logout .sidebar-logout-btn {
+      justify-content: center !important;
+      padding: 9px 0 !important;
+      margin: 0 auto !important;
+      width: 44px !important;
+      height: 44px !important;
+    }
+
+    body[data-sidebar-size="sm"] .vertical-menu .sidebar-bottom-logout .sidebar-logout-btn .text {
+      display: none !important;
     }
 
     /* Comprehensive Dark Mode Card & Section Overrides */
@@ -516,12 +694,13 @@
   <!-- Navbar Start -->
   <nav id="page-topbar" class="isvertical-topbar">
     <div class="navbar-header">
-      <div class="d-flex">
-        <button type="button" class="btn btn-sm px-3 font-size-24 header-item waves-effect vertical-menu-btn">
+      <div class="d-flex align-items-center">
+        <button type="button" class="btn header-item waves-effect vertical-menu-btn d-inline-flex align-items-center justify-content-center ms-3"
+          title="Sidebar Toggle" aria-label="Toggle Sidebar">
           <i class="fa-solid fa-bars-staggered"></i>
         </button>
 
-        <a href="{{ url('/admin-dashboard-home') }}" class="d-flex align-items-center ms-2 text-decoration-none py-1">
+        <a href="{{ url('/admin-dashboard-home') }}" class="navbar-top-logo-link d-flex d-lg-none align-items-center ms-2 text-decoration-none py-1">
           <img src="{{ asset('backend/assets/img/marss-corporation-logo.svg') }}" alt="মার্স কর্পোরেশন (MARSS CORPORATION)" class="navbar-top-logo" style="height: 38px; max-width: 170px; object-fit: contain;" />
         </a>
 
@@ -843,10 +1022,6 @@
         }
       })();
     </script>
-    <button type="button"
-      class="btn btn-sm px-3 font-size-24 header-item waves-effect vertical-menu-btn vertical-menu-btn2">
-      <i class="fa-solid fa-angles-right"></i>
-    </button>
     <!-- LOGO Box -->
     <div class="navbar-brand-box">
       <a href="{{url('admin-dashboard')}}" class="logo logo-dark d-flex align-items-center text-decoration-none">
@@ -1098,19 +1273,20 @@
                 </ul>
               </li>
 
-              <li class="log-out mt-3">
-                <a href="#" onclick="userlogout(event)">
-                  <i class="fa-solid fa-right-from-bracket icon" style="width: 24px; text-align: center; color: var(--accent-red);"></i>
-                  <span class="text">Log Out</span>
-                </a>
-              </li>
             </ul>
           </div>
         </div>
       </div>
       <!-- Sidebar -->
     </div>
-    </li>
+
+    <!-- Fixed Bottom Logout Button -->
+    <div class="sidebar-bottom-logout">
+      <a href="#" onclick="userlogout(event)" class="sidebar-logout-btn">
+        <i class="fa-solid fa-right-from-bracket icon"></i>
+        <span class="text">Log Out</span>
+      </a>
+    </div>
   </div>
   <!-- Left Sidebar End -->
 

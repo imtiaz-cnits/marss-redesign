@@ -33,6 +33,7 @@
     <link href="{{ asset('backend/assets/css/toastify.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('backend/assets/css/progress.css') }}" rel="stylesheet" />
     <link href="{{ asset('backend/assets/css/animate.min.css') }}" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="{{ asset('backend/assets/js/toastify-js.js') }}"></script>
     <script src="{{ asset('backend/assets/js/axios.min.js') }}"></script>
@@ -271,9 +272,37 @@
             transition: 0.4s;
         }
 
+        /* Enforce fixed padding and dimension for + New Customer Button */
+        #openModalBtns,
+        #openModalBtns:hover,
+        #openModalBtns:focus,
+        #openModalBtns:active,
+        #openModalBtns:focus-visible {
+            height: 28px !important;
+            min-height: 28px !important;
+            max-height: 28px !important;
+            padding: 4px 12px !important;
+            font-size: 11.5px !important;
+            font-weight: 700 !important;
+            border-radius: 6px !important;
+            flex-shrink: 0 !important;
+            box-sizing: border-box !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            outline: none !important;
+            box-shadow: none !important;
+            background-color: #15803d !important;
+            border-color: #15803d !important;
+            color: #ffffff !important;
+        }
+
+        #openModalBtns:hover {
+            background-color: #16a34a !important;
+            border-color: #16a34a !important;
+        }
 
         .search-wraper input {
-            /* width: 100% !important; */
             padding: 6px;
             font-size: 12px;
             border: 1px solid var(--gray);
@@ -293,9 +322,7 @@
         }
 
 
-        /* select - 2 start css  */
-
-
+        /* select - 2 start css */
         .select-box-dropdown {
             position: relative;
             width: 100%;
@@ -306,70 +333,123 @@
         }
 
         .select-dropdown-selected {
-            padding: 6px;
-            font-size: 12px;
-            border: 1px solid var(--gray);
-            border-radius: 8px;
-            outline: none;
-            color: var(--gray);
+            padding: 4px 8px !important;
+            font-size: 11.5px !important;
+            border: 1px solid #cbd5e1 !important;
+            border-radius: 6px !important;
+            outline: none !important;
+            color: #334155 !important;
+            background: #f8fafc !important;
+            height: 28px !important;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .select-dropdown-selected:hover {
+            border-color: #16a34a !important;
+            background: #ffffff !important;
         }
 
         .select-dropdown-selected .icon {
-            transition: transform 0.3s;
+            transition: transform 0.2s ease;
+            color: #64748b;
+            top: 0px !important;
         }
 
         .select-dropdown-items {
             position: absolute;
-            background-color: #fff;
-            border: 1px solid #ccc;
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
             width: 100%;
-            padding: 10px;
-            z-index: 1000;
+            min-width: 280px;
+            max-width: 100%;
+            padding: 6px;
+            z-index: 1050;
             display: none;
-            max-height: 200px;
+            max-height: 240px;
             overflow-y: auto;
-            top: 100%;
+            overflow-x: hidden !important;
+            top: calc(100% + 4px);
+            left: 0;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.06);
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 transparent;
         }
 
         .select-dropdown-items::-webkit-scrollbar {
-            width: 8px;
-            background-color: #e6e3e3e5;
-            cursor: pointer;
+            width: 5px;
+            height: 0px !important;
         }
 
         .select-dropdown-items::-webkit-scrollbar-thumb {
-            background: #008aee;
-            ;
-            width: 8px;
-            border-radius: 5px;
-            border-color: none !important;
-        }
-
-        .select-dropdown-items #CustomerSelectData .dropdown-item {
-            padding: 10px;
-            cursor: pointer;
+            background: #cbd5e1;
             border-radius: 4px;
         }
 
-        .select-dropdown-items #CustomerSelectData .dropdown-item:hover {
-            background: #008aee;
-            color: white;
+        .select-dropdown-items::-webkit-scrollbar-track {
+            background: transparent;
         }
 
         .select-search-box {
-            padding: 8px 12px;
-            width: 100%;
-            box-sizing: border-box;
-            border-bottom: 1px solid #ccc;
+            padding: 6px 10px !important;
+            width: 100% !important;
+            box-sizing: border-box !important;
+            border: 1px solid #e2e8f0 !important;
+            border-radius: 6px !important;
             position: sticky;
             top: 0;
-            background-color: #fff;
-            z-index: 1;
+            background-color: #f8fafc;
+            z-index: 2;
             display: none;
-            /* Initially hide the search input */
+            font-size: 11.5px !important;
+            color: #0f172a;
+            outline: none;
+            margin-bottom: 4px;
+            transition: border-color 0.2s;
+        }
+
+        .select-search-box:focus {
+            border-color: #16a34a !important;
+            background-color: #ffffff !important;
+            box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.1) !important;
+        }
+
+        #CustomerSelectData {
+            overflow-x: hidden !important;
+            width: 100%;
+        }
+
+        .select-dropdown-items #CustomerSelectData .dropdown-item {
+            padding: 5px 8px !important;
+            cursor: pointer;
+            border-radius: 6px;
+            font-size: 11.5px !important;
+            color: #1e293b;
+            line-height: 1.35;
+            transition: all 0.15s ease;
+            white-space: normal !important;
+            word-break: break-word;
+            overflow-x: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 6px;
+            margin-bottom: 2px;
+        }
+
+        .select-dropdown-items #CustomerSelectData .dropdown-item:hover {
+            background: #f0fdf4 !important;
+            color: #15803d !important;
+        }
+
+        .select-dropdown-items #CustomerSelectData .dropdown-item.active,
+        .select-dropdown-items #CustomerSelectData .dropdown-item:active {
+            background: #15803d !important;
+            color: #ffffff !important;
         }
 
         .show {
@@ -377,12 +457,541 @@
         }
 
         /* Rotate the icon when the dropdown is open */
-        .select-dropdown-items.show+.select-dropdown-selected .icon {
+        .select-dropdown-items.show + .select-dropdown-selected .icon {
             transform: rotate(180deg);
         }
 
-        .select-dropdown-selected .icon {
-            top: 0px !important;
+        /* Cart Table Desktop Fit & No Horizontal Scroll */
+        @media (min-width: 992px) {
+            .pos-cart-table-wrapper {
+                overflow-x: hidden !important;
+                overflow-y: auto !important;
+            }
+            .pos-cart-table-wrapper table {
+                width: 100% !important;
+                min-width: 100% !important;
+                max-width: 100% !important;
+                table-layout: fixed !important;
+            }
+            .pos-cart-table-wrapper th {
+                padding-left: 2px !important;
+                padding-right: 2px !important;
+                font-size: 10.5px !important;
+                letter-spacing: 0px !important;
+            }
+            .pos-cart-table-wrapper td {
+                padding-left: 2px !important;
+                padding-right: 2px !important;
+                font-size: 11px !important;
+            }
+        }
+
+        /* =========================================================
+           Dark Mode Refinements & Bug Fixes
+           ========================================================= */
+
+        /* 1. Dark Mode Toggle Switch Circle Containment */
+        .light-mode-button {
+            height: 24px !important;
+            width: 38px !important;
+            position: relative !important;
+            background: none !important;
+            border: none !important;
+            padding: 0 !important;
+            cursor: pointer !important;
+            box-sizing: border-box !important;
+        }
+
+        .light-mode-button span:nth-child(1) {
+            position: absolute !important;
+            top: 3px !important;
+            left: 1px !important;
+            width: 36px !important;
+            height: 18px !important;
+            border-radius: 18px !important;
+            background-color: #15803d !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            box-sizing: border-box !important;
+        }
+
+        .light-mode-button span:nth-child(2) {
+            position: absolute !important;
+            top: 5px !important;
+            left: 3px !important;
+            width: 14px !important;
+            height: 14px !important;
+            border-radius: 50% !important;
+            background-color: #ffffff !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            box-sizing: border-box !important;
+        }
+
+        body[light-mode="dark"] .light-mode-button span:nth-child(1) {
+            background-color: #334155 !important;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.3) !important;
+        }
+
+        body[light-mode="dark"] .light-mode-button span:nth-child(2) {
+            left: 21px !important;
+            background-color: #ffffff !important;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.4) !important;
+        }
+
+        /* 2. Flatpickr Styling & Month Dropdown Fix */
+        .pos-date-input {
+            height: 28px !important;
+            font-size: 11.5px !important;
+            border-radius: 6px !important;
+            background: #f8fafc !important;
+            cursor: pointer !important;
+            border: 1px solid #cbd5e1 !important;
+        }
+        .pos-date-input:focus {
+            border-color: #16a34a !important;
+            background: #ffffff !important;
+            box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.1) !important;
+        }
+        .flatpickr-calendar {
+            font-family: inherit !important;
+            border-radius: 10px !important;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.08) !important;
+            border: 1px solid #e2e8f0 !important;
+            z-index: 9999 !important;
+        }
+        .flatpickr-day.selected, .flatpickr-day.startRange, .flatpickr-day.endRange {
+            background: #15803d !important;
+            border-color: #15803d !important;
+        }
+        .flatpickr-day.today {
+            border-color: #16a34a !important;
+        }
+        .flatpickr-day.today:hover, .flatpickr-day:hover {
+            background: #f0fdf4 !important;
+            color: #15803d !important;
+        }
+        .flatpickr-months .flatpickr-month {
+            background: #15803d !important;
+            color: #ffffff !important;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+        .flatpickr-current-month .flatpickr-monthDropdown-months,
+        .flatpickr-current-month input.cur-year {
+            color: #ffffff !important;
+            font-weight: 700 !important;
+        }
+        .flatpickr-calendar .flatpickr-monthDropdown-months {
+            background-color: #15803d !important;
+            color: #ffffff !important;
+            border: none !important;
+            outline: none !important;
+            cursor: pointer !important;
+        }
+        .flatpickr-calendar .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month {
+            background-color: #1e293b !important;
+            color: #f8fafc !important;
+            padding: 4px 8px !important;
+        }
+        .flatpickr-months .flatpickr-prev-month svg, .flatpickr-months .flatpickr-next-month svg {
+            fill: #ffffff !important;
+        }
+        .flatpickr-weekdays {
+            background: #15803d !important;
+        }
+        span.flatpickr-weekday {
+            background: #15803d !important;
+            color: #ffffff !important;
+            font-weight: 600 !important;
+        }
+
+        body[light-mode="dark"] .flatpickr-calendar {
+            background: #1e293b !important;
+            border: 1px solid #334155 !important;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.65) !important;
+            color: #f8fafc !important;
+        }
+        body[light-mode="dark"] .flatpickr-calendar .flatpickr-days,
+        body[light-mode="dark"] .flatpickr-calendar .dayContainer {
+            background: #1e293b !important;
+        }
+        body[light-mode="dark"] .flatpickr-calendar .flatpickr-day {
+            color: #cbd5e1 !important;
+        }
+        body[light-mode="dark"] .flatpickr-calendar .flatpickr-day.prevMonthDay,
+        body[light-mode="dark"] .flatpickr-calendar .flatpickr-day.nextMonthDay {
+            color: #64748b !important;
+        }
+        body[light-mode="dark"] .flatpickr-calendar .flatpickr-day:hover {
+            background: #334155 !important;
+            color: #ffffff !important;
+        }
+        body[light-mode="dark"] .flatpickr-calendar .flatpickr-day.selected {
+            background: #15803d !important;
+            border-color: #15803d !important;
+            color: #ffffff !important;
+        }
+        body[light-mode="dark"] .flatpickr-calendar .flatpickr-day.today {
+            border-color: #16a34a !important;
+        }
+        body[light-mode="dark"] .flatpickr-calendar .flatpickr-months .flatpickr-month,
+        body[light-mode="dark"] .flatpickr-calendar .flatpickr-weekdays {
+            background: #15803d !important;
+        }
+        body[light-mode="dark"] .flatpickr-calendar span.flatpickr-weekday {
+            background: #15803d !important;
+            color: #ffffff !important;
+        }
+        body[light-mode="dark"] .flatpickr-calendar .flatpickr-monthDropdown-months .flatpickr-monthDropdown-month {
+            background-color: #0f172a !important;
+            color: #f8fafc !important;
+        }
+
+        /* 3. Dark Mode Border Color Harmonization (Matching Product Card: #334155) */
+        .pos-cart-customer-box {
+            border: 1px solid #e2e8f0;
+        }
+        .pos-products-topbar {
+            border: 1px solid #e2e8f0;
+        }
+
+        body[light-mode="dark"] .pos-cart-customer-box,
+        body[light-mode="dark"] .pos-products-topbar,
+        body[light-mode="dark"] .pos-cart-table-wrapper,
+        body[light-mode="dark"] .pos-cart-table-wrapper table,
+        body[light-mode="dark"] #payment,
+        body[light-mode="dark"] #payment .payments,
+        body[light-mode="dark"] #payment .totals,
+        body[light-mode="dark"] .pos-bottom-trending-bar,
+        body[light-mode="dark"] .select-box-wrapper,
+        body[light-mode="dark"] .table-wrapper {
+            border-color: #334155 !important;
+            background-color: #1e293b !important;
+        }
+
+        body[light-mode="dark"] .pos-cart-table-wrapper th,
+        body[light-mode="dark"] .pos-cart-table-wrapper td,
+        body[light-mode="dark"] .pos-cart-table-wrapper tr {
+            border-color: #334155 !important;
+            border-bottom-color: #334155 !important;
+        }
+
+        body[light-mode="dark"] .pos-cart-table-wrapper th {
+            background-color: #0f172a !important;
+            color: #94a3b8 !important;
+        }
+
+        body[light-mode="dark"] .pos-cart-customer-box .border-top {
+            border-top-color: #334155 !important;
+        }
+
+        body[light-mode="dark"] .pos-cart-customer-box .input-group-text {
+            background-color: #0f172a !important;
+            border-color: #334155 !important;
+            color: #94a3b8 !important;
+        }
+
+        body[light-mode="dark"] .pos-cart-customer-box input.form-control,
+        body[light-mode="dark"] .pos-date-input,
+        body[light-mode="dark"] .select-dropdown-selected,
+        body[light-mode="dark"] #transactionInput,
+        body[light-mode="dark"] #orderNote,
+        body[light-mode="dark"] #discountAmountInput,
+        body[light-mode="dark"] #paidAmountInput,
+        body[light-mode="dark"] .posSearchInput {
+            background-color: #0f172a !important;
+            border-color: #334155 !important;
+            color: #f8fafc !important;
+        }
+
+        body[light-mode="dark"] #totalPreviousDueAmount {
+            background-color: rgba(239, 68, 68, 0.15) !important;
+            border-color: #ef4444 !important;
+            color: #fca5a5 !important;
+        }
+
+        body[light-mode="dark"] .discount-type-pill {
+            border-color: #334155 !important;
+        }
+
+        body[light-mode="dark"] #payment .subtotal,
+        body[light-mode="dark"] #payment .total,
+        body[light-mode="dark"] .border-light {
+            border-color: #334155 !important;
+        }
+
+        /* 4. Customer Dropdown in Dark Mode & Hover Visibility Fix */
+        body[light-mode="dark"] .select-dropdown-items {
+            background-color: #1e293b !important;
+            border-color: #334155 !important;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5) !important;
+        }
+
+        body[light-mode="dark"] .select-search-box {
+            background-color: #0f172a !important;
+            border-color: #334155 !important;
+            color: #f8fafc !important;
+        }
+
+        body[light-mode="dark"] .select-dropdown-items #CustomerSelectData .dropdown-item {
+            color: #cbd5e1 !important;
+        }
+
+        body[light-mode="dark"] .select-dropdown-items #CustomerSelectData .dropdown-item * {
+            color: inherit !important;
+        }
+
+        body[light-mode="dark"] .select-dropdown-items #CustomerSelectData .dropdown-item:hover,
+        body[light-mode="dark"] .select-dropdown-items #CustomerSelectData .dropdown-item:hover * {
+            background-color: #15803d !important;
+            color: #ffffff !important;
+        }
+
+        body[light-mode="dark"] .select-dropdown-items #CustomerSelectData .dropdown-item:hover .badge {
+            background-color: rgba(255, 255, 255, 0.25) !important;
+            color: #ffffff !important;
+            border-color: rgba(255, 255, 255, 0.35) !important;
+        }
+
+        /* 5. Payment Method Cards in Dark Mode */
+        body[light-mode="dark"] #payment .category label,
+        body[light-mode="dark"] .category label {
+            background-color: #0f172a !important;
+            border: 1.5px solid #334155 !important;
+            color: #f8fafc !important;
+            box-shadow: none !important;
+        }
+
+        body[light-mode="dark"] #payment .category label h1,
+        body[light-mode="dark"] .category label h1 {
+            color: #f8fafc !important;
+        }
+
+        body[light-mode="dark"] #payment .category label:hover,
+        body[light-mode="dark"] .category label:hover {
+            border-color: #16a34a !important;
+            background-color: #1e293b !important;
+        }
+
+        body[light-mode="dark"] #payment .category label.active,
+        body[light-mode="dark"] .category label.active {
+            border-color: #16a34a !important;
+            background-color: rgba(22, 163, 74, 0.18) !important;
+        }
+
+        body[light-mode="dark"] #payment .category label.active h1,
+        body[light-mode="dark"] .category label.active h1 {
+            color: #4ade80 !important;
+            font-weight: 800 !important;
+        }
+
+        body[light-mode="dark"] .category label .imgContainer {
+            background: #1e293b !important;
+        }
+
+        /* 6. Hold Button & Held Invoices Icon in Dark Mode */
+        body[light-mode="dark"] .pos-bottom-trending-bar .btn-warning,
+        body[light-mode="dark"] .pos-bottom-trending-bar .btn-warning i,
+        body[light-mode="dark"] .pos-bottom-trending-bar .btn-warning span {
+            color: #0f172a !important;
+        }
+
+        body[light-mode="dark"] .pos-bottom-trending-bar .btn-outline-warning {
+            border: 1.5px solid #f59e0b !important;
+            color: #f59e0b !important;
+            background: transparent !important;
+        }
+
+        body[light-mode="dark"] .pos-bottom-trending-bar .btn-outline-warning i {
+            color: #f59e0b !important;
+        }
+
+        /* 7. মোট বিল (SUB-TOTAL) Card in Light & Dark Mode */
+        .pos-big-subtotal-card {
+            background-color: #f0fdf4;
+            border: 1px solid #bbf7d0;
+        }
+        .pos-big-subtotal-label {
+            color: #64748b;
+        }
+        .pos-big-subtotal-val {
+            color: #15803d;
+        }
+
+        body[light-mode="dark"] .pos-big-subtotal-card {
+            background-color: #0f172a !important;
+            border-color: #15803d !important;
+        }
+
+        body[light-mode="dark"] .pos-big-subtotal-label {
+            color: #94a3b8 !important;
+        }
+
+        body[light-mode="dark"] .pos-big-subtotal-val,
+        body[light-mode="dark"] #bigSubTotalDisplay {
+            color: #4ade80 !important;
+        }
+
+        /* 8. Quick Add Product Modal Styling */
+        #quickAddProductModal .modal-title,
+        #quickAddProductModal .modal-title * {
+            color: #ffffff !important;
+        }
+
+        /* 9. Custom Searchable Select Dropdowns (Category, Brand, Unit) */
+        .custom-searchable-select {
+            position: relative;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .custom-searchable-select.is-open {
+            z-index: 9999 !important;
+            position: relative !important;
+        }
+
+        #quickAddProductModal .col-md-4:has(.custom-searchable-select.is-open),
+        #quickAddProductModal .col-md-4.has-open-dropdown {
+            z-index: 9999 !important;
+            position: relative !important;
+        }
+
+        .custom-searchable-select .select-trigger {
+            height: 35px;
+            border-radius: 7px;
+            cursor: pointer;
+            border: 1px solid #cbd5e1 !important;
+            background: #ffffff;
+            transition: all 0.2s ease;
+            user-select: none;
+        }
+
+        .custom-searchable-select .select-trigger:hover {
+            border-color: #16a34a !important;
+        }
+
+        .custom-searchable-select.is-open .select-trigger {
+            border-color: #16a34a !important;
+            box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.15) !important;
+        }
+
+        .custom-searchable-select .select-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 3px);
+            left: 0;
+            width: 100%;
+            min-width: 100%;
+            z-index: 99999 !important;
+            background: #ffffff !important;
+            border: 1.5px solid #cbd5e1 !important;
+            border-radius: 8px;
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.25), 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+            padding: 6px;
+        }
+
+        .custom-searchable-select.is-open .select-menu {
+            display: block !important;
+        }
+
+        .custom-searchable-select .search-wrap {
+            padding: 4px 6px;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 4px;
+            position: relative;
+            background: #ffffff !important;
+            z-index: 2;
+        }
+
+        .custom-searchable-select .search-wrap input {
+            height: 30px;
+            font-size: 11.5px;
+            border-radius: 6px;
+            border: 1px solid #cbd5e1;
+            padding-left: 26px;
+            padding-right: 8px;
+            width: 100%;
+            outline: none;
+            box-sizing: border-box;
+            background: #ffffff !important;
+        }
+
+        .custom-searchable-select .search-wrap input:focus {
+            border-color: #16a34a;
+            box-shadow: 0 0 0 2px rgba(22, 163, 74, 0.1);
+        }
+
+        .custom-searchable-select .select-options-list {
+            max-height: 160px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #cbd5e1 transparent;
+        }
+
+        .custom-searchable-select .select-options-list::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-searchable-select .select-options-list::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        .custom-searchable-select .select-option-item {
+            padding: 6px 8px;
+            font-size: 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin: 1px 2px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #334155;
+            transition: all 0.15s ease;
+            user-select: none;
+        }
+
+        .custom-searchable-select .select-option-item:hover {
+            background-color: #f0fdf4;
+            color: #15803d;
+        }
+
+        .custom-searchable-select .select-option-item.active {
+            background-color: #dcfce7;
+            color: #15803d;
+            font-weight: 700;
+        }
+
+        /* Dark mode custom dropdown */
+        body[light-mode="dark"] .custom-searchable-select .select-trigger {
+            background-color: #0f172a !important;
+            border-color: #334155 !important;
+            color: #f8fafc !important;
+        }
+        body[light-mode="dark"] .custom-searchable-select .select-trigger .selected-text {
+            color: #cbd5e1 !important;
+        }
+        body[light-mode="dark"] .custom-searchable-select .select-menu {
+            background-color: #1e293b !important;
+            border-color: #334155 !important;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6) !important;
+        }
+        body[light-mode="dark"] .custom-searchable-select .search-wrap {
+            border-color: #334155 !important;
+        }
+        body[light-mode="dark"] .custom-searchable-select .search-wrap input {
+            background-color: #0f172a !important;
+            border-color: #334155 !important;
+            color: #f8fafc !important;
+        }
+        body[light-mode="dark"] .custom-searchable-select .select-option-item {
+            color: #cbd5e1 !important;
+        }
+        body[light-mode="dark"] .custom-searchable-select .select-option-item:hover {
+            background-color: #334155 !important;
+            color: #ffffff !important;
+        }
+        body[light-mode="dark"] .custom-searchable-select .select-option-item.active {
+            background-color: rgba(22, 163, 74, 0.25) !important;
+            color: #4ade80 !important;
         }
 
         /* select - 2 end  */
@@ -747,6 +1356,102 @@
             font-size: 12px !important;
             padding: 5px 8px !important;
             border-radius: 8px !important;
+        }
+
+        /* Mobile/Tablet View (< 992px) Responsive Rules */
+        @media (max-width: 991.98px) {
+            html,
+            body {
+                height: 100% !important;
+                max-height: 100% !important;
+                overflow: hidden !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            #pos-main {
+                height: 100dvh !important;
+                height: 100vh !important;
+                max-height: 100dvh !important;
+                max-height: 100vh !important;
+                display: flex !important;
+                flex-direction: column !important;
+                overflow: hidden !important;
+                padding: 8px 6px 0 6px !important;
+                box-sizing: border-box !important;
+            }
+            #navbar {
+                flex-shrink: 0 !important;
+                margin-top: 0 !important;
+                margin-bottom: 4px !important;
+            }
+            #navbar .nav-wrapper {
+                min-height: 40px !important;
+                padding: 2px 6px !important;
+            }
+            #posMainRow {
+                flex: 1 1 0% !important;
+                min-height: 0 !important;
+                height: auto !important;
+                max-height: none !important;
+                overflow: hidden !important;
+                display: flex !important;
+                flex-direction: column !important;
+                margin: 0 !important;
+            }
+            #posProductsCol {
+                height: 100% !important;
+                max-height: 100% !important;
+                display: flex !important;
+                flex-direction: column !important;
+                min-height: 0 !important;
+                overflow: hidden !important;
+                padding: 0 !important;
+            }
+            #posProductsCol .pos-products-topbar {
+                flex-shrink: 0 !important;
+                margin-bottom: 4px !important;
+            }
+            #posProductsCol #product-slider {
+                flex-shrink: 0 !important;
+                margin-bottom: 4px !important;
+            }
+            #posProductsCol #product-card {
+                flex: 1 1 0% !important;
+                min-height: 0 !important;
+                height: auto !important;
+                overflow-y: auto !important;
+                overflow-x: hidden !important;
+                -webkit-overflow-scrolling: touch !important;
+                padding-bottom: 80px !important;
+                scrollbar-width: none !important; /* Firefox */
+                -ms-overflow-style: none !important; /* IE and Edge */
+            }
+            #posProductsCol #product-card::-webkit-scrollbar {
+                display: none !important; /* Chrome, Safari, WebKit */
+                width: 0 !important;
+                height: 0 !important;
+            }
+            #posCartCol {
+                height: 100% !important;
+                max-height: 100% !important;
+                display: flex !important;
+                flex-direction: column !important;
+                min-height: 0 !important;
+                overflow-y: auto !important;
+                overflow-x: hidden !important;
+                -webkit-overflow-scrolling: touch !important;
+                padding: 0 2px 85px 2px !important;
+                scrollbar-width: none !important; /* Firefox */
+                -ms-overflow-style: none !important; /* IE and Edge */
+            }
+            #posCartCol::-webkit-scrollbar {
+                display: none !important; /* Chrome, Safari, WebKit */
+                width: 0 !important;
+                height: 0 !important;
+            }
+            .pos-bottom-trending-bar {
+                margin-bottom: 15px !important;
+            }
         }
 
         body[light-mode="dark"] #payment,
@@ -1407,14 +2112,15 @@
         <div class="row flex-grow-1 overflow-hidden" id="posMainRow">
             <div class="col-lg-6 pos-products-col d-none d-lg-block overflow-hidden d-flex flex-column" id="posProductsCol">
                 <!-- Barcode Search & Camera Scan for Product List View -->
-                <div class="pos-products-topbar mb-1 p-1.5 px-2 bg-white border shadow-sm" style="border-radius: 10px; border-color: #e2e8f0 !important;">
-                    <div class="searchbar d-flex align-items-center gap-2 w-100">
-                        <div class="flex-grow-1 position-relative" style="min-width: 160px;">
+                <div class="pos-products-topbar mb-1 p-1.5 px-2 bg-white border shadow-sm" style="border-radius: 10px;">
+                    <div class="searchbar row g-1.5 align-items-center w-100 m-0">
+                        <!-- Search input: full width on mobile (col-12), flex-grow on desktop (col-lg) -->
+                        <div class="col-12 col-lg p-0 position-relative">
                             <input type="text" id="productCodeSearch"
                                 placeholder="🔍 বারকোড স্ক্যান অথবা কোড/নাম লিখুন..."
                                 oninput="searchByProductCode(this.value, 'productCodeSearch')"
                                 onkeydown="handleBarcodeEnterKey(event, this.value)"
-                                class="form-control posSearchInput py-0" autofocus autocomplete="off"
+                                class="form-control posSearchInput py-0 w-100" autofocus autocomplete="off"
                                 style="border-radius: 8px; height: 38px; font-size: 12.5px; padding-left: 12px; padding-right: 40px; border-color: #cbd5e1;" />
                             <a href="#" class="search-icon position-absolute d-flex align-items-center justify-content-center text-white"
                                 onclick="triggerBarcodeSearchManual(event, 'productCodeSearch')"
@@ -1423,18 +2129,21 @@
                             </a>
                             <div id="productCodeSearchSuggestions" class="pos-search-suggestions position-absolute start-0 end-0 bg-white border shadow-lg rounded-3 d-none" style="top: 100%; margin-top: 4px; z-index: 1050; max-height: 280px; overflow-y: auto;"></div>
                         </div>
-                        <button type="button" class="btn btn-primary fw-bold text-nowrap d-inline-flex align-items-center justify-content-center gap-1.5 shadow-sm px-3 flex-shrink-0"
-                            onclick="openCameraScanner()"
-                            style="border-radius: 8px; height: 38px; min-width: 125px; background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); border: none; font-size: 12.5px;">
-                            <i class="fa-solid fa-camera fs-6"></i>
-                            <span>ক্যামেরা স্ক্যান</span>
-                        </button>
-                        <button type="button" class="btn btn-warning fw-bold text-dark text-nowrap d-inline-flex align-items-center justify-content-center gap-1.5 shadow-sm px-3 flex-shrink-0"
-                            onclick="openQuickAddProductModal()"
-                            style="border-radius: 8px; height: 38px; min-width: 120px; font-size: 12.5px;">
-                            <i class="fa-solid fa-circle-plus fs-6 text-dark"></i>
-                            <span>নতুন প্রোডাক্ট</span>
-                        </button>
+                        <!-- 2 buttons wrapper: on mobile 2 equal side-by-side buttons with top gap, on desktop auto width -->
+                        <div class="col-12 col-lg-auto p-0 mt-2 mt-lg-0 d-flex align-items-center gap-1.5">
+                            <button type="button" class="btn btn-primary flex-fill fw-bold text-nowrap d-inline-flex align-items-center justify-content-center gap-1.5 shadow-sm px-3"
+                                onclick="openCameraScanner()"
+                                style="border-radius: 8px; height: 38px; background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); border: none; font-size: 12.5px;">
+                                <i class="fa-solid fa-camera fs-6"></i>
+                                <span>ক্যামেরা স্ক্যান</span>
+                            </button>
+                            <button type="button" class="btn btn-warning flex-fill fw-bold text-dark text-nowrap d-inline-flex align-items-center justify-content-center gap-1.5 shadow-sm px-3"
+                                onclick="openQuickAddProductModal()"
+                                style="border-radius: 8px; height: 38px; font-size: 12.5px;">
+                                <i class="fa-solid fa-circle-plus fs-6 text-dark"></i>
+                                <span>নতুন প্রোডাক্ট</span>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -1467,22 +2176,11 @@
             <!-- Pos Order List Start -->
             <div class="col-lg-6 pos-cart-col overflow-hidden d-flex flex-column" id="posCartCol">
 
-                <div id="customerReturnCreditNotice" class="alert alert-info border-info d-none mb-1 py-1.5 px-2.5 align-items-center justify-content-between shadow-sm" style="border-radius: 8px; background: #e0f2fe; color: #0369a1; flex-shrink: 0;">
-                    <div>
-                        <i class="fa-solid fa-gift me-1.5 text-info fs-6"></i>
-                        <span class="fw-bold" style="font-size: 12px;">ফেরত ক্রেডিট: ৳ <span id="posReturnCreditVal">0.00</span></span>
-                    </div>
-                    <div class="form-check form-switch mb-0">
-                        <input class="form-check-input" type="checkbox" id="chkUseReturnCredit" onchange="togglePosReturnCreditAdjustment()">
-                        <label class="form-check-input-label fw-bold text-dark small" for="chkUseReturnCredit" style="font-size: 11px;">সমন্বয় করুন</label>
-                    </div>
-                </div>
-
                 <!-- Ultra-Compact Customer & Invoice Info Header -->
-                <div class="pos-cart-customer-box p-1.5 px-2 border bg-white shadow-sm mb-1" style="border-radius: 10px; border-color: #e2e8f0 !important; flex-shrink: 0;">
+                <div class="pos-cart-customer-box p-1.5 px-2 border bg-white shadow-sm mb-1" style="border-radius: 10px; flex-shrink: 0;">
                     <div class="row g-1.5 align-items-center">
                         <!-- Col 1: Customer Search Dropdown & Create Customer -->
-                        <div class="col-md-7 col-12">
+                        <div class="col-md-7 col-12 mb-1.5 mb-md-0">
                             <div class="d-flex align-items-center gap-1.5">
                                 <div class="select-box-dropdown flex-grow-1">
                                     <div class="select-dropdown-selected py-0.5 px-2 border rounded-2 d-flex align-items-center justify-content-between" style="font-size: 11.5px; height: 28px; background: #f8fafc; cursor: pointer;">
@@ -1494,17 +2192,20 @@
                                         <div id="CustomerSelectData"></div>
                                     </div>
                                 </div>
-                                <button id="openModalBtns" onclick="openCustomerModal()" type="button" class="btn btn-sm btn-success text-nowrap fw-bold px-2.5" style="height: 28px; font-size: 11.5px; border-radius: 6px;">
+                                <button id="openModalBtns" onclick="openCustomerModal()" type="button" class="btn btn-sm btn-success text-nowrap fw-bold" style="height: 28px !important; min-height: 28px !important; max-height: 28px !important; font-size: 11.5px !important; border-radius: 6px !important; padding: 4px 12px !important; flex-shrink: 0 !important; display: inline-flex !important; align-items: center !important; justify-content: center !important;">
                                     + New
                                 </button>
                             </div>
                         </div>
 
-                        <!-- Col 2: Invoice Date -->
+                        <!-- Col 2: Invoice Date (Flatpickr Calendar) -->
                         <div class="col-md-5 col-12">
                             <div class="d-flex align-items-center gap-1">
                                 <span class="text-muted small text-nowrap fw-bold" style="font-size: 10.5px;">তারিখ:</span>
-                                <input type="date" id="CustomerDate" class="form-control form-control-sm py-0 px-1.5 fw-bold" style="height: 28px; font-size: 11.5px; border-radius: 6px; background: #f8fafc;" />
+                                <div class="position-relative flex-grow-1" style="min-width: 105px;">
+                                    <input type="text" id="CustomerDate" class="form-control form-control-sm py-0 px-1.5 fw-bold pos-date-input" style="height: 28px; font-size: 11.5px; border-radius: 6px; background: #f8fafc; cursor: pointer; padding-right: 22px !important;" />
+                                    <i class="fa-regular fa-calendar position-absolute end-0 top-50 translate-middle-y me-2 text-muted" style="font-size: 11px; pointer-events: none;"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1541,41 +2242,40 @@
 
                 <!-- Camera Scan & Barcode Search Bar (Only shown on Mobile/Tablet view < 992px) -->
                 <div class="d-block d-lg-none mb-1 p-1.5 bg-white border shadow-sm" style="border-radius: 10px; border-color: #e2e8f0 !important; flex-shrink: 0;">
-                    <div class="searchbar d-flex align-items-center gap-2 w-100">
-                        <label for="productCodeSearchCart" class="flex-grow-1 mb-0 position-relative">
+                    <div class="searchbar d-flex align-items-center gap-1.5 w-100">
+                        <div class="flex-grow-1 position-relative" style="height: 38px;">
                             <input type="text" id="productCodeSearchCart"
-                                placeholder="🔍 বারকোড স্ক্যান করুন অথবা কোড/নাম লিখুন..."
+                                placeholder="🔍 বারকোড স্ক্যান অথবা কোড/নাম লিখুন..."
                                 oninput="searchByProductCode(this.value, 'productCodeSearchCart')"
                                 onkeydown="handleBarcodeEnterKey(event, this.value)"
-                                class="form-control posSearchInput" autocomplete="off" style="border-radius: 8px; height: 36px; font-size: 12px;" />
-                            <a href="#" class="search-icon" onclick="triggerBarcodeSearchManual(event, 'productCodeSearchCart')">
-                                <svg width="20" height="20" viewBox="0 0 27 27" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M19.2967 16.9811H18.0695L17.6449 16.5566C19.1578 14.8045 20.0686 12.5274 20.0686 10.0343C20.0686 4.49228 15.5763 0 10.0343 0C4.49228 0 0 4.49228 0 10.0343C0 15.5763 4.49228 20.0686 10.0343 20.0686C12.5274 20.0686 14.8045 19.1578 16.5566 17.6527L16.9811 18.0772V19.2967L24.6998 27L27 24.6998L19.2967 16.9811ZM10.0343 16.9811C6.19811 16.9811 3.08748 13.8705 3.08748 10.0343C3.08748 6.19811 6.19811 3.08748 10.0343 3.08748C13.8705 3.08748 16.9811 6.19811 16.9811 10.0343C16.9811 13.8705 13.8705 16.9811 10.0343 16.9811Z"
-                                        fill="white" />
-                                </svg>
+                                class="form-control posSearchInput py-0 w-100" autocomplete="off"
+                                style="border-radius: 8px; height: 38px; font-size: 12px; padding-left: 10px; padding-right: 38px; border-color: #cbd5e1;" />
+                            <a href="#" class="search-icon position-absolute d-flex align-items-center justify-content-center text-white"
+                                onclick="triggerBarcodeSearchManual(event, 'productCodeSearchCart')"
+                                style="right: 5px; top: 50%; transform: translateY(-50%); width: 28px; height: 28px; background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); border-radius: 6px; z-index: 5;">
+                                <i class="fa-solid fa-magnifying-glass" style="font-size: 11px;"></i>
                             </a>
                             <div id="productCodeSearchCartSuggestions" class="pos-search-suggestions position-absolute start-0 end-0 bg-white border shadow-lg rounded-3 d-none" style="top: 100%; margin-top: 4px; z-index: 1050; max-height: 280px; overflow-y: auto;"></div>
-                        </label>
-                        <button type="button" class="btn btn-primary fw-bold text-nowrap d-flex align-items-center gap-1.5 shadow-sm px-2.5" onclick="openCameraScanner()" style="border-radius: 8px; height: 36px; background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); border: none; font-size: 12px;">
-                            <i class="fa-solid fa-camera fs-6"></i>
-                            <span class="d-none d-sm-inline">ক্যামেরা</span>
+                        </div>
+                        <button type="button" class="btn btn-primary fw-bold text-nowrap d-inline-flex align-items-center justify-content-center flex-shrink-0 shadow-sm"
+                            onclick="openCameraScanner()"
+                            style="border-radius: 8px; height: 38px; width: 42px; background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); border: none; font-size: 15px; padding: 0;">
+                            <i class="fa-solid fa-camera"></i>
                         </button>
                     </div>
                 </div>
 
                 <!-- Order list table Start (Scrollable Area) -->
                 <div class="pos-cart-table-wrapper flex-grow-1 overflow-auto">
-                    <table class="table align-middle m-0" style="width: 100%; min-width: 480px;">
+                    <table class="table align-middle m-0" style="width: 100%; table-layout: fixed;">
                         <thead>
                             <tr>
-                                <th style="width: 32%; text-align: left; padding: 6px 8px;">Product</th>
-                                <th style="width: 20%; text-align: center; padding: 6px 4px;">Quantity</th>
-                                <th style="width: 15%; text-align: center; padding: 6px 4px;">Cost Price</th>
-                                <th style="width: 15%; text-align: center; padding: 6px 4px;">Sell Price</th>
-                                <th style="width: 12%; text-align: center; padding: 6px 4px;">Sub Total</th>
-                                <th style="width: 6%; text-align: center; padding: 6px 4px;">Action</th>
+                                <th style="width: 28%; text-align: left; padding: 6px 4px;">Product</th>
+                                <th style="width: 21%; text-align: center; padding: 6px 2px;">Quantity</th>
+                                <th style="width: 15%; text-align: center; padding: 6px 2px;">Cost Price</th>
+                                <th style="width: 15%; text-align: center; padding: 6px 2px;">Sell Price</th>
+                                <th style="width: 13%; text-align: center; padding: 6px 2px;">Sub Total</th>
+                                <th style="width: 8%; text-align: center; padding: 6px 2px;">Action</th>
                             </tr>
                         </thead>
 
@@ -1707,14 +2407,8 @@
                                         </div>
                                     </div>
 
-                                    <!-- Return Credit Adjustment (Optional row) -->
-                                    <div class="subtotal d-flex align-items-center justify-content-between py-1 border-bottom border-light" id="posReturnAdjRow" style="display: none;">
-                                        <span class="d-flex align-items-center gap-1">
-                                            <input type="checkbox" id="chkPosReturnAdjRow" onchange="togglePosReturnCreditAdjustment()" class="form-check-input m-0" style="cursor: pointer;">
-                                            <span style="color: #0d9488; font-weight: bold; font-size: 11.5px;">Return Adj</span>
-                                        </span>
-                                        <input type="number" id="posReturnAdjustmentInput" value="0" disabled oninput="calculateDuePayment()" style="width: 78px; height: 26px; border: 1.5px solid #0d9488; border-radius: 6px; color: #0d9488; font-weight: 700; font-size: 12px; text-align: right; padding: 2px 6px;">
-                                    </div>
+                                    <!-- Return Credit Adjustment Removed per request; hidden input kept for JS safety -->
+                                    <input type="hidden" id="posReturnAdjustmentInput" value="0">
 
                                     <!-- Paid Amount -->
                                     <div class="subtotal d-flex align-items-center justify-content-between py-1 border-bottom border-light">
@@ -1741,31 +2435,32 @@
                     <!-- Trending POS Bottom Action Bar -->
                     <div class="pos-bottom-trending-bar">
                         <div class="row g-1.5 align-items-center">
-                            <!-- Box 1: Hold Invoice Button & Held Counter -->
-                            <div class="col-4">
-                                <div class="d-flex gap-1">
-                                    <button type="button" onclick="holdCurrentInvoice()" class="btn btn-warning flex-grow-1 py-1.5 d-flex align-items-center justify-content-center gap-1 fw-bold text-dark shadow-sm" style="border-radius: 8px; background: #f59e0b; border: none; font-size: 11.5px;">
-                                        <i class="fa-solid fa-pause-circle fs-6"></i>
-                                        <span class="d-none d-sm-inline">হোল্ড</span>
+                            <!-- Box 1: Hold Invoice Button & Held Counter (Mobile Row 1: 2 buttons side-by-side) -->
+                            <div class="col-12 col-lg-4 mb-1.5 mb-lg-0">
+                                <div class="d-flex gap-1.5 w-100">
+                                    <button type="button" onclick="holdCurrentInvoice()" class="btn btn-warning flex-fill py-1.5 d-flex align-items-center justify-content-center gap-1 fw-bold text-dark shadow-sm" style="border-radius: 8px; background: #f59e0b; border: none; font-size: 12px; height: 38px; color: #0f172a !important;">
+                                        <i class="fa-solid fa-pause-circle fs-6" style="color: #0f172a !important;"></i>
+                                        <span style="color: #0f172a !important;">হোল্ড</span>
                                     </button>
-                                    <button type="button" onclick="openHoldInvoicesModal()" class="btn btn-outline-warning py-1.5 px-2 d-flex align-items-center justify-content-center gap-1 fw-bold text-dark" style="border-radius: 8px; font-size: 11px;" title="হোল্ড তালিকা">
-                                        <i class="fa-solid fa-folder-open"></i>
-                                        <span id="heldInvoicesBadge" class="badge bg-danger rounded-pill">0</span>
+                                    <button type="button" onclick="openHoldInvoicesModal()" class="btn btn-outline-warning flex-fill py-1.5 px-2 d-flex align-items-center justify-content-center gap-1.5 fw-bold" style="border-radius: 8px; font-size: 11.5px; height: 38px; border-color: #f59e0b; color: #f59e0b;" title="হোল্ড তালিকা">
+                                        <i class="fa-solid fa-folder-open" style="color: #f59e0b;"></i>
+                                        <span>তালিকা</span>
+                                        <span id="heldInvoicesBadge" class="badge bg-danger rounded-pill ms-0.5">0</span>
                                     </button>
                                 </div>
                             </div>
 
-                            <!-- Box 2: Big Sub-Total / Net Payable Card -->
-                            <div class="col-4">
-                                <div class="py-1 px-1.5 text-center border border-success-subtle bg-success-subtle rounded-2 shadow-xs" style="border-radius: 8px; background-color: #f0fdf4 !important; border-color: #bbf7d0 !important;">
-                                    <span class="text-muted d-block small fw-bold text-uppercase" style="font-size: 9px; letter-spacing: 0.3px; line-height: 1;">মোট বিল (SUB-TOTAL)</span>
-                                    <span id="bigSubTotalDisplay" class="fw-bolder text-success" style="font-size: 15px; line-height: 1.2;">৳ 0.00</span>
+                            <!-- Box 2: Big Sub-Total / Net Payable Card (Mobile Row 2: Left 50%) -->
+                            <div class="col-6 col-lg-4">
+                                <div class="pos-big-subtotal-card py-1 px-1.5 text-center border rounded-2 shadow-xs d-flex flex-column justify-content-center" style="border-radius: 8px; height: 38px;">
+                                    <span class="pos-big-subtotal-label text-muted d-block small fw-bold text-uppercase" style="font-size: 8.5px; letter-spacing: 0.3px; line-height: 1;">মোট বিল (SUB-TOTAL)</span>
+                                    <span id="bigSubTotalDisplay" class="pos-big-subtotal-val fw-bolder text-success" style="font-size: 14px; line-height: 1.2;">৳ 0.00</span>
                                 </div>
                             </div>
 
-                            <!-- Box 3: Pay / Submit Order Button -->
-                            <div class="col-4">
-                                <button type="submit" onclick="SavePaymentInfo(event)" class="btn btn-success w-100 py-2 fw-bold text-white shadow" style="border-radius: 8px; background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); border: none; font-size: 12.5px; letter-spacing: 0.3px;">
+                            <!-- Box 3: Pay / Submit Order Button (Mobile Row 2: Right 50%) -->
+                            <div class="col-6 col-lg-4">
+                                <button type="submit" onclick="SavePaymentInfo(event)" class="btn btn-success w-100 py-2 fw-bold text-white shadow d-flex align-items-center justify-content-center gap-1" style="border-radius: 8px; background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); border: none; font-size: 12.5px; height: 38px; letter-spacing: 0.3px;">
                                     <i class="fa-solid fa-paper-plane me-1"></i> সাবমিট অর্ডার
                                 </button>
                             </div>
@@ -1773,27 +2468,28 @@
                     </div>
                 </div>
 
-                <!-- Mobile/Tablet Floating App Dock Bar (Shown on screens < 992px) -->
-                <div class="d-block d-lg-none position-fixed bottom-0 start-50 translate-middle-x w-100 p-2" style="z-index: 1060; max-width: 540px;">
-                    <div class="p-2 bg-dark text-white rounded-4 shadow-lg border border-secondary d-flex align-items-center justify-content-between" style="backdrop-filter: blur(14px); background: rgba(15, 23, 42, 0.95) !important;">
-                        <div class="d-flex align-items-center gap-2 ps-2">
-                            <div class="position-relative">
-                                <i class="fa-solid fa-cart-shopping fs-4 text-success"></i>
-                                <span id="mobileCartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px;">0</span>
-                            </div>
-                            <div>
-                                <span class="d-block text-muted" style="font-size: 10px; line-height: 1;">মোট আইটেম</span>
-                                <span id="mobileCartTotal" class="fw-bold text-success" style="font-size: 15px;">৳ 0.00</span>
-                            </div>
-                        </div>
-                        <button type="button" onclick="switchMobilePosTab('cart')" class="btn btn-success fw-bold px-3 py-2 text-nowrap d-flex align-items-center gap-1" style="border-radius: 12px; font-size: 13px; background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); border: none;">
-                            <span>কার্ট দেখুন</span>
-                            <i class="fa-solid fa-chevron-right small"></i>
-                        </button>
-                    </div>
-                </div>
             </div> <!-- closes posCartCol -->
         </div> <!-- closes posMainRow -->
+
+        <!-- Mobile/Tablet Floating App Dock Bar (Shown on screens < 992px) -->
+        <div class="d-block d-lg-none position-fixed bottom-0 start-50 translate-middle-x w-100 p-2" style="z-index: 1060; max-width: 540px;">
+            <div class="p-2 bg-dark text-white rounded-4 shadow-lg border border-secondary d-flex align-items-center justify-content-between" style="backdrop-filter: blur(14px); background: rgba(15, 23, 42, 0.95) !important;">
+                <div class="d-flex align-items-center gap-2 ps-2">
+                    <div class="position-relative">
+                        <i class="fa-solid fa-cart-shopping fs-4 text-success"></i>
+                        <span id="mobileCartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px;">0</span>
+                    </div>
+                    <div>
+                        <span class="d-block text-muted" style="font-size: 10px; line-height: 1;">মোট আইটেম</span>
+                        <span id="mobileCartTotal" class="fw-bold text-success" style="font-size: 15px;">৳ 0.00</span>
+                    </div>
+                </div>
+                <button type="button" id="mobileDockTabBtn" onclick="switchMobilePosTab('cart')" class="btn btn-success fw-bold px-3 py-2 text-nowrap d-flex align-items-center gap-1" style="border-radius: 12px; font-size: 13px; background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); border: none;">
+                    <span id="mobileDockTabBtnText">কার্ট দেখুন</span>
+                    <i id="mobileDockTabBtnIcon" class="fa-solid fa-chevron-right small"></i>
+                </button>
+            </div>
+        </div>
     </section>
 
     <!-- Held Invoices Modal -->
@@ -1814,7 +2510,7 @@
                 </div>
                 <div class="modal-footer bg-white py-2 px-3 justify-content-between border-top">
                     <span class="text-muted small"><i class="fa-solid fa-circle-info me-1 text-info"></i> যেকোনো সময় 'লোড করুন' চেপে ড্রাফট ইনভয়েসটি স্ক্রিনে লোড করতে পারবেন।</span>
-                    <button type="button" class="btn btn-secondary px-4 fw-bold shadow-sm" data-bs-dismiss="modal" style="border-radius: 10px;">বন্ধ করুন</button>
+                    <button type="button" class="btn btn-secondary px-4 py-2 fw-bold shadow-sm" data-bs-dismiss="modal" style="border-radius: 10px;">বন্ধ করুন</button>
                 </div>
             </div>
         </div>
@@ -1950,9 +2646,11 @@
                         data-name="${customer.customer_name}"
                         data-mobile="${customer.mobile}"
                         data-address_details="${customer.address_details}"
-                        data-previous_due_amount="${activeDue}"
-                        data-return_credit_balance="${customer.return_credit_balance || 0}">
-                        ${customer.customer_id} - ${customer.customer_name} (${customer.mobile}) ${activeDue > 0 ? `<span class="badge bg-danger ms-1">বকেয়া: ৳${activeDue}</span>` : ''} ${customer.return_credit_balance > 0 ? `<span class="badge bg-teal ms-1" style="background:#0d9488;">🎁 ৳${customer.return_credit_balance} Credit</span>` : ''}
+                        data-previous_due_amount="${activeDue}">
+                        <div class="text-truncate flex-grow-1" style="max-width: 78%; font-size: 11.5px;">
+                            <span class="fw-bold text-dark">${customer.customer_id}</span> - <span>${customer.customer_name}</span> <span class="text-muted small">(${customer.mobile})</span>
+                        </div>
+                        ${activeDue > 0 ? `<span class="badge bg-danger-subtle text-danger border border-danger-subtle flex-shrink-0" style="font-size: 9.5px; padding: 2px 5px;">বকেয়া: ৳${activeDue}</span>` : ''}
                     </div>`;
                 }).join('');
                 document.getElementById("CustomerSelectData").innerHTML = customerOptions;
@@ -1994,12 +2692,24 @@
     </script>
 
     <script>
-        // Function to set today's date as the default and keep it unchanged
-        // Get today's date in the format YYYY-MM-DD
-        const today = new Date().toISOString().split('T')[0];
-
-        // Set the value of the date input to today's date
-        document.getElementById('CustomerDate').value = today;
+        // Initialize Flatpickr calendar on CustomerDate
+        document.addEventListener("DOMContentLoaded", function() {
+            if (typeof flatpickr !== 'undefined') {
+                flatpickr("#CustomerDate", {
+                    dateFormat: "Y-m-d",
+                    altInput: true,
+                    altFormat: "d/m/Y",
+                    defaultDate: "today",
+                    altInputClass: "form-control form-control-sm py-0 px-1.5 fw-bold pos-date-input",
+                    disableMobile: "true",
+                    monthSelectorType: "static"
+                });
+            } else {
+                const today = new Date().toISOString().split('T')[0];
+                const dateEl = document.getElementById('CustomerDate');
+                if (dateEl) dateEl.value = today;
+            }
+        });
     </script>
 
     {{-- <script>
@@ -2122,34 +2832,9 @@
                     customerAddressField.value = customerAddress;
                     customerPreviousDueField.value = customerPreviousDue || 0;
 
-                    // Handle Return Credit Notice & Controls
-                    const noticeBanner = document.getElementById("customerReturnCreditNotice");
-                    const returnCreditValEl = document.getElementById("posReturnCreditVal");
-                    const chkTop = document.getElementById("chkUseReturnCredit");
-                    const chkRow = document.getElementById("chkPosReturnAdjRow");
-                    const rowContainer = document.getElementById("posReturnAdjRow");
+                    // Reset Return Adjustment input to 0 safely
                     const adjInput = document.getElementById("posReturnAdjustmentInput");
-
-                    if (returnCreditBalance > 0) {
-                        returnCreditValEl.textContent = returnCreditBalance.toFixed(2);
-                        noticeBanner.classList.remove("d-none");
-                        noticeBanner.classList.add("d-flex");
-                        rowContainer.style.display = "flex";
-
-                        // Default to unchecked so users are not forced to adjust
-                        chkTop.checked = false;
-                        if (chkRow) chkRow.checked = false;
-                        adjInput.disabled = true;
-                        adjInput.value = returnCreditBalance.toFixed(2);
-                    } else {
-                        noticeBanner.classList.remove("d-flex");
-                        noticeBanner.classList.add("d-none");
-                        rowContainer.style.display = "none";
-                        chkTop.checked = false;
-                        if (chkRow) chkRow.checked = false;
-                        adjInput.disabled = true;
-                        adjInput.value = "0.00";
-                    }
+                    if (adjInput) adjInput.value = "0";
 
                     calculateDuePayment();
 
@@ -2612,30 +3297,30 @@
                 const doorTag = item.door_side ? `<span class="badge bg-primary-subtle text-primary border border-primary-subtle fw-semibold d-inline-flex align-items-center gap-1 mt-1" style="font-size: 9px; padding: 1px 5px; border-radius: 4px;"><i class="fa-solid fa-door-open" style="font-size: 8px;"></i> ${item.door_side}</span>` : '';
                 const row = `
                 <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 6px 8px; vertical-align: middle; text-align: left;">
-                      <div class="d-flex flex-column align-items-start">
-                        <span class="fw-bold text-dark cart-item-title" style="font-size: 11.5px; line-height: 1.25; word-break: break-word;" title="${item.product_name}">${item.product_name}</span>
+                    <td style="padding: 5px 3px; vertical-align: middle; text-align: left; overflow: hidden;">
+                      <div class="d-flex flex-column align-items-start" style="max-width: 100%;">
+                        <span class="fw-bold text-dark cart-item-title" style="font-size: 11px; line-height: 1.25; word-break: break-word; max-width: 100%;" title="${item.product_name}">${item.product_name}</span>
                         ${doorTag}
                       </div>
                     </td>
-                    <td style="padding: 6px 4px; vertical-align: middle; text-align: center;">
-                        <div class="quantity-controls" style="display: inline-flex; align-items: center; justify-content: space-between; border: 1.5px solid #cbd5e1; border-radius: 6px; background: #f8fafc; padding: 2px; width: 84px; height: 26px; position: relative; z-index: 10;">
-                            <button type="button" onclick="decreaseQuantity(${index})" style="width: 22px; height: 22px; min-width: 22px; border-radius: 4px; border: none; background: #ffffff; color: #0f172a; font-weight: 800; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.1); margin: 0; padding: 0;">-</button>
+                    <td style="padding: 5px 2px; vertical-align: middle; text-align: center;">
+                        <div class="quantity-controls" style="display: inline-flex; align-items: center; justify-content: space-between; border: 1.5px solid #cbd5e1; border-radius: 6px; background: #f8fafc; padding: 1px; width: 72px; height: 24px; position: relative; z-index: 10;">
+                            <button type="button" onclick="decreaseQuantity(${index})" style="width: 20px; height: 20px; min-width: 20px; border-radius: 4px; border: none; background: #ffffff; color: #0f172a; font-weight: 800; font-size: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.1); margin: 0; padding: 0;">-</button>
                             <input
                                 type="number"
                                 step="any" 
-                                style="width: 30px; background: transparent; border: none; text-align: center; font-weight: 700; font-size: 11px; color: #0f172a; padding: 0; outline: none; margin: 0;"
+                                style="width: 26px; background: transparent; border: none; text-align: center; font-weight: 700; font-size: 10.5px; color: #0f172a; padding: 0; outline: none; margin: 0;"
                                 value="${item.quantity}"
                                 class="quantity"
                                 id="quantity-${index}"
                                 oninput="updateQuantity(${index}, this)"
                             />
-                            <button type="button" onclick="increaseQuantity(${index})" style="width: 22px; height: 22px; min-width: 22px; border-radius: 4px; border: none; background: #ffffff; color: #0f172a; font-weight: 800; font-size: 13px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.1); margin: 0; padding: 0;">+</button>
+                            <button type="button" onclick="increaseQuantity(${index})" style="width: 20px; height: 20px; min-width: 20px; border-radius: 4px; border: none; background: #ffffff; color: #0f172a; font-weight: 800; font-size: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.1); margin: 0; padding: 0;">+</button>
                         </div>
                     </td>
-                    <td style="padding: 6px 4px; vertical-align: middle; text-align: center;">
+                    <td style="padding: 5px 2px; vertical-align: middle; text-align: center;">
                         <div class="cost-price-wrapper" style="position: relative; z-index: 1; display: inline-block;">
-                            <span class="cost-price-placeholder badge bg-light text-muted border px-1.5 py-1" style="font-size: 9.5px; cursor: pointer;">🔒 ***</span>
+                            <span class="cost-price-placeholder badge bg-light text-muted border px-1 py-0.5" style="font-size: 9px; cursor: pointer;">🔒 ***</span>
                             <input
                                 class="price cost-price-input"
                                 type="number"
@@ -2643,11 +3328,11 @@
                                 value="${item.cost_price}"
                                 id="cost_price-${item.id}"
                                 oninput="updateCostPrice(${item.id}, this)"
-                                style="color: #dc2626 !important; font-weight: 800 !important; width: 58px; height: 26px; font-size: 11px; border-radius: 6px;"
+                                style="color: #dc2626 !important; font-weight: 800 !important; width: 48px; height: 24px; font-size: 10.5px; border-radius: 6px; padding: 1px 2px;"
                             />
                         </div>
                     </td>
-                    <td style="padding: 6px 4px; vertical-align: middle; text-align: center;">
+                    <td style="padding: 5px 2px; vertical-align: middle; text-align: center;">
                         <input
                             class="price"
                             type="number"
@@ -2655,13 +3340,13 @@
                             value="${item.sellingPrice}"
                             id="sellingPrice-${item.id}"
                             oninput="updateSellingPrice(${item.id}, this)"
-                            style="width: 60px; height: 26px; font-size: 11px; border-radius: 6px; border: 1.5px solid #cbd5e1; text-align: center; font-weight: 700; color: #15803d; outline: none; padding: 1px 2px;"
+                            style="width: 48px; height: 24px; font-size: 10.5px; border-radius: 6px; border: 1.5px solid #cbd5e1; text-align: center; font-weight: 700; color: #15803d; outline: none; padding: 1px 2px;"
                         />
                     </td>
-                    <td id="total-${item.id}" style="padding: 6px 4px; vertical-align: middle; text-align: center; font-weight: 800; font-size: 11.5px; color: #0f172a;">
+                    <td id="total-${item.id}" style="padding: 5px 2px; vertical-align: middle; text-align: center; font-weight: 800; font-size: 11px; color: #0f172a;">
                         ${(item.sellingPrice * item.quantity).toFixed(2)}
                     </td>
-                    <td style="padding: 6px 4px; vertical-align: middle; text-align: center;">
+                    <td style="padding: 5px 2px; vertical-align: middle; text-align: center;">
                         <button type="button" onclick="removeProduct(${item.id})" class="btn-cart-delete" title="রিমুভ করুন">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
@@ -2697,28 +3382,56 @@
 
         // Mobile/Tablet POS Tab Switcher Function
         function switchMobilePosTab(tabName) {
-            const productsCol = document.querySelector("#pos-main > div.row > div:first-child");
-            const cartCol = document.querySelector("#pos-main > div.row > div:last-child");
+            const productsCol = document.getElementById("posProductsCol");
+            const cartCol = document.getElementById("posCartCol");
+            const dockBtn = document.getElementById("mobileDockTabBtn");
+            const dockBtnText = document.getElementById("mobileDockTabBtnText");
+            const dockBtnIcon = document.getElementById("mobileDockTabBtnIcon");
             const tabProdBtn = document.getElementById("tab-products-btn");
             const tabCartBtn = document.getElementById("tab-cart-btn");
 
             if (tabName === 'products') {
-                if (productsCol) productsCol.style.display = "block";
-                if (cartCol && window.innerWidth < 992) cartCol.style.display = "none";
+                if (productsCol) productsCol.style.setProperty('display', 'flex', 'important');
+                if (cartCol && window.innerWidth < 992) cartCol.style.setProperty('display', 'none', 'important');
+                if (dockBtnText) dockBtnText.textContent = "কার্ট দেখুন";
+                if (dockBtnIcon) dockBtnIcon.className = "fa-solid fa-chevron-right small";
+                if (dockBtn) dockBtn.setAttribute("onclick", "switchMobilePosTab('cart')");
                 if (tabProdBtn) tabProdBtn.classList.add("active");
                 if (tabCartBtn) tabCartBtn.classList.remove("active");
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
-                if (productsCol && window.innerWidth < 992) productsCol.style.display = "none";
+                if (productsCol && window.innerWidth < 992) productsCol.style.setProperty('display', 'none', 'important');
                 if (cartCol) {
-                    cartCol.style.display = "block";
-                    cartCol.scrollIntoView({
-                        behavior: 'smooth'
-                    });
+                    cartCol.style.setProperty('display', 'flex', 'important');
+                    cartCol.scrollIntoView({ behavior: 'smooth' });
                 }
+                if (dockBtnText) dockBtnText.textContent = "প্রোডাক্ট দেখুন";
+                if (dockBtnIcon) dockBtnIcon.className = "fa-solid fa-arrow-left small";
+                if (dockBtn) dockBtn.setAttribute("onclick", "switchMobilePosTab('products')");
                 if (tabCartBtn) tabCartBtn.classList.add("active");
                 if (tabProdBtn) tabProdBtn.classList.remove("active");
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
         }
+
+        // Initialize mobile view on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            if (window.innerWidth < 992) {
+                const productsCol = document.getElementById("posProductsCol");
+                const cartCol = document.getElementById("posCartCol");
+                if (productsCol) productsCol.style.setProperty('display', 'flex', 'important');
+                if (cartCol) cartCol.style.setProperty('display', 'none', 'important');
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            const productsCol = document.getElementById("posProductsCol");
+            const cartCol = document.getElementById("posCartCol");
+            if (window.innerWidth >= 992) {
+                if (productsCol) productsCol.style.removeProperty('display');
+                if (cartCol) cartCol.style.removeProperty('display');
+            }
+        });
 
         //         // Function to increase quantity
         //         function increaseQuantity(index) {
@@ -2850,15 +3563,6 @@
         }
 
         function togglePosReturnCreditAdjustment() {
-            const chkTop = document.getElementById("chkUseReturnCredit");
-            const chkRow = document.getElementById("chkPosReturnAdjRow");
-            const adjInput = document.getElementById("posReturnAdjustmentInput");
-
-            const isChecked = (chkTop && chkTop.checked) || (chkRow && chkRow.checked);
-            if (chkTop) chkTop.checked = isChecked;
-            if (chkRow) chkRow.checked = isChecked;
-
-            adjInput.disabled = !isChecked;
             calculateDuePayment();
         }
 
@@ -2908,15 +3612,9 @@
                 }
             }
 
-            const chkTop = document.getElementById("chkUseReturnCredit");
-            const chkRow = document.getElementById("chkPosReturnAdjRow");
-            const adjInput = document.getElementById("posReturnAdjustmentInput");
-
-            const isReturnAdjActive = (chkTop && chkTop.checked) || (chkRow && chkRow.checked);
-            const returnAdjAmount = isReturnAdjActive ? (parseFloat(adjInput?.value) || 0) : 0;
-
-            // Calculate total after applying discount and return adjustment
-            const netPayable = Math.max(0, subTotal - discountAmount - returnAdjAmount);
+            const returnAdjAmount = 0;
+            // Calculate total after applying discount
+            const netPayable = Math.max(0, subTotal - discountAmount);
             const dueAmount = Math.max(0, netPayable - paidAmount);
 
             // Update the Due Amount Display
@@ -3212,10 +3910,7 @@
                 }
                 const dueAmount = parseFloat(document.getElementById('totalDuePayable')?.textContent.replace('৳', '')) || 0;
 
-                const chkTop = document.getElementById("chkUseReturnCredit");
-                const chkRow = document.getElementById("chkPosReturnAdjRow");
-                const isReturnAdjActive = (chkTop && chkTop.checked) || (chkRow && chkRow.checked);
-                const returnAdjustmentAmount = isReturnAdjActive ? (parseFloat(document.getElementById('posReturnAdjustmentInput')?.value) || 0) : 0;
+                const returnAdjustmentAmount = 0;
 
                 const totalCost = parseFloat(document.getElementById('totalCost')?.textContent.replace('৳', '')) || 0;
                 const transactionId = document.getElementById('transactionInput')?.value.trim();
@@ -3345,7 +4040,7 @@
                 </div>
                 <div class="modal-footer bg-light py-2 justify-content-between">
                     <small class="text-muted"><i class="fa-solid fa-bolt text-warning me-1"></i> বারকোড স্ক্যান হলেই অটোমেটিক কার্টে যুক্ত হবে</small>
-                    <button type="button" class="btn btn-secondary px-4 fw-bold rounded-pill" data-bs-dismiss="modal" onclick="stopCameraScanner()">বন্ধ করুন</button>
+                    <button type="button" class="btn btn-secondary px-4 py-2 fw-bold rounded-pill" data-bs-dismiss="modal" onclick="stopCameraScanner()">বন্ধ করুন</button>
                 </div>
             </div>
         </div>
@@ -3354,62 +4049,106 @@
     <!-- Quick Add Product Modal for POS -->
     <div class="modal fade" id="quickAddProductModal" tabindex="-1" aria-labelledby="quickAddProductModalLabel" aria-hidden="true" data-bs-backdrop="static">
         <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content border-0 shadow-lg" style="border-radius: 16px; overflow: hidden;">
-                <div class="modal-header text-white py-3" style="background: linear-gradient(135deg, #15803d 0%, #16a34a 100%);">
-                    <h5 class="modal-title fw-bold" id="quickAddProductModalLabel">
-                        <i class="fa-solid fa-cart-plus me-2"></i> পস থেকে নতুন প্রোডাক্ট তৈরি করুন
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 14px; overflow: visible;">
+                <div class="modal-header py-2.5 px-3" style="background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); border-top-left-radius: 14px; border-top-right-radius: 14px;">
+                    <h5 class="modal-title fw-bold text-white mb-0" id="quickAddProductModalLabel" style="color: #ffffff !important; font-size: 15px;">
+                        <i class="fa-solid fa-cart-plus me-2" style="color: #ffffff !important;"></i> পস থেকে নতুন প্রোডাক্ট তৈরি করুন
                     </h5>
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <div class="modal-body p-4 bg-light">
+                <div class="modal-body p-3 bg-light" style="overflow: visible; border-bottom-left-radius: 14px; border-bottom-right-radius: 14px;">
                     <form id="quickProductForm" onsubmit="quickSaveProduct(event)">
-                        <div class="row g-3">
+                        <div class="row g-2.5">
                             <div class="col-md-7">
-                                <label for="quickProductName" class="form-label fw-bold text-dark mb-1">প্রোডাক্ট এর নাম <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control fw-semibold" id="quickProductName" required placeholder="উদাহরণ: HAMKO 12V 20AH Gel Battery" style="border-radius: 8px;">
+                                <label for="quickProductName" class="form-label fw-bold text-dark mb-1" style="font-size: 12px;">প্রোডাক্ট এর নাম <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control fw-semibold" id="quickProductName" required placeholder="উদাহরণ: HAMKO 12V 20AH Gel Battery" style="border-radius: 7px; font-size: 12px; height: 35px;">
                             </div>
                             <div class="col-md-5">
-                                <label for="quickProductCode" class="form-label fw-bold text-dark mb-1">বারকোড / প্রোডাক্ট কোড</label>
-                                <input type="text" class="form-control fw-semibold" id="quickProductCode" placeholder="যেমন: BAT-1002" style="border-radius: 8px;">
+                                <label for="quickProductCode" class="form-label fw-bold text-dark mb-1" style="font-size: 12px;">বারকোড / প্রোডাক্ট কোড</label>
+                                <input type="text" class="form-control fw-semibold" id="quickProductCode" placeholder="যেমন: BAT-1002" style="border-radius: 7px; font-size: 12px; height: 35px;">
+                            </div>
+
+                            <!-- Searchable Category Dropdown -->
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold text-dark mb-1" style="font-size: 12px;">ক্যাটাগরি</label>
+                                <div class="custom-searchable-select" id="quickCategoryDropdown">
+                                    <input type="hidden" id="quickCategorySelect" value="">
+                                    <div class="select-trigger d-flex align-items-center justify-content-between px-2.5" onclick="toggleCustomDropdown('quickCategoryDropdown')">
+                                        <span class="selected-text text-truncate" style="font-size: 12px; font-weight: 600; color: #64748b;">সিলেক্ট করুন</span>
+                                        <i class="fa-solid fa-chevron-down ms-1 text-muted" style="font-size: 10px; transition: transform 0.2s;"></i>
+                                    </div>
+                                    <div class="select-menu">
+                                        <div class="search-wrap">
+                                            <i class="fa-solid fa-magnifying-glass position-absolute text-muted" style="top: 50%; transform: translateY(-50%); left: 10px; font-size: 10px;"></i>
+                                            <input type="text" placeholder="ক্যাটাগরি খুঁজুন..." oninput="filterCustomDropdown('quickCategoryDropdown', this.value)">
+                                        </div>
+                                        <div class="select-options-list">
+                                            <!-- Category options will load here -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Searchable Brand Dropdown -->
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold text-dark mb-1" style="font-size: 12px;">ব্র্যান্ড</label>
+                                <div class="custom-searchable-select" id="quickBrandDropdown">
+                                    <input type="hidden" id="quickBrandSelect" value="">
+                                    <div class="select-trigger d-flex align-items-center justify-content-between px-2.5" onclick="toggleCustomDropdown('quickBrandDropdown')">
+                                        <span class="selected-text text-truncate" style="font-size: 12px; font-weight: 600; color: #64748b;">সিলেক্ট করুন</span>
+                                        <i class="fa-solid fa-chevron-down ms-1 text-muted" style="font-size: 10px; transition: transform 0.2s;"></i>
+                                    </div>
+                                    <div class="select-menu">
+                                        <div class="search-wrap">
+                                            <i class="fa-solid fa-magnifying-glass position-absolute text-muted" style="top: 50%; transform: translateY(-50%); left: 10px; font-size: 10px;"></i>
+                                            <input type="text" placeholder="ব্র্যান্ড খুঁজুন..." oninput="filterCustomDropdown('quickBrandDropdown', this.value)">
+                                        </div>
+                                        <div class="select-options-list">
+                                            <!-- Brand options will load here -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Searchable Unit Dropdown -->
+                            <div class="col-md-4">
+                                <label class="form-label fw-bold text-dark mb-1" style="font-size: 12px;">ইউনিট</label>
+                                <div class="custom-searchable-select" id="quickUnitDropdown">
+                                    <input type="hidden" id="quickUnitSelect" value="">
+                                    <div class="select-trigger d-flex align-items-center justify-content-between px-2.5" onclick="toggleCustomDropdown('quickUnitDropdown')">
+                                        <span class="selected-text text-truncate" style="font-size: 12px; font-weight: 600; color: #0f172a;">Pcs</span>
+                                        <i class="fa-solid fa-chevron-down ms-1 text-muted" style="font-size: 10px; transition: transform 0.2s;"></i>
+                                    </div>
+                                    <div class="select-menu">
+                                        <div class="search-wrap">
+                                            <i class="fa-solid fa-magnifying-glass position-absolute text-muted" style="top: 50%; transform: translateY(-50%); left: 10px; font-size: 10px;"></i>
+                                            <input type="text" placeholder="ইউনিট খুঁজুন..." oninput="filterCustomDropdown('quickUnitDropdown', this.value)">
+                                        </div>
+                                        <div class="select-options-list">
+                                            <!-- Unit options will load here -->
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <div class="col-md-4">
-                                <label for="quickCategorySelect" class="form-label fw-bold text-dark mb-1">ক্যাটাগরি</label>
-                                <select class="form-select fw-semibold" id="quickCategorySelect" style="border-radius: 8px;">
-                                    <option value="">সিলেক্ট করুন</option>
-                                </select>
+                                <label for="quickCostPrice" class="form-label fw-bold text-dark mb-1" style="font-size: 12px;">ক্রয় মূল্য (৳)</label>
+                                <input type="number" step="any" class="form-control fw-bold text-danger" id="quickCostPrice" value="0" style="border-radius: 7px; font-size: 12px; height: 35px;">
                             </div>
                             <div class="col-md-4">
-                                <label for="quickBrandSelect" class="form-label fw-bold text-dark mb-1">ব্র্যান্ড</label>
-                                <select class="form-select fw-semibold" id="quickBrandSelect" style="border-radius: 8px;">
-                                    <option value="">সিলেক্ট করুন</option>
-                                </select>
+                                <label for="quickSellPrice" class="form-label fw-bold text-dark mb-1" style="font-size: 12px;">বিক্রয় মূল্য (৳) <span class="text-danger">*</span></label>
+                                <input type="number" step="any" class="form-control fw-bold text-success" id="quickSellPrice" required value="0" style="border-radius: 7px; font-size: 12px; height: 35px;">
                             </div>
                             <div class="col-md-4">
-                                <label for="quickUnitSelect" class="form-label fw-bold text-dark mb-1">ইউনিট</label>
-                                <select class="form-select fw-semibold" id="quickUnitSelect" style="border-radius: 8px;">
-                                    <option value="">Pcs</option>
-                                </select>
-                            </div>
-
-                            <div class="col-md-4">
-                                <label for="quickCostPrice" class="form-label fw-bold text-dark mb-1">ক্রয় মূল্য (৳)</label>
-                                <input type="number" step="any" class="form-control fw-bold text-danger" id="quickCostPrice" value="0" style="border-radius: 8px;">
-                            </div>
-                            <div class="col-md-4">
-                                <label for="quickSellPrice" class="form-label fw-bold text-dark mb-1">বিক্রয় মূল্য (৳) <span class="text-danger">*</span></label>
-                                <input type="number" step="any" class="form-control fw-bold text-success" id="quickSellPrice" required value="0" style="border-radius: 8px;">
-                            </div>
-                            <div class="col-md-4">
-                                <label for="quickQuantity" class="form-label fw-bold text-dark mb-1">প্রারম্ভিক স্টক (পরিমাণ)</label>
-                                <input type="number" step="any" class="form-control fw-bold text-primary" id="quickQuantity" value="0" style="border-radius: 8px;">
-                                <small class="text-muted" style="font-size: 11px;">(স্টক ০ রাখলেও সেল করা যাবে)</small>
+                                <label for="quickQuantity" class="form-label fw-bold text-dark mb-1" style="font-size: 12px;">প্রারম্ভিক স্টক (পরিমাণ)</label>
+                                <input type="number" step="any" class="form-control fw-bold text-primary" id="quickQuantity" value="0" style="border-radius: 7px; font-size: 12px; height: 35px;">
+                                <small class="text-muted d-block mt-0.5" style="font-size: 10px;">(স্টক ০ রাখলেও সেল করা যাবে)</small>
                             </div>
                         </div>
 
-                        <div class="d-flex justify-content-end gap-2 mt-4 pt-2 border-top">
-                            <button type="button" class="btn btn-secondary px-4 fw-bold rounded-3" data-bs-dismiss="modal">বাতিল</button>
-                            <button type="submit" class="btn btn-success px-4 fw-bold rounded-3 shadow-sm" style="background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); border: none;">
+                        <div class="d-flex justify-content-end gap-2 mt-3 pt-2 border-top">
+                            <button type="button" class="btn btn-secondary px-3 py-1.5 fw-bold rounded-3" data-bs-dismiss="modal" style="font-size: 12.5px;">বাতিল</button>
+                            <button type="submit" class="btn btn-success px-3 py-1.5 fw-bold rounded-3 shadow-sm" style="background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); border: none; font-size: 12.5px;">
                                 <i class="fa-solid fa-cart-plus me-1"></i> তৈরি করুন & কার্টে যোগ করুন
                             </button>
                         </div>
@@ -3575,6 +4314,170 @@
 
         /* POS Quick Add Product JS Logic */
         let quickOptionsLoaded = false;
+        let quickCategoriesList = [];
+        let quickBrandsList = [];
+        let quickUnitsList = [];
+
+        function populateCustomDropdown(dropdownId, hiddenInputId, items, valueKey, labelKey, defaultText = "সিলেক্ট করুন", defaultVal = "") {
+            const dropdown = document.getElementById(dropdownId);
+            if (!dropdown) return;
+            const listEl = dropdown.querySelector('.select-options-list');
+            const hiddenInput = document.getElementById(hiddenInputId);
+            const triggerText = dropdown.querySelector('.selected-text');
+
+            if (defaultVal) {
+                hiddenInput.value = defaultVal;
+                triggerText.textContent = defaultText;
+                triggerText.style.color = '#0f172a';
+            }
+
+            let html = `<div class="select-option-item ${hiddenInput.value === '' ? 'active' : ''}" data-value="" data-label="সিলেক্ট করুন" onclick="selectCustomDropdownItem('${dropdownId}', '${hiddenInputId}', '', 'সিলেক্ট করুন')">
+                <span>সিলেক্ট করুন</span>
+                ${hiddenInput.value === '' ? '<i class="fa-solid fa-check small text-success"></i>' : ''}
+            </div>`;
+
+            items.forEach(item => {
+                const val = item[valueKey];
+                const label = item[labelKey];
+                const isSelected = String(hiddenInput.value) === String(val);
+                html += `<div class="select-option-item ${isSelected ? 'active' : ''}" data-value="${val}" data-label="${label}" onclick="selectCustomDropdownItem('${dropdownId}', '${hiddenInputId}', '${val}', '${label}')">
+                    <span>${label}</span>
+                    ${isSelected ? '<i class="fa-solid fa-check small text-success"></i>' : ''}
+                </div>`;
+            });
+
+            listEl.innerHTML = html;
+        }
+
+        function selectCustomDropdownItem(dropdownId, hiddenInputId, val, label) {
+            const dropdown = document.getElementById(dropdownId);
+            const hiddenInput = document.getElementById(hiddenInputId);
+            const triggerText = dropdown.querySelector('.selected-text');
+
+            hiddenInput.value = val;
+            triggerText.textContent = label;
+            triggerText.style.color = val ? '#0f172a' : '#64748b';
+
+            dropdown.querySelectorAll('.select-option-item').forEach(item => {
+                if (item.getAttribute('data-value') === String(val)) {
+                    item.classList.add('active');
+                    if (!item.querySelector('.fa-check')) {
+                        item.innerHTML = `<span>${item.getAttribute('data-label')}</span><i class="fa-solid fa-check small text-success"></i>`;
+                    }
+                } else {
+                    item.classList.remove('active');
+                    const check = item.querySelector('.fa-check');
+                    if (check) check.remove();
+                }
+            });
+
+            closeAllCustomDropdowns();
+        }
+
+        function resetCustomDropdown(dropdownId, hiddenInputId, defaultText = "সিলেক্ট করুন", defaultVal = "") {
+            const dropdown = document.getElementById(dropdownId);
+            if (!dropdown) return;
+            const hiddenInput = document.getElementById(hiddenInputId);
+            const triggerText = dropdown.querySelector('.selected-text');
+            const searchInput = dropdown.querySelector('.search-wrap input');
+
+            if (hiddenInput) hiddenInput.value = defaultVal;
+            if (triggerText) {
+                triggerText.textContent = defaultText;
+                triggerText.style.color = defaultVal ? '#0f172a' : '#64748b';
+            }
+            if (searchInput) searchInput.value = '';
+            filterCustomDropdown(dropdownId, '');
+            dropdown.querySelectorAll('.select-option-item').forEach(item => {
+                if (item.getAttribute('data-value') === String(defaultVal)) {
+                    item.classList.add('active');
+                    if (!item.querySelector('.fa-check')) {
+                        item.innerHTML = `<span>${item.getAttribute('data-label')}</span><i class="fa-solid fa-check small text-success"></i>`;
+                    }
+                } else {
+                    item.classList.remove('active');
+                    const check = item.querySelector('.fa-check');
+                    if (check) check.remove();
+                }
+            });
+        }
+
+        function filterCustomDropdown(dropdownId, searchVal) {
+            const dropdown = document.getElementById(dropdownId);
+            if (!dropdown) return;
+            const listEl = dropdown.querySelector('.select-options-list');
+            const items = listEl.querySelectorAll('.select-option-item');
+            const query = (searchVal || '').trim().toLowerCase();
+            let matchCount = 0;
+
+            items.forEach(item => {
+                const text = (item.getAttribute('data-label') || '').toLowerCase();
+                if (!query || text.includes(query)) {
+                    item.style.display = 'flex';
+                    matchCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+
+            let noResultEl = listEl.querySelector('.no-results-msg');
+            if (matchCount === 0) {
+                if (!noResultEl) {
+                    noResultEl = document.createElement('div');
+                    noResultEl.className = 'no-results-msg text-center py-2 text-muted';
+                    noResultEl.style.fontSize = '11px';
+                    noResultEl.textContent = 'কোনো ফলাফল পাওয়া যায়নি';
+                    listEl.appendChild(noResultEl);
+                }
+            } else if (noResultEl) {
+                noResultEl.remove();
+            }
+        }
+
+        function toggleCustomDropdown(dropdownId) {
+            const dropdown = document.getElementById(dropdownId);
+            if (!dropdown) return;
+            const isOpen = dropdown.classList.contains('is-open');
+
+            closeAllCustomDropdowns();
+
+            if (!isOpen) {
+                dropdown.classList.add('is-open');
+                const parentCol = dropdown.closest('.col-md-4');
+                if (parentCol) {
+                    parentCol.classList.add('has-open-dropdown');
+                    parentCol.style.zIndex = '9999';
+                    parentCol.style.position = 'relative';
+                }
+                const chevron = dropdown.querySelector('.fa-chevron-down');
+                if (chevron) chevron.style.transform = 'rotate(180deg)';
+                const searchInput = dropdown.querySelector('.search-wrap input');
+                if (searchInput) {
+                    searchInput.value = '';
+                    filterCustomDropdown(dropdownId, '');
+                    setTimeout(() => searchInput.focus(), 60);
+                }
+            }
+        }
+
+        function closeAllCustomDropdowns() {
+            document.querySelectorAll('.custom-searchable-select').forEach(d => {
+                d.classList.remove('is-open');
+                const chevron = d.querySelector('.fa-chevron-down');
+                if (chevron) chevron.style.transform = 'rotate(0deg)';
+            });
+            document.querySelectorAll('#quickAddProductModal .col-md-4').forEach(col => {
+                col.classList.remove('has-open-dropdown');
+                col.style.zIndex = '';
+                col.style.position = '';
+            });
+        }
+
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.custom-searchable-select')) {
+                closeAllCustomDropdowns();
+            }
+        });
 
         async function openQuickAddProductModal() {
             const modalEl = document.getElementById('quickAddProductModal');
@@ -3591,6 +4494,15 @@
                 quickOptionsLoaded = true;
             }
 
+            resetCustomDropdown('quickCategoryDropdown', 'quickCategorySelect', 'সিলেক্ট করুন', '');
+            resetCustomDropdown('quickBrandDropdown', 'quickBrandSelect', 'সিলেক্ট করুন', '');
+            const defaultUnit = quickUnitsList.find(u => u.unit_name && u.unit_name.toLowerCase() === 'pcs') || (quickUnitsList[0] || null);
+            if (defaultUnit) {
+                resetCustomDropdown('quickUnitDropdown', 'quickUnitSelect', defaultUnit.unit_name, defaultUnit.id);
+            } else {
+                resetCustomDropdown('quickUnitDropdown', 'quickUnitSelect', 'Pcs', '');
+            }
+
             modal.show();
         }
 
@@ -3602,28 +4514,18 @@
                     axios.get('/api/unit-list', HeaderToken())
                 ]);
 
-                const catSelect = document.getElementById('quickCategorySelect');
-                if (catSelect && catRes.data?.CategoryData) {
-                    catSelect.innerHTML = '<option value="">সিলেক্ট করুন</option>';
-                    catRes.data.CategoryData.forEach(cat => {
-                        catSelect.innerHTML += `<option value="${cat.id}">${cat.category_name}</option>`;
-                    });
-                }
+                quickCategoriesList = catRes.data?.CategoryData || [];
+                quickBrandsList = brandRes.data?.BrandData || [];
+                quickUnitsList = unitRes.data?.UnitData || [];
 
-                const brandSelect = document.getElementById('quickBrandSelect');
-                if (brandSelect && brandRes.data?.BrandData) {
-                    brandSelect.innerHTML = '<option value="">সিলেক্ট করুন</option>';
-                    brandRes.data.BrandData.forEach(b => {
-                        brandSelect.innerHTML += `<option value="${b.id}">${b.name}</option>`;
-                    });
-                }
+                populateCustomDropdown('quickCategoryDropdown', 'quickCategorySelect', quickCategoriesList, 'id', 'category_name', 'সিলেক্ট করুন', '');
+                populateCustomDropdown('quickBrandDropdown', 'quickBrandSelect', quickBrandsList, 'id', 'name', 'সিলেক্ট করুন', '');
 
-                const unitSelect = document.getElementById('quickUnitSelect');
-                if (unitSelect && unitRes.data?.UnitData) {
-                    unitSelect.innerHTML = '<option value="">সিলেক্ট করুন</option>';
-                    unitRes.data.UnitData.forEach(u => {
-                        unitSelect.innerHTML += `<option value="${u.id}">${u.unit_name}</option>`;
-                    });
+                const defaultUnit = quickUnitsList.find(u => u.unit_name && u.unit_name.toLowerCase() === 'pcs') || (quickUnitsList[0] || null);
+                if (defaultUnit) {
+                    populateCustomDropdown('quickUnitDropdown', 'quickUnitSelect', quickUnitsList, 'id', 'unit_name', defaultUnit.unit_name, defaultUnit.id);
+                } else {
+                    populateCustomDropdown('quickUnitDropdown', 'quickUnitSelect', quickUnitsList, 'id', 'unit_name', 'Pcs', '');
                 }
             } catch (e) {
                 console.error("Error loading product options:", e);
