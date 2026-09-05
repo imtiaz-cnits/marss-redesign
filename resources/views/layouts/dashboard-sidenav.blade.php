@@ -200,148 +200,356 @@
       margin: 0 auto !important;
     }
 
-    /* Sidebar Menu Container - Exactly ONE Smooth Scrollbar Managed by SimpleBar */
-    .vertical-menu .sidebar-menu-scroll {
+    /* Modern Sliding Drilldown Sidebar Styles */
+    .vertical-menu #sidebar-slider-wrapper {
       flex: 1 1 auto !important;
       height: calc(100vh - 138px) !important;
       max-height: calc(100vh - 138px) !important;
-      overflow: hidden !important; /* Hide browser default scrollbar */
-      scrollbar-width: none !important;
-      -ms-overflow-style: none !important;
-      margin-top: 0 !important;
-      margin-bottom: 0 !important;
+      width: 100% !important;
+      position: relative !important;
+      overflow: hidden !important;
     }
 
-    .vertical-menu .sidebar-menu-scroll::-webkit-scrollbar,
-    .vertical-menu .simplebar-content-wrapper::-webkit-scrollbar {
-      display: none !important;
-      width: 0 !important;
-      height: 0 !important;
+    .vertical-menu .sidebar-panel-scroll {
+      scrollbar-width: thin !important;
+      scrollbar-color: rgba(255, 255, 255, 0.2) transparent !important;
     }
 
-    .vertical-menu .simplebar-track.simplebar-vertical {
-      width: 6px !important;
-      right: 2px !important;
+    .vertical-menu .sidebar-panel-scroll::-webkit-scrollbar {
+      width: 4px !important;
     }
 
-    .vertical-menu .simplebar-scrollbar:before {
-      background: rgba(255, 255, 255, 0.35) !important;
+    .vertical-menu .sidebar-panel-scroll::-webkit-scrollbar-track {
+      background: transparent !important;
+    }
+
+    .vertical-menu .sidebar-panel-scroll::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.25) !important;
       border-radius: 4px !important;
     }
 
-    .vertical-menu .simplebar-scrollbar.simplebar-visible:before {
-      opacity: 0.8 !important;
+    .vertical-menu .sidebar-panel-scroll::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.45) !important;
     }
 
-    .vertical-menu #sidebar-menu {
-      padding-top: 8px !important;
-      padding-bottom: 8px !important;
-      margin-bottom: 0 !important;
-    }
-
-    .vertical-menu #sidebar-menu .menu ul {
-      padding-left: 0 !important;
-      margin: 0 !important;
-    }
-
-    /* Sidebar Menu Links - Aligned with Top Logo (Padding & Margin Balanced) */
-    .vertical-menu #sidebar-menu ul li a {
+    /* Drilldown Trigger Button Reset - Fixes browser default white buttonface background */
+    .vertical-menu button,
+    .vertical-menu button.sidebar-drilldown-trigger {
+      background: transparent !important;
+      background-color: transparent !important;
+      border: 0 !important;
+      outline: none !important;
+      box-shadow: none !important;
+      -webkit-appearance: none !important;
+      appearance: none !important;
       color: #f1f5f9 !important;
-      font-weight: 500 !important;
-      font-size: 14px !important;
-      padding: 9px 10px !important;
-      margin: 3px 8px !important;
-      border-radius: 9px !important;
-      transition: all 0.22s ease-in-out !important;
-      border-left: 3px solid transparent !important;
+      font-family: inherit !important;
+      cursor: pointer !important;
     }
 
-    .vertical-menu #sidebar-menu ul li a i.icon {
-      color: #a7f3d0 !important;
-      font-size: 16px !important;
-      width: 24px !important;
-      text-align: center !important;
-      transition: all 0.22s ease-in-out !important;
-      flex-shrink: 0 !important;
-    }
-
-    /* Hover State */
-    .vertical-menu #sidebar-menu ul li a:hover {
-      background: rgba(255, 255, 255, 0.18) !important;
+    .vertical-menu button.sidebar-drilldown-trigger:hover {
+      background: rgba(255, 255, 255, 0.12) !important;
+      background-color: rgba(255, 255, 255, 0.12) !important;
       color: #ffffff !important;
     }
 
-    .vertical-menu #sidebar-menu ul li a:hover i.icon {
-      color: #6ee7b7 !important;
-      transform: scale(1.12);
+    .vertical-menu button.sidebar-drilldown-trigger:hover i {
+      color: #d1fae5 !important;
     }
 
-    /* Active Link State */
-    .vertical-menu #sidebar-menu ul li.active-link.active>a,
-    .vertical-menu #sidebar-menu ul li.active-link>a:focus,
-    .vertical-menu #sidebar-menu ul li.submenu-active>a.active {
+    /* Active State Gradient Styling */
+    .vertical-menu .active-gradient,
+    .vertical-menu .active-parent,
+    .vertical-menu button.sidebar-drilldown-trigger.active-parent {
       background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+      background-color: #059669 !important;
       color: #ffffff !important;
       font-weight: 600 !important;
       border-left: 3px solid #34d399 !important;
       box-shadow: 0 4px 16px rgba(16, 185, 129, 0.35) !important;
     }
 
-    .vertical-menu #sidebar-menu ul li.active-link.active>a i.icon {
+    .vertical-menu .active-gradient i,
+    .vertical-menu .active-parent i,
+    .vertical-menu button.sidebar-drilldown-trigger.active-parent i {
       color: #ffffff !important;
-      filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.6)) !important;
+      filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.6)) !important;
     }
 
-    .vertical-menu #sidebar-menu ul li.active-link.active>a .arrow,
-    .vertical-menu #sidebar-menu ul li.submenu-active>a.active .arrow {
-      color: #ffffff !important;
-    }
-
-    /* Submenu Container & Items - Matches Other Menus Spacing & Margin */
-    .vertical-menu #sidebar-menu .menu ul.sub-menu {
-      background: rgba(0, 0, 0, 0.22) !important;
-      margin: 4px 8px 8px 8px !important;
-      padding: 6px 4px !important;
-      border-left: 2px dashed rgba(255, 255, 255, 0.3) !important;
-      border-radius: 10px !important;
-    }
-
-    .vertical-menu #sidebar-menu .menu ul.sub-menu li {
-      margin-bottom: 2px !important;
-    }
-
-    .vertical-menu #sidebar-menu .menu ul.sub-menu li a {
-      color: #cbd5e1 !important;
-      font-size: 13px !important;
-      padding: 8px 12px !important;
-      margin: 2px 4px !important;
-      border-radius: 8px !important;
-      border-left: none !important;
-      display: flex !important;
-      align-items: center !important;
-      background: transparent !important;
-      transition: all 0.2s ease-in-out !important;
-    }
-
-    .vertical-menu #sidebar-menu .menu ul.sub-menu li a:hover {
-      color: #a7f3d0 !important;
-      background: rgba(255, 255, 255, 0.14) !important;
-    }
-
-    .vertical-menu #sidebar-menu .menu ul.sub-menu li.active>a,
-    .vertical-menu #sidebar-menu .menu ul.sub-menu li a.active {
+    .vertical-menu .active-submenu-link {
       background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
       color: #ffffff !important;
       font-weight: 600 !important;
+      border-radius: 9px !important;
+      box-shadow: 0 2px 10px rgba(16, 185, 129, 0.35) !important;
+    }
+
+    .vertical-menu button.sidebar-back-btn {
+      border: 1px solid rgba(255, 255, 255, 0.18) !important;
+      background: rgba(255, 255, 255, 0.1) !important;
+      color: #d1fae5 !important;
+      cursor: pointer !important;
+      outline: none !important;
+    }
+
+    .vertical-menu button.sidebar-back-btn:hover {
+      background: rgba(255, 255, 255, 0.2) !important;
+      color: #ffffff !important;
+    }
+
+    /* Default (Expanded) rules for flyouts and tooltips - Strictly hidden */
+    body:not([data-sidebar-size="sm"]) .sidebar-flyout,
+    body:not([data-sidebar-size="sm"]) .sidebar-mini-tooltip {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+    }
+
+    /* Collapsed Sidebar (sm) Rules */
+    body[data-sidebar-size="sm"] .vertical-menu {
+      width: 70px !important;
+      overflow: visible !important;
+      z-index: 1005 !important;
+    }
+
+    body[data-sidebar-size="sm"] .vertical-menu #sidebar-slider-wrapper {
+      overflow: visible !important;
+      height: calc(100vh - 138px) !important;
+    }
+
+    body[data-sidebar-size="sm"] #sidebar-main-panel {
+      width: 70px !important;
+      overflow: visible !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    body[data-sidebar-size="sm"] #sidebar-main-panel.translate-x-0 {
+      display: block !important;
+      transform: translateX(0) !important;
+      pointer-events: auto !important;
+    }
+
+    body[data-sidebar-size="sm"] #sidebar-main-panel.-translate-x-full {
+      display: none !important;
+      pointer-events: none !important;
+    }
+
+    body[data-sidebar-size="sm"] .sidebar-submenu-panel {
+      width: 70px !important;
+      overflow: visible !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+    }
+
+    body[data-sidebar-size="sm"] .sidebar-submenu-panel.translate-x-full {
+      display: none !important;
+      pointer-events: none !important;
+    }
+
+    body[data-sidebar-size="sm"] .sidebar-submenu-panel.translate-x-0 {
+      display: block !important;
+      transform: translateX(0) !important;
+      pointer-events: auto !important;
+    }
+
+    body[data-sidebar-size="sm"] .sidebar-submenu-panel .sidebar-back-wrapper {
+      margin-bottom: 6px !important;
+      width: 100% !important;
+      display: flex !important;
+      justify-content: center !important;
+      position: relative !important;
+    }
+
+    body[data-sidebar-size="sm"] .sidebar-submenu-panel ul {
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    body[data-sidebar-size="sm"] .sidebar-submenu-panel li {
+      display: flex !important;
+      justify-content: center !important;
+      width: 100% !important;
+      position: relative !important;
+    }
+
+    body[data-sidebar-size="sm"] .sidebar-label,
+    body[data-sidebar-size="sm"] .sidebar-arrow,
+    body[data-sidebar-size="sm"] .sidebar-submenu-panel .sidebar-back-btn span,
+    body[data-sidebar-size="sm"] .sidebar-submenu-panel a span {
+      display: none !important;
+    }
+
+    body[data-sidebar-size="sm"] .sidebar-link,
+    body[data-sidebar-size="sm"] .sidebar-drilldown-trigger,
+    body[data-sidebar-size="sm"] .sidebar-submenu-panel a,
+    body[data-sidebar-size="sm"] .sidebar-submenu-panel .sidebar-back-btn {
+      justify-content: center !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      width: 44px !important;
+      height: 44px !important;
+      margin: 4px auto !important;
+      border-radius: 10px !important;
+      border-left: none !important;
+    }
+
+    body[data-sidebar-size="sm"] .sidebar-link i,
+    body[data-sidebar-size="sm"] .sidebar-drilldown-trigger i,
+    body[data-sidebar-size="sm"] .sidebar-submenu-panel a i,
+    body[data-sidebar-size="sm"] .sidebar-submenu-panel .sidebar-back-btn i {
+      margin: 0 auto !important;
+      width: auto !important;
+      font-size: 16px !important;
+    }
+
+    /* Trendy Single-Item Mini Tooltip (Hidden by default, shown ONLY on hover) */
+    .vertical-menu .sidebar-mini-tooltip {
+      display: none !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      position: absolute !important;
+      left: 100% !important;
+      top: 50% !important;
+      margin-left: 12px !important;
+      transform: translateY(-50%) translateX(-6px) scale(0.95) !important;
+      transition: opacity 0.15s ease, transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.15s !important;
+      padding: 6px 14px !important;
+      background: linear-gradient(135deg, #064e3b 0%, #0a251e 55%, #0f172a 100%) !important;
+      color: #ecfdf5 !important;
+      font-family: 'Valley Sans', 'Baloo Da 2', sans-serif !important;
+      font-size: 12.5px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.3px !important;
+      border-radius: 9px !important;
+      border: 1px solid rgba(52, 211, 153, 0.45) !important;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.65), 0 0 15px rgba(16, 185, 129, 0.25) !important;
+      white-space: nowrap !important;
+      z-index: 99999 !important;
+      backdrop-filter: blur(12px) !important;
+      -webkit-backdrop-filter: blur(12px) !important;
+    }
+
+    .vertical-menu .sidebar-mini-tooltip::before {
+      content: '' !important;
+      position: absolute !important;
+      left: -5px !important;
+      top: 50% !important;
+      transform: translateY(-50%) rotate(45deg) !important;
+      width: 9px !important;
+      height: 9px !important;
+      background: #064e3b !important;
+      border-left: 1px solid rgba(52, 211, 153, 0.45) !important;
+      border-bottom: 1px solid rgba(52, 211, 153, 0.45) !important;
+    }
+
+    body[data-sidebar-size="sm"] .sidebar-item:not(.has-submenu):hover .sidebar-mini-tooltip,
+    body[data-sidebar-size="sm"] .sidebar-bottom-logout:hover .sidebar-mini-tooltip,
+    body[data-sidebar-size="sm"] .sidebar-submenu-panel li:hover .sidebar-mini-tooltip,
+    body[data-sidebar-size="sm"] .sidebar-submenu-panel .sidebar-back-wrapper:hover .sidebar-mini-tooltip {
+      display: flex !important;
+      align-items: center !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateY(-50%) translateX(0) scale(1) !important;
+    }
+
+    /* Modern & Trendy Dropdown Flyout Popover */
+    body[data-sidebar-size="sm"] .has-submenu .sidebar-flyout {
+      display: block !important;
+      position: absolute !important;
+      left: 100% !important;
+      top: 0 !important;
+      margin-left: 10px !important;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
+      transform: translateX(8px) scale(0.96) !important;
+      transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1), transform 0.18s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.18s !important;
+      z-index: 99999 !important;
+      
+      background: linear-gradient(165deg, rgba(6, 78, 59, 0.98) 0%, rgba(6, 44, 35, 0.98) 45%, rgba(15, 23, 42, 0.99) 100%) !important;
+      backdrop-filter: blur(20px) !important;
+      -webkit-backdrop-filter: blur(20px) !important;
+      border: 1px solid rgba(52, 211, 153, 0.35) !important;
+      border-radius: 14px !important;
+      box-shadow: 0 20px 45px -10px rgba(0, 0, 0, 0.7), 0 0 25px rgba(16, 185, 129, 0.2) !important;
+      padding: 8px !important;
+      width: 240px !important;
+    }
+
+    /* Invisible hover bridge to prevent pointer flicker when moving cursor from icon to flyout */
+    body[data-sidebar-size="sm"] .has-submenu .sidebar-flyout::before {
+      content: '' !important;
+      position: absolute !important;
+      top: -16px !important;
+      bottom: -16px !important;
+      left: -24px !important;
+      width: 26px !important;
+      background: transparent !important;
+      pointer-events: auto !important;
+    }
+
+    /* Elegant Caret indicator */
+    body[data-sidebar-size="sm"] .has-submenu .sidebar-flyout::after {
+      content: '' !important;
+      position: absolute !important;
+      left: -6px !important;
+      top: 18px !important;
+      width: 10px !important;
+      height: 10px !important;
+      background: #064e3b !important;
+      border-left: 1px solid rgba(52, 211, 153, 0.35) !important;
+      border-bottom: 1px solid rgba(52, 211, 153, 0.35) !important;
+      transform: rotate(45deg) !important;
+      pointer-events: none !important;
+    }
+
+    /* Show flyout on hover or pinned */
+    body[data-sidebar-size="sm"] .has-submenu:hover .sidebar-flyout,
+    body[data-sidebar-size="sm"] .has-submenu.flyout-open .sidebar-flyout,
+    body[data-sidebar-size="sm"] .has-submenu .sidebar-flyout:hover,
+    body[data-sidebar-size="sm"] .has-submenu .sidebar-flyout.flyout-pinned {
+      opacity: 1 !important;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      transform: translateX(0) scale(1) !important;
+    }
+
+    /* Flyout Links Styling */
+    .vertical-menu .sidebar-flyout-link {
+      color: #e2e8f0 !important;
+      text-decoration: none !important;
+      display: flex !important;
+      align-items: center !important;
+      gap: 9px !important;
+      padding: 7px 10px !important;
       border-radius: 8px !important;
-      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35) !important;
+      font-size: 12.5px !important;
+      font-weight: 500 !important;
+      transition: all 0.15s ease !important;
+    }
+
+    .vertical-menu .sidebar-flyout-link:hover {
+      color: #ffffff !important;
+      background: rgba(16, 185, 129, 0.25) !important;
+      transform: translateX(3px) !important;
+    }
+
+    .vertical-menu .sidebar-flyout-link.active-flyout-link {
+      color: #ffffff !important;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+      font-weight: 600 !important;
+      box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4) !important;
     }
 
     /* Fixed Bottom Logout Section - Harmonious Emerald Green Theme */
     .vertical-menu .sidebar-bottom-logout {
       flex-shrink: 0 !important;
       margin-top: auto !important;
-      padding: 10px 8px !important;
+      padding: 10px 12px !important;
       border-top: 1px solid rgba(255, 255, 255, 0.12) !important;
       background: rgba(6, 78, 59, 0.95) !important;
       box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.15) !important;
@@ -570,117 +778,426 @@
       fill: #cbd5e1 !important;
       color: #cbd5e1 !important;
     }
+    /* ========================================================
+       Topbar Action Buttons (Theme Toggle, Fullscreen, Notification Bell)
+       Identical to POS page: 30px x 30px, Radius: 8px, Soft border & background
+       ======================================================== */
+    .pos-theme-toggle-btn,
+    .pos-fullscreen-btn,
+    .pos-noti-btn {
+      width: 30px !important;
+      height: 30px !important;
+      min-width: 30px !important;
+      min-height: 30px !important;
+      border-radius: 8px !important;
+      background: #f1f5f9 !important;
+      border: 1px solid #cbd5e1 !important;
+      color: #334155 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      padding: 0 !important;
+      cursor: pointer !important;
+      transition: all 0.2s ease !important;
+      position: relative !important;
+      box-shadow: none !important;
+    }
+    .pos-theme-toggle-btn:hover,
+    .pos-fullscreen-btn:hover,
+    .pos-noti-btn:hover {
+      background: #e2e8f0 !important;
+      color: #0f172a !important;
+    }
+
+    /* Theme Toggle Moon / Sun Icon Switching */
+    .pos-theme-toggle-btn .icon-moon {
+      display: inline-block !important;
+      font-size: 13px !important;
+      color: #334155 !important;
+      transition: transform 0.2s ease !important;
+    }
+    .pos-theme-toggle-btn .icon-sun {
+      display: none !important;
+      font-size: 13px !important;
+      color: #eab308 !important;
+      transition: transform 0.2s ease !important;
+    }
+
+    /* When in Dark Mode: Switch Moon -> Sun */
+    body[light-mode="dark"] .pos-theme-toggle-btn .icon-moon,
+    body[data-layout-mode="dark"] .pos-theme-toggle-btn .icon-moon,
+    html[light-mode="dark"] .pos-theme-toggle-btn .icon-moon,
+    body.dark-mode .pos-theme-toggle-btn .icon-moon {
+      display: none !important;
+    }
+    body[light-mode="dark"] .pos-theme-toggle-btn .icon-sun,
+    body[data-layout-mode="dark"] .pos-theme-toggle-btn .icon-sun,
+    html[light-mode="dark"] .pos-theme-toggle-btn .icon-sun,
+    body.dark-mode .pos-theme-toggle-btn .icon-sun {
+      display: inline-block !important;
+    }
+
+    /* Fullscreen enter / leave icons */
+    .pos-fullscreen-btn svg {
+      width: 13px !important;
+      height: 13px !important;
+      display: block !important;
+      stroke: currentColor !important;
+    }
+    .pos-fullscreen-btn .icon-fullscreen-enter {
+      display: inline-block !important;
+    }
+    .pos-fullscreen-btn .icon-fullscreen-leave {
+      display: none !important;
+    }
+    .pos-fullscreen-btn.on .icon-fullscreen-enter {
+      display: none !important;
+    }
+    .pos-fullscreen-btn.on .icon-fullscreen-leave {
+      display: inline-block !important;
+    }
+
+    /* Notification Bell Icon */
+    .pos-noti-btn i {
+      font-size: 13px !important;
+      color: #334155 !important;
+    }
+
+    /* Notification Badge */
+    #noti-count-badge {
+      position: absolute !important;
+      top: -4px !important;
+      right: -4px !important;
+      font-size: 9px !important;
+      font-weight: 700 !important;
+      padding: 1.5px 4.5px !important;
+      border-radius: 999px !important;
+      background-color: #ef4444 !important;
+      color: #ffffff !important;
+      border: 1.5px solid #ffffff !important;
+      line-height: 1 !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2) !important;
+    }
+
+    /* Action Buttons Dark Mode */
+    body[light-mode="dark"] .pos-theme-toggle-btn,
+    body[data-layout-mode="dark"] .pos-theme-toggle-btn,
+    html[light-mode="dark"] .pos-theme-toggle-btn,
+    body.dark-mode .pos-theme-toggle-btn,
+    body[light-mode="dark"] .pos-fullscreen-btn,
+    body[data-layout-mode="dark"] .pos-fullscreen-btn,
+    html[light-mode="dark"] .pos-fullscreen-btn,
+    body.dark-mode .pos-fullscreen-btn,
+    body[light-mode="dark"] .pos-noti-btn,
+    body[data-layout-mode="dark"] .pos-noti-btn,
+    html[light-mode="dark"] .pos-noti-btn,
+    body.dark-mode .pos-noti-btn {
+      background: #1e293b !important;
+      border-color: #334155 !important;
+      color: #cbd5e1 !important;
+    }
+    body[light-mode="dark"] .pos-theme-toggle-btn:hover,
+    body[data-layout-mode="dark"] .pos-theme-toggle-btn:hover,
+    html[light-mode="dark"] .pos-theme-toggle-btn:hover,
+    body.dark-mode .pos-theme-toggle-btn:hover,
+    body[light-mode="dark"] .pos-fullscreen-btn:hover,
+    body[data-layout-mode="dark"] .pos-fullscreen-btn:hover,
+    html[light-mode="dark"] .pos-fullscreen-btn:hover,
+    body.dark-mode .pos-fullscreen-btn:hover,
+    body[light-mode="dark"] .pos-noti-btn:hover,
+    body[data-layout-mode="dark"] .pos-noti-btn:hover,
+    html[light-mode="dark"] .pos-noti-btn:hover,
+    body.dark-mode .pos-noti-btn:hover {
+      background: #334155 !important;
+      color: #ffffff !important;
+    }
+    body[light-mode="dark"] .pos-noti-btn i,
+    body[data-layout-mode="dark"] .pos-noti-btn i,
+    html[light-mode="dark"] .pos-noti-btn i,
+    body.dark-mode .pos-noti-btn i {
+      color: #cbd5e1 !important;
+    }
+    body[light-mode="dark"] #noti-count-badge,
+    body[data-layout-mode="dark"] #noti-count-badge,
+    html[light-mode="dark"] #noti-count-badge,
+    body.dark-mode #noti-count-badge {
+      border-color: #1e293b !important;
+    }
+
+    /* ========================================================
+       Modern Trendy Compact Notification Dropdown
+       ======================================================== */
+    .page-header-notifications-dropdown-v {
+      width: 340px !important;
+      max-width: 94vw !important;
+      border-radius: 12px !important;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.12), 0 8px 10px -6px rgba(0, 0, 0, 0.04) !important;
+      border: 1px solid #e2e8f0 !important;
+      background: #ffffff !important;
+      overflow: hidden !important;
+      padding: 0 !important;
+    }
+    @media (max-width: 575.98px) {
+      .page-header-notifications-dropdown-v {
+        width: calc(100vw - 20px) !important;
+        max-width: calc(100vw - 20px) !important;
+        right: -50px !important;
+      }
+    }
+
+    /* Notification Header */
+    .stock-noti-header {
+      padding: 8px 12px !important;
+      background: #f8fafc !important;
+      border-bottom: 1px solid #e2e8f0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+    }
+    .stock-noti-header .noti-title-wrap {
+      display: flex !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+    .stock-noti-header .noti-icon-badge {
+      width: 24px !important;
+      height: 24px !important;
+      border-radius: 6px !important;
+      background: #fee2e2 !important;
+      color: #ef4444 !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 11px !important;
+    }
+    .stock-noti-header .noti-title {
+      font-size: 12.5px !important;
+      font-weight: 700 !important;
+      color: #0f172a !important;
+      line-height: 1.2 !important;
+      margin: 0 !important;
+    }
+    .stock-noti-header .noti-subtitle {
+      font-size: 10.5px !important;
+      color: #64748b !important;
+      margin: 0 !important;
+      line-height: 1.2 !important;
+    }
+    .stock-noti-header .noti-view-all-btn {
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      padding: 3px 8px !important;
+      border-radius: 6px !important;
+      background: #fef2f2 !important;
+      color: #dc2626 !important;
+      border: 1px solid #fecaca !important;
+      text-decoration: none !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      transition: all 0.15s ease !important;
+    }
+    .stock-noti-header .noti-view-all-btn:hover {
+      background: #fee2e2 !important;
+      color: #b91c1c !important;
+    }
+
+    /* Notification Items Container */
+    #notification-items-list {
+      max-height: 310px !important;
+      overflow-y: auto !important;
+      scrollbar-width: thin !important;
+      scrollbar-color: #cbd5e1 transparent !important;
+    }
+    #notification-items-list::-webkit-scrollbar {
+      width: 5px !important;
+    }
+    #notification-items-list::-webkit-scrollbar-track {
+      background: transparent !important;
+    }
+    #notification-items-list::-webkit-scrollbar-thumb {
+      background-color: #cbd5e1 !important;
+      border-radius: 10px !important;
+    }
+
+    /* Compact Modern Item - Uses stock-noti-item to avoid navbar-sidebar.css conflict */
+    .stock-noti-item {
+      display: flex !important;
+      align-items: center !important;
+      gap: 10px !important;
+      padding: 7px 12px !important;
+      border-bottom: 1px solid #f1f5f9 !important;
+      text-decoration: none !important;
+      background: #ffffff !important;
+      transition: background-color 0.15s ease !important;
+    }
+    .stock-noti-item:last-child {
+      border-bottom: none !important;
+    }
+    .stock-noti-item:hover {
+      background: #f8fafc !important;
+    }
+    .stock-noti-item .item-icon-box {
+      width: 28px !important;
+      height: 28px !important;
+      min-width: 28px !important;
+      border-radius: 6px !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      font-size: 12px !important;
+      flex-shrink: 0 !important;
+    }
+    .stock-noti-item .item-body {
+      flex: 1 !important;
+      min-width: 0 !important;
+    }
+    .stock-noti-item .item-row-top {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 6px !important;
+      margin-bottom: 2px !important;
+    }
+    .stock-noti-item .item-name {
+      font-size: 12px !important;
+      font-weight: 600 !important;
+      color: #1e293b !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      max-width: 170px !important;
+      line-height: 1.3 !important;
+      margin: 0 !important;
+    }
+    .stock-noti-item .item-badge {
+      font-size: 9px !important;
+      font-weight: 700 !important;
+      padding: 1.5px 5px !important;
+      border-radius: 4px !important;
+      white-space: nowrap !important;
+      line-height: 1.2 !important;
+    }
+    .stock-noti-item .item-badge-danger {
+      background: #fef2f2 !important;
+      color: #dc2626 !important;
+      border: 1px solid #fecaca !important;
+    }
+    .stock-noti-item .item-badge-warning {
+      background: #fffbeb !important;
+      color: #d97706 !important;
+      border: 1px solid #fde68a !important;
+    }
+    .stock-noti-item .item-row-bottom {
+      display: flex !important;
+      align-items: center !important;
+      justify-content: space-between !important;
+      gap: 6px !important;
+      line-height: 1.2 !important;
+    }
+    .stock-noti-item .item-code {
+      font-size: 10.5px !important;
+      color: #64748b !important;
+      white-space: nowrap !important;
+      overflow: hidden !important;
+      text-overflow: ellipsis !important;
+      max-width: 140px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 3px !important;
+    }
+    .stock-noti-item .item-stock {
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      white-space: nowrap !important;
+    }
+
+    /* Notification Footer */
+    .stock-noti-footer {
+      padding: 6px 12px !important;
+      background: #f8fafc !important;
+      border-top: 1px solid #e2e8f0 !important;
+      text-align: center !important;
+    }
+    .stock-noti-footer a {
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      color: #dc2626 !important;
+      text-decoration: none !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      gap: 5px !important;
+    }
+    .stock-noti-footer a:hover {
+      color: #b91c1c !important;
+      text-decoration: underline !important;
+    }
+
+    /* Dark Mode Notification Styles */
+    body[light-mode="dark"] .page-header-notifications-dropdown-v,
+    body[data-layout-mode="dark"] .page-header-notifications-dropdown-v,
+    html[light-mode="dark"] .page-header-notifications-dropdown-v,
+    body.dark-mode .page-header-notifications-dropdown-v {
+      background: #1e293b !important;
+      border-color: #334155 !important;
+    }
+    body[light-mode="dark"] .stock-noti-header,
+    body[data-layout-mode="dark"] .stock-noti-header,
+    html[light-mode="dark"] .stock-noti-header,
+    body.dark-mode .stock-noti-header {
+      background: #0f172a !important;
+      border-bottom-color: #334155 !important;
+    }
+    body[light-mode="dark"] .stock-noti-header .noti-title,
+    body[data-layout-mode="dark"] .stock-noti-header .noti-title,
+    html[light-mode="dark"] .stock-noti-header .noti-title,
+    body.dark-mode .stock-noti-header .noti-title {
+      color: #f1f5f9 !important;
+    }
+    body[light-mode="dark"] .stock-noti-header .noti-subtitle,
+    body[data-layout-mode="dark"] .stock-noti-header .noti-subtitle,
+    html[light-mode="dark"] .stock-noti-header .noti-subtitle,
+    body.dark-mode .stock-noti-header .noti-subtitle {
+      color: #94a3b8 !important;
+    }
+    body[light-mode="dark"] .stock-noti-item,
+    body[data-layout-mode="dark"] .stock-noti-item,
+    html[light-mode="dark"] .stock-noti-item,
+    body.dark-mode .stock-noti-item {
+      background: #1e293b !important;
+      border-bottom-color: #334155 !important;
+    }
+    body[light-mode="dark"] .stock-noti-item:hover,
+    body[data-layout-mode="dark"] .stock-noti-item:hover,
+    html[light-mode="dark"] .stock-noti-item:hover,
+    body.dark-mode .stock-noti-item:hover {
+      background: #334155 !important;
+    }
+    body[light-mode="dark"] .stock-noti-item .item-name,
+    body[data-layout-mode="dark"] .stock-noti-item .item-name,
+    html[light-mode="dark"] .stock-noti-item .item-name,
+    body.dark-mode .stock-noti-item .item-name {
+      color: #f8fafc !important;
+    }
+    body[light-mode="dark"] .stock-noti-item .item-code,
+    body[data-layout-mode="dark"] .stock-noti-item .item-code,
+    html[light-mode="dark"] .stock-noti-item .item-code,
+    body.dark-mode .stock-noti-item .item-code {
+      color: #94a3b8 !important;
+    }
+    body[light-mode="dark"] .stock-noti-footer,
+    body[data-layout-mode="dark"] .stock-noti-footer,
+    html[light-mode="dark"] .stock-noti-footer,
+    body.dark-mode .stock-noti-footer {
+      background: #0f172a !important;
+      border-top-color: #334155 !important;
+    }
   </style>
-
-  {{-- <style>
-    /* styles.css */
-
-    /* Preloader Styling */
-    #preloader {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-    }
-
-    .Lodar-bar-container {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .Lodar-bar {
-      width: 10px;
-      height: 50px;
-      background: linear-gradient(45deg, #dbeffd, #dbeffd);
-      border-radius: 5px;
-      animation: bounce 1.2s infinite ease-in-out;
-    }
-
-    .Lodar-bar:nth-child(1) {
-      animation-delay: 0s;
-    }
-
-    .Lodar-bar:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-
-    .Lodar-bar:nth-child(3) {
-      animation-delay: 0.4s;
-    }
-
-    .Lodar-bar:nth-child(4) {
-      animation-delay: 0.6s;
-    }
-
-    .Lodar-bar:nth-child(5) {
-      animation-delay: 0.8s;
-    }
-
-    #preloader .loder-loading {
-      color: #fff;
-      font-size: 16px;
-      margin-top: 10px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      animation: fadeIn 1s ease-in-out infinite;
-    }
-
-    /* Hide Content Initially */
-    #Lodarcontent {
-      display: none;
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-    }
-
-    /* Animations */
-    @keyframes bounce {
-
-      0%,
-      100% {
-        transform: scaleY(1);
-      }
-
-      50% {
-        transform: scaleY(2);
-      }
-    }
-
-    @keyframes fadeIn {
-
-      0%,
-      100% {
-        opacity: 1;
-      }
-
-      50% {
-        opacity: 0.5;
-      }
-    }
-  </style> --}}
 
 </head>
 
 <body>
-
-  {{-- <div id="preloader">
-    <div class="Lodar-bar-container">
-      <div class="Lodar-bar"></div>
-      <div class="Lodar-bar"></div>
-      <div class="Lodar-bar"></div>
-      <div class="Lodar-bar"></div>
-      <div class="Lodar-bar"></div>
-    </div>
-    <h1 class="loder-loading">Loading...</h1>
-  </div> --}}
 
   <div id="loader" class="LoadingOverlay d-none">
     <div class="Line-Progress">
@@ -719,122 +1236,57 @@
         <!-- end navbar searchbar -->
       </div>
 
-      <div class="d-flex align-items-center">
-        <button class="light-mode-button" aria-label="Toggle Light Mode" onclick="toggle_light_mode()">
-          <span></span>
-          <span></span>
+      <div class="d-flex align-items-center gap-2">
+        <button type="button" class="pos-theme-toggle-btn" aria-label="Toggle Light/Dark Mode"
+            onclick="toggle_light_mode()" title="লাইট/ডার্ক থিম পরিবর্তন">
+            <i class="fa-regular fa-moon icon-moon"></i>
+            <i class="fa-regular fa-sun icon-sun"></i>
         </button>
 
-        <div class="dropdown d-inline-block">
-          <button type="button" class="btn header-item search-icon" data-bs-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            <svg width="25" height="25" viewBox="0 0 27 27" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M19.2967 16.9811H18.0695L17.6449 16.5566C19.1578 14.8045 20.0686 12.5274 20.0686 10.0343C20.0686 4.49228 15.5763 0 10.0343 0C4.49228 0 0 4.49228 0 10.0343C0 15.5763 4.49228 20.0686 10.0343 20.0686C12.5274 20.0686 14.8045 19.1578 16.5566 17.6527L16.9811 18.0772V19.2967L24.6998 27L27 24.6998L19.2967 16.9811ZM10.0343 16.9811C6.19811 16.9811 3.08748 13.8705 3.08748 10.0343C3.08748 6.19811 6.19811 3.08748 10.0343 3.08748C13.8705 3.08748 16.9811 6.19811 16.9811 10.0343C16.9811 13.8705 13.8705 16.9811 10.0343 16.9811Z"
-                fill="#192045" />
+        <div class="fullscreen d-flex align-items-center">
+          <button type="button" class="js-toggle-fullscreen-btn pos-fullscreen-btn" aria-label="Enter fullscreen mode" title="ফুলস্ক্রিন মোড">
+            <svg class="icon-fullscreen-enter" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
             </svg>
-          </button>
-          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0">
-            <form class="p-2">
-              <div class="search-box">
-                <div class="position-relative">
-                  <input type="text" class="form-control rounded border-0"
-                    placeholder="Search..." />
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-
-        <div class="d-flex align-items-center toggle-full-screen">
-          <button class="js-toggle-fullscreen-btn toggle-fullscreen-btn" aria-label="Enter fullscreen mode"
-            hidden>
-            <svg width="27" height="27" class="toggle-fullscreen-svg" viewBox="0 0 30 30"
-              fill="none" xmlns="http://www.w3.org/2000/svg">
-              <g class="icon-fullscreen-enter">
-                <path
-                  d="M2 7.5H0V3C0 2.20435 0.31607 1.44129 0.87868 0.87868C1.44129 0.31607 2.20435 0 3 0H7.5V2H2V7.5Z"
-                  fill="#192045" />
-                <path
-                  d="M30 7.5H28V2H22.5V0H27C27.7956 0 28.5587 0.31607 29.1213 0.87868C29.6839 1.44129 30 2.20435 30 3V7.5Z"
-                  fill="#192045" />
-                <path
-                  d="M7.5 30H3C2.20435 30 1.44129 29.6839 0.87868 29.1213C0.31607 28.5587 0 27.7956 0 27V22.5H2V28H7.5V30Z"
-                  fill="#192045" />
-                <path
-                  d="M27 30H22.5V28H28V22.5H30V27C30 27.7956 29.6839 28.5587 29.1213 29.1213C28.5587 29.6839 27.7956 30 27 30Z"
-                  fill="#192045" />
-                <path
-                  d="M9.00052 10.5C8.80311 10.5011 8.60742 10.4633 8.42466 10.3887C8.24191 10.314 8.07568 10.204 7.93552 10.065L6.43552 8.565C6.15307 8.28255 5.99438 7.89946 5.99438 7.5C5.99438 7.10055 6.15307 6.71746 6.43552 6.435C6.71798 6.15255 7.10107 5.99387 7.50052 5.99387C7.89998 5.99387 8.28307 6.15255 8.56552 6.435L10.0655 7.935C10.2061 8.07445 10.3177 8.24035 10.3939 8.42314C10.47 8.60593 10.5092 8.80199 10.5092 9C10.5092 9.19802 10.47 9.39408 10.3939 9.57687C10.3177 9.75966 10.2061 9.92556 10.0655 10.065C9.92536 10.204 9.75914 10.314 9.57638 10.3887C9.39363 10.4633 9.19793 10.5011 9.00052 10.5Z"
-                  fill="#192045" />
-                <path
-                  d="M20.9995 10.5C20.8021 10.5011 20.6064 10.4633 20.4237 10.3887C20.2409 10.314 20.0747 10.204 19.9345 10.065C19.7939 9.92556 19.6824 9.75966 19.6062 9.57687C19.5301 9.39408 19.4908 9.19802 19.4908 9C19.4908 8.80199 19.5301 8.60593 19.6062 8.42314C19.6824 8.24035 19.7939 8.07445 19.9345 7.935L21.4345 6.435C21.717 6.15255 22.1001 5.99387 22.4995 5.99387C22.899 5.99387 23.2821 6.15255 23.5645 6.435C23.847 6.71746 24.0057 7.10055 24.0057 7.5C24.0057 7.89946 23.847 8.28255 23.5645 8.565L22.0645 10.065C21.9244 10.204 21.7582 10.314 21.5754 10.3887C21.3926 10.4633 21.197 10.5011 20.9995 10.5Z"
-                  fill="#192045" />
-                <path
-                  d="M7.49991 24C7.3025 24.0011 7.10681 23.9633 6.92405 23.8887C6.74129 23.814 6.57507 23.704 6.43491 23.565C6.29432 23.4256 6.18272 23.2597 6.10657 23.0769C6.03042 22.8941 5.99121 22.698 5.99121 22.5C5.99121 22.302 6.03042 22.1059 6.10657 21.9231C6.18272 21.7403 6.29432 21.5744 6.43491 21.435L7.93491 19.935C8.21736 19.6525 8.60046 19.4939 8.99991 19.4939C9.39936 19.4939 9.78245 19.6525 10.0649 19.935C10.3474 20.2175 10.506 20.6006 10.506 21C10.506 21.3995 10.3474 21.7825 10.0649 22.065L8.56491 23.565C8.42475 23.704 8.25852 23.814 8.07577 23.8887C7.89301 23.9633 7.69732 24.0011 7.49991 24Z"
-                  fill="#192045" />
-                <path
-                  d="M22.5 24C22.3026 24.0011 22.1069 23.9633 21.9242 23.8887C21.7414 23.814 21.5752 23.704 21.435 23.565L19.935 22.065C19.6526 21.7825 19.4939 21.3995 19.4939 21C19.4939 20.8022 19.5329 20.6064 19.6085 20.4236C19.6842 20.2409 19.7952 20.0749 19.935 19.935C20.0749 19.7951 20.2409 19.6842 20.4237 19.6085C20.6064 19.5328 20.8022 19.4939 21 19.4939C21.3995 19.4939 21.7826 19.6525 22.065 19.935L23.565 21.435C23.7056 21.5744 23.8172 21.7403 23.8934 21.9231C23.9695 22.1059 24.0087 22.302 24.0087 22.5C24.0087 22.698 23.9695 22.8941 23.8934 23.0769C23.8172 23.2597 23.7056 23.4256 23.565 23.565C23.4249 23.704 23.2587 23.814 23.0759 23.8887C22.8931 23.9633 22.6974 24.0011 22.5 24Z"
-                  fill="#192045" />
-              </g>
-              <g class="icon-fullscreen-leave">
-                <path
-                  d="M9.00052 10.5C8.80311 10.5011 8.60742 10.4633 8.42466 10.3887C8.24191 10.314 8.07568 10.204 7.93552 10.065L6.43552 8.565C6.15307 8.28255 5.99438 7.89946 5.99438 7.5C5.99438 7.10055 6.15307 6.71746 6.43552 6.435C6.71798 6.15255 7.10107 5.99387 7.50052 5.99387C7.89998 5.99387 8.28307 6.15255 8.56552 6.435L10.0655 7.935C10.2061 8.07445 10.3177 8.24035 10.3939 8.42314C10.47 8.60593 10.5092 8.80199 10.5092 9C10.5092 9.19802 10.47 9.39408 10.3939 9.57687C10.3177 9.75966 10.2061 9.92556 10.0655 10.065C9.92536 10.204 9.75914 10.314 9.57638 10.3887C9.39363 10.4633 9.19793 10.5011 9.00052 10.5Z"
-                  fill="#192045" />
-                <path
-                  d="M20.9995 10.5C20.8021 10.5011 20.6064 10.4633 20.4237 10.3887C20.2409 10.314 20.0747 10.204 19.9345 10.065C19.7939 9.92556 19.6824 9.75966 19.6062 9.57687C19.5301 9.39408 19.4908 9.19802 19.4908 9C19.4908 8.80199 19.5301 8.60593 19.6062 8.42314C19.6824 8.24035 19.7939 8.07445 19.9345 7.935L21.4345 6.435C21.717 6.15255 22.1001 5.99387 22.4995 5.99387C22.899 5.99387 23.2821 6.15255 23.5645 6.435C23.847 6.71746 24.0057 7.10055 24.0057 7.5C24.0057 7.89946 23.847 8.28255 23.5645 8.565L22.0645 10.065C21.9244 10.204 21.7582 10.314 21.5754 10.3887C21.3926 10.4633 21.197 10.5011 20.9995 10.5Z"
-                  fill="#192045" />
-                <path
-                  d="M7.49991 24C7.3025 24.0011 7.10681 23.9633 6.92405 23.8887C6.74129 23.814 6.57507 23.704 6.43491 23.565C6.29432 23.4256 6.18272 23.2597 6.10657 23.0769C6.03042 22.8941 5.99121 22.698 5.99121 22.5C5.99121 22.302 6.03042 22.1059 6.10657 21.9231C6.18272 21.7403 6.29432 21.5744 6.43491 21.435L7.93491 19.935C8.21736 19.6525 8.60046 19.4939 8.99991 19.4939C9.39936 19.4939 9.78245 19.6525 10.0649 19.935C10.3474 20.2175 10.506 20.6006 10.506 21C10.506 21.3995 10.3474 21.7825 10.0649 22.065L8.56491 23.565C8.42475 23.704 8.25852 23.814 8.07577 23.8887C7.89301 23.9633 7.69732 24.0011 7.49991 24Z"
-                  fill="#192045" />
-                <path
-                  d="M22.5 24C22.3026 24.0011 22.1069 23.9633 21.9242 23.8887C21.7414 23.814 21.5752 23.704 21.435 23.565L19.935 22.065C19.6526 21.7825 19.4939 21.3995 19.4939 21C19.4939 20.8022 19.5329 20.6064 19.6085 20.4236C19.6842 20.2409 19.7952 20.0749 19.935 19.935C20.0749 19.7951 20.2409 19.6842 20.4237 19.6085C20.6064 19.5328 20.8022 19.4939 21 19.4939C21.3995 19.4939 21.7826 19.6525 22.065 19.935L23.565 21.435C23.7056 21.5744 23.8172 21.7403 23.8934 21.9231C23.9695 22.1059 24.0087 22.302 24.0087 22.5C24.0087 22.698 23.9695 22.8941 23.8934 23.0769C23.8172 23.2597 23.7056 23.4256 23.565 23.565C23.4249 23.704 23.2587 23.814 23.0759 23.8887C22.8931 23.9633 22.6974 24.0011 22.5 24Z"
-                  fill="#192045" />
-              </g>
+            <svg class="icon-fullscreen-leave" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 14h6v6M20 10h-6V4M14 10l7-7M3 21l7-7"/>
             </svg>
           </button>
         </div>
 
         <div class="dropdown d-inline-block position-relative">
-          <button type="button" class="btn header-item noti-icon position-relative"
+          <button type="button" class="pos-noti-btn position-relative"
             id="page-header-notifications-dropdown-v" data-bs-toggle="dropdown" aria-haspopup="true"
             aria-expanded="false" title="কম স্টক নোটিফিকেশন">
-            <svg width="26" height="26" viewBox="0 0 26 26" fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M9.45455 3.4881C6.04947 4.61889 3.63669 7.33014 3.63653 10.5164V16.7253L0.375499 19.3629C0.144442 19.5409 0 19.7945 0 20.0759V20.2035C0 21.2802 1.05824 22.153 2.36364 22.153H8.30287C8.56913 24.0982 10.5705 25.6098 13 25.6098C15.4295 25.6098 17.4309 24.0982 17.6971 22.153H23.6364C24.9418 22.153 26 21.2802 26 20.2035V20.0761C26.0001 19.7947 25.8557 19.541 25.6245 19.3629L22.3638 16.7256V10.5167C22.3637 7.33036 19.9507 4.61872 16.5455 3.48799V2.43688C16.5455 1.16681 15.3593 0.540947 14.8932 0.348687C14.2864 0.0983808 13.6138 0 13 0C12.3862 0 11.7136 0.0983808 11.1068 0.348687C10.6407 0.540947 9.45455 1.16681 9.45455 2.43688V3.4881ZM14.0955 2.92425C14.0894 2.94107 14.083 2.95765 14.0764 2.97398C13.723 2.94113 13.364 2.92425 13.0001 2.92425C12.6362 2.92425 12.2771 2.94114 11.9237 2.97401C11.917 2.95767 11.9106 2.94108 11.9045 2.92425H11.8182V2.43688C11.8182 2.16773 12.3468 1.9495 13 1.9495C13.6532 1.9495 14.1818 2.16773 14.1818 2.43688V2.92425H14.0955ZM15.3025 22.153H10.6975C10.9403 23.0167 11.879 23.6603 13 23.6603C14.121 23.6603 15.0597 23.0167 15.3025 22.153ZM6.00016 10.5164C6.00035 7.41792 9.11241 4.87375 13.0001 4.87375C16.8879 4.87375 20 7.41792 20.0001 10.5164H6.00016ZM6.00016 10.5164H20.0001V16.7256C20.0001 17.2493 20.2555 17.7509 20.7089 18.1175L23.288 20.2035H2.71208L5.6376 17.8373C5.86065 17.6605 6.00016 17.4119 6.00016 17.1347V10.5164Z"
-                fill="#192045" />
-            </svg>
-
-            <span id="noti-count-badge" class="badge rounded-pill bg-danger" style="position: absolute; top: 12px; right: 6px; font-size: 10px; font-weight: bold; border: 2px solid white; display: none;">0</span>
+            <i class="fa-regular fa-bell"></i>
+            <span id="noti-count-badge" class="badge rounded-pill bg-danger" style="display: none;">0</span>
           </button>
-          <div class="dropdown-menu dropdown-menu-xl dropdown-menu-end p-0 page-header-notifications-dropdown-v shadow-lg border-0"
-            aria-labelledby="page-header-notifications-dropdown-v" style="width: 340px; border-radius: 12px;">
-            <div class="p-3 border-bottom bg-light rounded-top">
-              <div class="row align-items-center">
-                <div class="col">
-                  <h6 class="m-0 font-size-15 fw-bold text-dark">
-                    <i class="fa-solid fa-bell text-danger me-2"></i>স্টক নোটিফিকেশন (১০ এর নিচে)
-                  </h6>
+          <div class="dropdown-menu dropdown-menu-end p-0 page-header-notifications-dropdown-v shadow-lg border-0"
+            aria-labelledby="page-header-notifications-dropdown-v">
+            <div class="stock-noti-header">
+              <div class="noti-title-wrap">
+                <div class="noti-icon-badge">
+                  <i class="fa-solid fa-bell"></i>
                 </div>
-                <div class="col-auto">
-                  <a href="/admin-dashboard-stock-out" class="small fw-bold text-decoration-none text-danger">
-                    সব দেখুন <i class="fa-solid fa-arrow-right ms-1"></i>
-                  </a>
+                <div>
+                  <h6 class="noti-title">স্টক নোটিফিকেশন</h6>
+                  <p class="noti-subtitle">স্টক ১০ এর কম থাকা পণ্যসমূহ</p>
                 </div>
               </div>
+              <a href="/admin-dashboard-stock-out" class="noti-view-all-btn">
+                <span>সব দেখুন</span> <i class="fa-solid fa-arrow-right" style="font-size: 8.5px;"></i>
+              </a>
             </div>
-            <div id="notification-items-list" data-simplebar style="max-height: 320px; overflow-y: auto;">
+            <div id="notification-items-list">
               <!-- Dynamic Low Stock Product Notifications Populated via JS -->
               <div class="text-center py-4 px-3">
                 <div class="spinner-border spinner-border-sm text-danger me-2" role="status"></div>
                 <span class="small text-muted">নোটিফিকেশন লোড হচ্ছে...</span>
               </div>
             </div>
-            <div class="p-2 border-top bg-light rounded-bottom text-center">
-              <a href="/admin-dashboard-stock-out" class="small fw-bold text-danger text-decoration-none">
-                <i class="fa-solid fa-list-check me-1"></i> কম স্টক প্রোডাক্টের সম্পূর্ণ তালিকা দেখুন
+            <div class="stock-noti-footer">
+              <a href="/admin-dashboard-stock-out">
+                <i class="fa-solid fa-boxes-stacked"></i> কম স্টক প্রোডাক্টের সম্পূর্ণ তালিকা দেখুন <i class="fa-solid fa-arrow-right" style="font-size: 9px;"></i>
               </a>
             </div>
           </div>
@@ -1038,254 +1490,673 @@
     </div>
     <!-- Logo Box End -->
 
-    <!--- Side Menu -->
-    <div data-simplebar class="sidebar-menu-scroll">
-      <div id="sidebar-menu">
-        <!-- Left Menu Start -->
-        <div class="nav">
-          <div class="menu">
-            <ul>
-              <li class="active-link">
-                <a href="{{ url('admin-dashboard') }}">
-                  <i class="fa-solid fa-gauge icon" style="width: 24px; text-align: center;"></i>
+    @php
+      $activeParent = null;
+      if (request()->is('admin-dashboard-product*') || request()->is('admin-dashboard-brand*') || request()->is('admin-dashboard-category*') || request()->is('admin-dashboard-barcode-genarate*')) {
+          $activeParent = 'product';
+      } elseif (request()->is('admin-dashboard-supplier*') || request()->is('supplier-due-page*') || request()->is('supplier-due-collection-page*')) {
+          $activeParent = 'supplier';
+      } elseif (request()->is('admin-dashboard-Purchase*')) {
+          $activeParent = 'purchase';
+      } elseif (request()->is('admin-dashboard-customer*') || request()->is('admin-dashboard-customer-due-list*') || request()->is('customer-due-collection-page*')) {
+          $activeParent = 'customer';
+      } elseif (request()->is('admin-dashboard-expence*')) {
+          $activeParent = 'expense';
+      } elseif (request()->is('admin-dashboard-return-list*')) {
+          $activeParent = 'sales-return';
+      } elseif (request()->is('admin-dashboard-opening-balance*')) {
+          $activeParent = 'opening-balance';
+      } elseif (request()->is('admin-dashboard-*-report*') || request()->is('admin-dashboard-stock-out*') || request()->is('admin-dashboard-daily-*') || request()->is('admin-dashboard-personal-*') || request()->is('admin-dashboard-income-*') || request()->is('admin-dashboard-sales-report*')) {
+          $activeParent = 'report';
+      } elseif (request()->is('admin-dashboard-user-role*')) {
+          $activeParent = 'user-role';
+      }
+    @endphp
 
-                  <span class="text">Dashboard</span>
-                </a>
-              </li>
-              <li class="active-link" data-perm="pos">
-                <a href="{{ url('admin-dashboard-pos') }}">
-                  <i class="fa-solid fa-cash-register icon" style="width: 24px; text-align: center;"></i>
+    <!--- Redesigned Sliding Drilldown Wrapper -->
+    <div id="sidebar-slider-wrapper" class="relative flex-1 w-full overflow-hidden">
+      
+      <!-- Panel 1: Main Menu Panel -->
+      <div id="sidebar-main-panel" class="sidebar-panel-scroll absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden transition-transform duration-300 ease-in-out py-2 px-3 {{ $activeParent ? '-translate-x-full pointer-events-none' : 'translate-x-0' }}">
+        <ul class="space-y-1">
+          
+          <!-- 1. Dashboard -->
+          <li class="sidebar-item relative group">
+            <a href="{{ url('admin-dashboard') }}" class="sidebar-link w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-100 hover:text-white hover:bg-white/15 transition-all duration-200 {{ request()->is('admin-dashboard') ? 'active-gradient' : '' }}">
+              <i class="fa-solid fa-gauge text-emerald-200 group-hover:text-emerald-100 text-[15px] w-6 text-center shrink-0 transition-transform group-hover:scale-110"></i>
+              <span class="sidebar-label text-[13.5px] font-medium tracking-wide">Dashboard</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Dashboard
+            </div>
+          </li>
 
-                  <span class="text">POS</span>
-                </a>
-              </li>
-              <li class="active-link" data-perm="pos">
-                <a href="{{ url('admin-dashboard-invoice') }}">
-                  <i class="fa-solid fa-file-invoice-dollar icon" style="width: 24px; text-align: center;"></i>
-                  <span class="text">Invoice List</span>
-                </a>
-              </li>
+          <!-- 2. POS -->
+          <li class="sidebar-item relative group" data-perm="pos">
+            <a href="{{ url('admin-dashboard-pos') }}" class="sidebar-link w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-100 hover:text-white hover:bg-white/15 transition-all duration-200 {{ request()->is('admin-dashboard-pos') ? 'active-gradient' : '' }}">
+              <i class="fa-solid fa-cash-register text-emerald-200 group-hover:text-emerald-100 text-[15px] w-6 text-center shrink-0 transition-transform group-hover:scale-110"></i>
+              <span class="sidebar-label text-[13.5px] font-medium tracking-wide">POS</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              POS
+            </div>
+          </li>
 
-              <li class="submenu-active" data-perm="product">
-                <a>
-                  <i class="fa-solid fa-boxes-stacked icon" style="width: 24px; text-align: center;"></i>
-                  <span class="text">Product</span>
-                  <i class="arrow fa-solid fa-angle-down"></i>
-                </a>
-                <ul class="sub-menu">
-                  <li>
-                    <a href="{{ url('admin-dashboard-product') }}">
-                      <span class="text">Product List</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="{{ url('admin-dashboard-brand') }}">
-                      <span class="text">Brand List</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="{{ url('admin-dashboard-category') }}">
-                      <span class="text">Category List</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="{{ url('admin-dashboard-barcode-genarate') }}">
-                      <span class="text">BarCode Print</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="{{ url('admin-dashboard-stock-out') }}">
-                      <span class="text text-danger fw-bold"><i class="fa-solid fa-triangle-exclamation me-1"></i> কম স্টক প্রোডাক্ট তালিকা</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+          <!-- 3. Invoice List -->
+          <li class="sidebar-item relative group" data-perm="pos">
+            <a href="{{ url('admin-dashboard-invoice') }}" class="sidebar-link w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-100 hover:text-white hover:bg-white/15 transition-all duration-200 {{ request()->is('admin-dashboard-invoice') ? 'active-gradient' : '' }}">
+              <i class="fa-solid fa-file-invoice-dollar text-emerald-200 group-hover:text-emerald-100 text-[15px] w-6 text-center shrink-0 transition-transform group-hover:scale-110"></i>
+              <span class="sidebar-label text-[13.5px] font-medium tracking-wide">Invoice List</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Invoice List
+            </div>
+          </li>
 
-              <li class="submenu-active" data-perm="purchase">
-                <a>
-                  <i class="fa-solid fa-truck icon" style="width: 24px; text-align: center;"></i>
-                  <span class="text">Supplier</span>
-                  <i class="arrow fa-solid fa-angle-down"></i>
-                </a>
-                <ul class="sub-menu">
-                  <li>
-                    <a href="{{ url('admin-dashboard-supplier') }}">
-                      <span class="text">Supplier List</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="{{ url('supplier-due-page') }}">
-                      <span class="text">Supplier Due List</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="{{ url('supplier-due-collection-page') }}">
-                      <span class="text">Due collection List</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+          <!-- 4. Product (Has Submenu) -->
+          <li class="sidebar-item has-submenu relative group" data-menu-id="product" data-perm="product">
+            <button type="button" class="sidebar-drilldown-trigger w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-100 hover:text-white hover:bg-white/15 bg-transparent border-0 outline-none transition-all duration-200 text-start {{ $activeParent === 'product' ? 'active-parent' : '' }}" style="background-color: transparent;" data-target="submenu-panel-product">
+              <div class="flex items-center gap-3 min-w-0">
+                <i class="fa-solid fa-boxes-stacked text-emerald-200 group-hover:text-emerald-100 text-[15px] w-6 text-center shrink-0 transition-transform group-hover:scale-110"></i>
+                <span class="sidebar-label text-[13.5px] font-medium tracking-wide truncate">Product</span>
+              </div>
+              <span class="sidebar-arrow shrink-0 w-5 h-5 rounded-md bg-white/10 flex items-center justify-center text-white/70 group-hover:text-white group-hover:bg-white/20 transition-all">
+                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+              </span>
+            </button>
+            <!-- Collapsed Flyout Popover -->
+            <div class="sidebar-flyout">
+              <div class="sidebar-flyout-header flex items-center justify-between px-3 py-2 border-b border-emerald-500/25 mb-1.5">
+                <span class="text-[11px] font-bold tracking-wider text-emerald-300 uppercase flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]"></span>
+                  Product
+                </span>
+                <span class="text-[9.5px] font-semibold text-emerald-200/80 bg-emerald-500/20 px-1.5 py-0.5 rounded border border-emerald-400/30">Menu</span>
+              </div>
+              <ul class="py-0.5 px-1 space-y-0.5">
+                <li><a href="{{ url('admin-dashboard-product') }}" class="sidebar-flyout-link {{ request()->is('admin-dashboard-product') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-list-ul text-[10px] text-emerald-300/80 w-4 text-center"></i><span>Product List</span></a></li>
+                <li><a href="{{ url('admin-dashboard-brand') }}" class="sidebar-flyout-link {{ request()->is('admin-dashboard-brand') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-tag text-[10px] text-emerald-300/80 w-4 text-center"></i><span>Brand List</span></a></li>
+                <li><a href="{{ url('admin-dashboard-category') }}" class="sidebar-flyout-link {{ request()->is('admin-dashboard-category') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-layer-group text-[10px] text-emerald-300/80 w-4 text-center"></i><span>Category List</span></a></li>
+                <li><a href="{{ url('admin-dashboard-barcode-genarate') }}" class="sidebar-flyout-link {{ request()->is('admin-dashboard-barcode-genarate') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-barcode text-[10px] text-emerald-300/80 w-4 text-center"></i><span>BarCode Print</span></a></li>
+                <li><a href="{{ url('admin-dashboard-stock-out') }}" class="sidebar-flyout-link text-red-300 hover:text-red-100 hover:bg-red-500/20 font-semibold"><i class="fa-solid fa-triangle-exclamation text-[10px] text-red-400 w-4 text-center"></i><span>কম স্টক প্রোডাক্ট</span></a></li>
+              </ul>
+            </div>
+          </li>
 
-              <li class="submenu-active" data-perm="purchase">
-                <a>
-                  <i class="fa-solid fa-cart-shopping icon" style="width: 24px; text-align: center;"></i>
-                  <span class="text">Purchase</span>
-                  <i class="arrow fa-solid fa-angle-down"></i>
-                </a>
-                <ul class="sub-menu">
-                  <li>
-                    <a href="{{ url('admin-dashboard-Purchase') }}">
-                      <span class="text">Purchase List</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+          <!-- 5. Supplier (Has Submenu) -->
+          <li class="sidebar-item has-submenu relative group" data-menu-id="supplier" data-perm="purchase">
+            <button type="button" class="sidebar-drilldown-trigger w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-100 hover:text-white hover:bg-white/15 bg-transparent border-0 outline-none transition-all duration-200 text-start {{ $activeParent === 'supplier' ? 'active-parent' : '' }}" style="background-color: transparent;" data-target="submenu-panel-supplier">
+              <div class="flex items-center gap-3 min-w-0">
+                <i class="fa-solid fa-truck text-emerald-200 group-hover:text-emerald-100 text-[15px] w-6 text-center shrink-0 transition-transform group-hover:scale-110"></i>
+                <span class="sidebar-label text-[13.5px] font-medium tracking-wide truncate">Supplier</span>
+              </div>
+              <span class="sidebar-arrow shrink-0 w-5 h-5 rounded-md bg-white/10 flex items-center justify-center text-white/70 group-hover:text-white group-hover:bg-white/20 transition-all">
+                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+              </span>
+            </button>
+            <!-- Collapsed Flyout Popover -->
+            <div class="sidebar-flyout">
+              <div class="sidebar-flyout-header flex items-center justify-between px-3 py-2 border-b border-emerald-500/25 mb-1.5">
+                <span class="text-[11px] font-bold tracking-wider text-emerald-300 uppercase flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]"></span>
+                  Supplier
+                </span>
+                <span class="text-[9.5px] font-semibold text-emerald-200/80 bg-emerald-500/20 px-1.5 py-0.5 rounded border border-emerald-400/30">Menu</span>
+              </div>
+              <ul class="py-0.5 px-1 space-y-0.5">
+                <li><a href="{{ url('admin-dashboard-supplier') }}" class="sidebar-flyout-link {{ request()->is('admin-dashboard-supplier') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-truck text-[10px] text-emerald-300/80 w-4 text-center"></i><span>Supplier List</span></a></li>
+                <li><a href="{{ url('supplier-due-page') }}" class="sidebar-flyout-link {{ request()->is('supplier-due-page') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-receipt text-[10px] text-emerald-300/80 w-4 text-center"></i><span>Supplier Due List</span></a></li>
+                <li><a href="{{ url('supplier-due-collection-page') }}" class="sidebar-flyout-link {{ request()->is('supplier-due-collection-page') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-money-bill-wave text-[10px] text-emerald-300/80 w-4 text-center"></i><span>Due collection List</span></a></li>
+              </ul>
+            </div>
+          </li>
 
+          <!-- 6. Purchase (Has Submenu) -->
+          <li class="sidebar-item has-submenu relative group" data-menu-id="purchase" data-perm="purchase">
+            <button type="button" class="sidebar-drilldown-trigger w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-100 hover:text-white hover:bg-white/15 bg-transparent border-0 outline-none transition-all duration-200 text-start {{ $activeParent === 'purchase' ? 'active-parent' : '' }}" style="background-color: transparent;" data-target="submenu-panel-purchase">
+              <div class="flex items-center gap-3 min-w-0">
+                <i class="fa-solid fa-cart-shopping text-emerald-200 group-hover:text-emerald-100 text-[15px] w-6 text-center shrink-0 transition-transform group-hover:scale-110"></i>
+                <span class="sidebar-label text-[13.5px] font-medium tracking-wide truncate">Purchase</span>
+              </div>
+              <span class="sidebar-arrow shrink-0 w-5 h-5 rounded-md bg-white/10 flex items-center justify-center text-white/70 group-hover:text-white group-hover:bg-white/20 transition-all">
+                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+              </span>
+            </button>
+            <!-- Collapsed Flyout Popover -->
+            <div class="sidebar-flyout">
+              <div class="sidebar-flyout-header flex items-center justify-between px-3 py-2 border-b border-emerald-500/25 mb-1.5">
+                <span class="text-[11px] font-bold tracking-wider text-emerald-300 uppercase flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]"></span>
+                  Purchase
+                </span>
+                <span class="text-[9.5px] font-semibold text-emerald-200/80 bg-emerald-500/20 px-1.5 py-0.5 rounded border border-emerald-400/30">Menu</span>
+              </div>
+              <ul class="py-0.5 px-1 space-y-0.5">
+                <li><a href="{{ url('admin-dashboard-Purchase') }}" class="sidebar-flyout-link {{ request()->is('admin-dashboard-Purchase') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-cart-flatbed text-[10px] text-emerald-300/80 w-4 text-center"></i><span>Purchase List</span></a></li>
+              </ul>
+            </div>
+          </li>
 
+          <!-- 7. Customer (Has Submenu) -->
+          <li class="sidebar-item has-submenu relative group" data-menu-id="customer" data-perm="customer">
+            <button type="button" class="sidebar-drilldown-trigger w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-100 hover:text-white hover:bg-white/15 bg-transparent border-0 outline-none transition-all duration-200 text-start {{ $activeParent === 'customer' ? 'active-parent' : '' }}" style="background-color: transparent;" data-target="submenu-panel-customer">
+              <div class="flex items-center gap-3 min-w-0">
+                <i class="fa-solid fa-users text-emerald-200 group-hover:text-emerald-100 text-[15px] w-6 text-center shrink-0 transition-transform group-hover:scale-110"></i>
+                <span class="sidebar-label text-[13.5px] font-medium tracking-wide truncate">Customer</span>
+              </div>
+              <span class="sidebar-arrow shrink-0 w-5 h-5 rounded-md bg-white/10 flex items-center justify-center text-white/70 group-hover:text-white group-hover:bg-white/20 transition-all">
+                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+              </span>
+            </button>
+            <!-- Collapsed Flyout Popover -->
+            <div class="sidebar-flyout">
+              <div class="sidebar-flyout-header flex items-center justify-between px-3 py-2 border-b border-emerald-500/25 mb-1.5">
+                <span class="text-[11px] font-bold tracking-wider text-emerald-300 uppercase flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]"></span>
+                  Customer
+                </span>
+                <span class="text-[9.5px] font-semibold text-emerald-200/80 bg-emerald-500/20 px-1.5 py-0.5 rounded border border-emerald-400/30">Menu</span>
+              </div>
+              <ul class="py-0.5 px-1 space-y-0.5">
+                <li><a href="{{ url('admin-dashboard-customer') }}" class="sidebar-flyout-link {{ request()->is('admin-dashboard-customer') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-user-group text-[10px] text-emerald-300/80 w-4 text-center"></i><span>Customer List</span></a></li>
+                <li><a href="{{ url('admin-dashboard-customer-due-list') }}" class="sidebar-flyout-link {{ request()->is('admin-dashboard-customer-due-list') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-file-invoice text-[10px] text-emerald-300/80 w-4 text-center"></i><span>Customer Due List</span></a></li>
+                <li><a href="{{ url('customer-due-collection-page') }}" class="sidebar-flyout-link {{ request()->is('customer-due-collection-page') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-hand-holding-dollar text-[10px] text-emerald-300/80 w-4 text-center"></i><span>Due Collection List</span></a></li>
+              </ul>
+            </div>
+          </li>
 
-              <li class="submenu-active" data-perm="customer">
-                <a>
-                  <i class="fa-solid fa-users icon" style="width: 24px; text-align: center;"></i>
-                  <span class="text">Customer</span>
-                  <i class="arrow fa-solid fa-angle-down"></i>
-                </a>
-                <ul class="sub-menu">
-                  <li>
-                    <a href="{{ url('admin-dashboard-customer') }}">
-                      <span class="text">Customer List</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="{{ url('admin-dashboard-customer-due-list') }}">
-                      <span class="text">Customer Due List</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="{{ url('customer-due-collection-page') }}">
-                      <span class="text">Due Collection List</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+          <!-- 8. Expense (Has Submenu) -->
+          <li class="sidebar-item has-submenu relative group" data-menu-id="expense" data-perm="expense">
+            <button type="button" class="sidebar-drilldown-trigger w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-100 hover:text-white hover:bg-white/15 bg-transparent border-0 outline-none transition-all duration-200 text-start {{ $activeParent === 'expense' ? 'active-parent' : '' }}" style="background-color: transparent;" data-target="submenu-panel-expense">
+              <div class="flex items-center gap-3 min-w-0">
+                <i class="fa-solid fa-wallet text-emerald-200 group-hover:text-emerald-100 text-[15px] w-6 text-center shrink-0 transition-transform group-hover:scale-110"></i>
+                <span class="sidebar-label text-[13.5px] font-medium tracking-wide truncate">Expense</span>
+              </div>
+              <span class="sidebar-arrow shrink-0 w-5 h-5 rounded-md bg-white/10 flex items-center justify-center text-white/70 group-hover:text-white group-hover:bg-white/20 transition-all">
+                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+              </span>
+            </button>
+            <!-- Collapsed Flyout Popover -->
+            <div class="sidebar-flyout">
+              <div class="sidebar-flyout-header flex items-center justify-between px-3 py-2 border-b border-emerald-500/25 mb-1.5">
+                <span class="text-[11px] font-bold tracking-wider text-emerald-300 uppercase flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]"></span>
+                  Expense
+                </span>
+                <span class="text-[9.5px] font-semibold text-emerald-200/80 bg-emerald-500/20 px-1.5 py-0.5 rounded border border-emerald-400/30">Menu</span>
+              </div>
+              <ul class="py-0.5 px-1 space-y-0.5">
+                <li><a href="{{ url('admin-dashboard-expence-type') }}" class="sidebar-flyout-link {{ request()->is('admin-dashboard-expence-type') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-tags text-[10px] text-emerald-300/80 w-4 text-center"></i><span>Expense Type</span></a></li>
+                <li><a href="{{ url('admin-dashboard-expence-list') }}" class="sidebar-flyout-link {{ request()->is('admin-dashboard-expence-list') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-receipt text-[10px] text-emerald-300/80 w-4 text-center"></i><span>Expense List</span></a></li>
+              </ul>
+            </div>
+          </li>
 
-              <li class="submenu-active" data-perm="expense">
-                <a>
-                  <i class="fa-solid fa-wallet icon" style="width: 24px; text-align: center;"></i>
-                  <span class="text">Expense</span>
-                  <i class="arrow fa-solid fa-angle-down"></i>
-                </a>
-                <ul class="sub-menu">
-                  <li>
-                    <a href="{{ url('admin-dashboard-expence-type') }}">
-                      <span class="text">Expense Type</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="{{ url('admin-dashboard-expence-list') }}">
-                      <span class="text">Expense List</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+          <!-- 9. Sales Return (Has Submenu) -->
+          <li class="sidebar-item has-submenu relative group" data-menu-id="sales-return" data-perm="pos">
+            <button type="button" class="sidebar-drilldown-trigger w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-100 hover:text-white hover:bg-white/15 bg-transparent border-0 outline-none transition-all duration-200 text-start {{ $activeParent === 'sales-return' ? 'active-parent' : '' }}" style="background-color: transparent;" data-target="submenu-panel-sales-return">
+              <div class="flex items-center gap-3 min-w-0">
+                <i class="fa-solid fa-arrow-rotate-left text-emerald-200 group-hover:text-emerald-100 text-[15px] w-6 text-center shrink-0 transition-transform group-hover:scale-110"></i>
+                <span class="sidebar-label text-[13.5px] font-medium tracking-wide truncate">Sales Return</span>
+              </div>
+              <span class="sidebar-arrow shrink-0 w-5 h-5 rounded-md bg-white/10 flex items-center justify-center text-white/70 group-hover:text-white group-hover:bg-white/20 transition-all">
+                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+              </span>
+            </button>
+            <!-- Collapsed Flyout Popover -->
+            <div class="sidebar-flyout">
+              <div class="sidebar-flyout-header flex items-center justify-between px-3 py-2 border-b border-emerald-500/25 mb-1.5">
+                <span class="text-[11px] font-bold tracking-wider text-emerald-300 uppercase flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]"></span>
+                  Sales Return
+                </span>
+                <span class="text-[9.5px] font-semibold text-emerald-200/80 bg-emerald-500/20 px-1.5 py-0.5 rounded border border-emerald-400/30">Menu</span>
+              </div>
+              <ul class="py-0.5 px-1 space-y-0.5">
+                <li><a href="{{ url('admin-dashboard-return-list') }}" class="sidebar-flyout-link {{ request()->is('admin-dashboard-return-list') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-box-archive text-[10px] text-emerald-300/80 w-4 text-center"></i><span>Return List</span></a></li>
+              </ul>
+            </div>
+          </li>
 
-              <li class="submenu-active" data-perm="pos">
-                <a>
-                  <i class="fa-solid fa-arrow-rotate-left icon" style="width: 24px; text-align: center;"></i>
-                  <span class="text">Sales Return</span>
-                  <i class="arrow fa-solid fa-angle-down"></i>
-                </a>
-                <ul class="sub-menu">
-                  <li>
-                    <a href="{{ url('admin-dashboard-return-list') }}">
-                      <span class="text">Return List</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+          <!-- 10. Opening Balance (Has Submenu) -->
+          <li class="sidebar-item has-submenu relative group" data-menu-id="opening-balance" data-perm="expense">
+            <button type="button" class="sidebar-drilldown-trigger w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-100 hover:text-white hover:bg-white/15 bg-transparent border-0 outline-none transition-all duration-200 text-start {{ $activeParent === 'opening-balance' ? 'active-parent' : '' }}" style="background-color: transparent;" data-target="submenu-panel-opening-balance">
+              <div class="flex items-center gap-3 min-w-0">
+                <i class="fa-solid fa-scale-balanced text-emerald-200 group-hover:text-emerald-100 text-[15px] w-6 text-center shrink-0 transition-transform group-hover:scale-110"></i>
+                <span class="sidebar-label text-[13.5px] font-medium tracking-wide truncate">Opening Balance</span>
+              </div>
+              <span class="sidebar-arrow shrink-0 w-5 h-5 rounded-md bg-white/10 flex items-center justify-center text-white/70 group-hover:text-white group-hover:bg-white/20 transition-all">
+                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+              </span>
+            </button>
+            <!-- Collapsed Flyout Popover -->
+            <div class="sidebar-flyout">
+              <div class="sidebar-flyout-header flex items-center justify-between px-3 py-2 border-b border-emerald-500/25 mb-1.5">
+                <span class="text-[11px] font-bold tracking-wider text-emerald-300 uppercase flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]"></span>
+                  Opening Balance
+                </span>
+                <span class="text-[9.5px] font-semibold text-emerald-200/80 bg-emerald-500/20 px-1.5 py-0.5 rounded border border-emerald-400/30">Menu</span>
+              </div>
+              <ul class="py-0.5 px-1 space-y-0.5">
+                <li><a href="{{ url('admin-dashboard-opening-balance') }}" class="sidebar-flyout-link {{ request()->is('admin-dashboard-opening-balance') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-wallet text-[10px] text-emerald-300/80 w-4 text-center"></i><span>Opening Balance List</span></a></li>
+              </ul>
+            </div>
+          </li>
 
-              <li class="submenu-active" data-perm="expense">
-                <a>
-                  <i class="fa-solid fa-scale-balanced icon" style="width: 24px; text-align: center;"></i>
-                  <span class="text">Opening Balance</span>
-                  <i class="arrow fa-solid fa-angle-down"></i>
-                </a>
-                <ul class="sub-menu">
-                  <li>
-                    <a href="{{ url('admin-dashboard-opening-balance') }}">
-                      <span class="text">Opening Balance List</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+          <!-- 11. Report (Has Submenu) -->
+          <li class="sidebar-item has-submenu relative group" data-menu-id="report" data-perm="report">
+            <button type="button" class="sidebar-drilldown-trigger w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-100 hover:text-white hover:bg-white/15 bg-transparent border-0 outline-none transition-all duration-200 text-start {{ $activeParent === 'report' ? 'active-parent' : '' }}" style="background-color: transparent;" data-target="submenu-panel-report">
+              <div class="flex items-center gap-3 min-w-0">
+                <i class="fa-solid fa-chart-pie text-emerald-200 group-hover:text-emerald-100 text-[15px] w-6 text-center shrink-0 transition-transform group-hover:scale-110"></i>
+                <span class="sidebar-label text-[13.5px] font-medium tracking-wide truncate">Report</span>
+              </div>
+              <span class="sidebar-arrow shrink-0 w-5 h-5 rounded-md bg-white/10 flex items-center justify-center text-white/70 group-hover:text-white group-hover:bg-white/20 transition-all">
+                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+              </span>
+            </button>
+            <!-- Collapsed Flyout Popover -->
+            <div class="sidebar-flyout !w-64">
+              <div class="sidebar-flyout-header flex items-center justify-between px-3 py-2 border-b border-emerald-500/25 mb-1.5">
+                <span class="text-[11px] font-bold tracking-wider text-emerald-300 uppercase flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]"></span>
+                  Report
+                </span>
+                <span class="text-[9.5px] font-semibold text-emerald-200/80 bg-emerald-500/20 px-1.5 py-0.5 rounded border border-emerald-400/30">Menu</span>
+              </div>
+              <ul class="py-0.5 px-1 space-y-0.5">
+                <li><a href="{{ url('admin-dashboard-daily-ledger-report') }}" class="sidebar-flyout-link {{ request()->is('admin-dashboard-daily-ledger-report') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-book text-[10px] text-emerald-300/80 w-4 text-center"></i><span>Daily Ledger Report (লেজার)</span></a></li>
+                <li><a href="{{ url('admin-dashboard-sales-report') }}" class="sidebar-flyout-link {{ request()->is('admin-dashboard-sales-report') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-chart-column text-[10px] text-emerald-300/80 w-4 text-center"></i><span>Sales Report</span></a></li>
+                <li><a href="{{ url('admin-dashboard-income-expense-report') }}" class="sidebar-flyout-link {{ request()->is('admin-dashboard-income-expense-report') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-scale-unbalanced-flip text-[10px] text-emerald-300/80 w-4 text-center"></i><span>Income & Expense Report</span></a></li>
+                <li><a href="{{ url('admin-dashboard-daily-receipt-payment-report') }}" class="sidebar-flyout-link {{ request()->is('admin-dashboard-daily-receipt-payment-report') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-receipt text-[10px] text-emerald-300/80 w-4 text-center"></i><span>Daily Receipt & Payment</span></a></li>
+                <li><a href="{{ url('admin-dashboard-personal-transaction-report') }}" class="sidebar-flyout-link {{ request()->is('admin-dashboard-personal-transaction-report') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-user-check text-[10px] text-emerald-300/80 w-4 text-center"></i><span>Personal Transaction</span></a></li>
+                <li><a href="{{ url('admin-dashboard-stock-out') }}" class="sidebar-flyout-link text-red-300 hover:text-red-100 hover:bg-red-500/20 font-semibold"><i class="fa-solid fa-triangle-exclamation text-[10px] text-red-400 w-4 text-center"></i><span>Low Stock Report (কম স্টক)</span></a></li>
+              </ul>
+            </div>
+          </li>
 
-              <li class="submenu-active" data-perm="report">
-                <a>
-                  <i class="fa-solid fa-chart-pie icon" style="width: 24px; text-align: center;"></i>
-                  <span class="text">Report</span>
-                  <i class="arrow fa-solid fa-angle-down"></i>
-                </a>
-                <ul class="sub-menu">
-                  <li>
-                    <a href="{{ url('admin-dashboard-daily-ledger-report') }}">
-                      <span class="text">Daily Income & Expense Ledger (আয়-ব্যয় লেজার)</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="{{ url('admin-dashboard-sales-report') }}">
-                      <span class="text">Sales Report</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="{{ url('admin-dashboard-income-expense-report') }}">
-                      <span class="text">Income & Expense Report</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="{{ url('admin-dashboard-daily-receipt-payment-report') }}">
-                      <span class="text">Daily Receipt & Payment Report</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="{{ url('admin-dashboard-personal-transaction-report') }}">
-                      <span class="text">Personal Transaction Report</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="{{ url('admin-dashboard-stock-out') }}">
-                      <span class="text text-danger fw-bold"><i class="fa-solid fa-triangle-exclamation me-1"></i> Low Stock Report (কম স্টক)</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+          <!-- 12. Role & User (Has Submenu) -->
+          <li class="sidebar-item has-submenu relative group" data-menu-id="user-role" data-perm="user">
+            <button type="button" class="sidebar-drilldown-trigger w-full flex items-center justify-between px-3 py-2.5 rounded-xl text-slate-100 hover:text-white hover:bg-white/15 bg-transparent border-0 outline-none transition-all duration-200 text-start {{ $activeParent === 'user-role' ? 'active-parent' : '' }}" style="background-color: transparent;" data-target="submenu-panel-user-role">
+              <div class="flex items-center gap-3 min-w-0">
+                <i class="fa-solid fa-user-shield text-emerald-200 group-hover:text-emerald-100 text-[15px] w-6 text-center shrink-0 transition-transform group-hover:scale-110"></i>
+                <span class="sidebar-label text-[13.5px] font-medium tracking-wide truncate">Role & User</span>
+              </div>
+              <span class="sidebar-arrow shrink-0 w-5 h-5 rounded-md bg-white/10 flex items-center justify-center text-white/70 group-hover:text-white group-hover:bg-white/20 transition-all">
+                <i class="fa-solid fa-chevron-right text-[9px]"></i>
+              </span>
+            </button>
+            <!-- Collapsed Flyout Popover -->
+            <div class="sidebar-flyout">
+              <div class="sidebar-flyout-header flex items-center justify-between px-3 py-2 border-b border-emerald-500/25 mb-1.5">
+                <span class="text-[11px] font-bold tracking-wider text-emerald-300 uppercase flex items-center gap-1.5">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 shadow-[0_0_6px_#34d399]"></span>
+                  Role & User
+                </span>
+                <span class="text-[9.5px] font-semibold text-emerald-200/80 bg-emerald-500/20 px-1.5 py-0.5 rounded border border-emerald-400/30">Menu</span>
+              </div>
+              <ul class="py-0.5 px-1 space-y-0.5">
+                <li><a href="{{ url('admin-dashboard-user-role') }}" class="sidebar-flyout-link {{ request()->is('admin-dashboard-user-role') ? 'active-flyout-link' : '' }}"><i class="fa-solid fa-user-gear text-[10px] text-emerald-300/80 w-4 text-center"></i><span>User List & Roles</span></a></li>
+              </ul>
+            </div>
+          </li>
 
-              <li class="submenu-active" data-perm="user">
-                <a>
-                  <i class="fa-solid fa-user-shield icon" style="width: 24px; text-align: center;"></i>
-                  <span class="text">Role & User</span>
-                  <i class="arrow fa-solid fa-angle-down"></i>
-                </a>
-                <ul class="sub-menu">
-                  <li>
-                    <a href="{{ url('admin-dashboard-user-role') }}">
-                      <span class="text">User List & Roles (ইউজার ও পারমিশন)</span>
-                    </a>
-                  </li>
-                </ul>
-              </li>
+        </ul>
+      </div>
 
-            </ul>
+      <!-- Panel 2: Product Submenu Panel -->
+      <div id="submenu-panel-product" class="sidebar-submenu-panel sidebar-panel-scroll absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden transition-transform duration-300 ease-in-out py-2 px-3 {{ $activeParent === 'product' ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none' }}" data-parent-id="product" data-perm="product">
+        <div class="sidebar-back-wrapper relative group mb-2">
+          <button type="button" class="sidebar-back-btn w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-emerald-100 bg-white/10 hover:bg-white/20 border border-white/15 font-semibold text-sm transition-all duration-200 shadow-sm" data-target="main">
+            <i class="fa-solid fa-chevron-left text-xs text-emerald-300"></i>
+            <span class="truncate">Product</span>
+          </button>
+          <div class="sidebar-mini-tooltip">
+            Main Menu
           </div>
         </div>
+        <ul class="space-y-1">
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-product') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('admin-dashboard-product') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-list-ul text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>Product List</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Product List
+            </div>
+          </li>
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-brand') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('admin-dashboard-brand') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-tag text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>Brand List</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Brand List
+            </div>
+          </li>
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-category') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('admin-dashboard-category') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-layer-group text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>Category List</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Category List
+            </div>
+          </li>
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-barcode-genarate') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('admin-dashboard-barcode-genarate') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-barcode text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>BarCode Print</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              BarCode Print
+            </div>
+          </li>
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-stock-out') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-red-200 hover:text-white hover:bg-red-600/30 font-bold transition-all duration-150 {{ request()->is('admin-dashboard-stock-out') ? 'bg-red-600 text-white' : '' }}">
+              <i class="fa-solid fa-triangle-exclamation text-xs text-red-300 w-4 text-center"></i>
+              <span>কম স্টক প্রোডাক্ট তালিকা</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              কম স্টক প্রোডাক্ট
+            </div>
+          </li>
+        </ul>
       </div>
-      <!-- Sidebar -->
+
+      <!-- Panel 3: Supplier Submenu Panel -->
+      <div id="submenu-panel-supplier" class="sidebar-submenu-panel sidebar-panel-scroll absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden transition-transform duration-300 ease-in-out py-2 px-3 {{ $activeParent === 'supplier' ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none' }}" data-parent-id="supplier" data-perm="purchase">
+        <div class="sidebar-back-wrapper relative group mb-2">
+          <button type="button" class="sidebar-back-btn w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-emerald-100 bg-white/10 hover:bg-white/20 border border-white/15 font-semibold text-sm transition-all duration-200 shadow-sm" data-target="main">
+            <i class="fa-solid fa-chevron-left text-xs text-emerald-300"></i>
+            <span class="truncate">Supplier</span>
+          </button>
+          <div class="sidebar-mini-tooltip">
+            Main Menu
+          </div>
+        </div>
+        <ul class="space-y-1">
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-supplier') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('admin-dashboard-supplier') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-address-book text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>Supplier List</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Supplier List
+            </div>
+          </li>
+          <li class="relative group">
+            <a href="{{ url('supplier-due-page') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('supplier-due-page') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-file-invoice text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>Supplier Due List</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Supplier Due List
+            </div>
+          </li>
+          <li class="relative group">
+            <a href="{{ url('supplier-due-collection-page') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('supplier-due-collection-page') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-hand-holding-dollar text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>Due collection List</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Due Collection List
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Panel 4: Purchase Submenu Panel -->
+      <div id="submenu-panel-purchase" class="sidebar-submenu-panel sidebar-panel-scroll absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden transition-transform duration-300 ease-in-out py-2 px-3 {{ $activeParent === 'purchase' ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none' }}" data-parent-id="purchase" data-perm="purchase">
+        <div class="sidebar-back-wrapper relative group mb-2">
+          <button type="button" class="sidebar-back-btn w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-emerald-100 bg-white/10 hover:bg-white/20 border border-white/15 font-semibold text-sm transition-all duration-200 shadow-sm" data-target="main">
+            <i class="fa-solid fa-chevron-left text-xs text-emerald-300"></i>
+            <span class="truncate">Purchase</span>
+          </button>
+          <div class="sidebar-mini-tooltip">
+            Main Menu
+          </div>
+        </div>
+        <ul class="space-y-1">
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-Purchase') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('admin-dashboard-Purchase') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-cart-arrow-down text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>Purchase List</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Purchase List
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Panel 5: Customer Submenu Panel -->
+      <div id="submenu-panel-customer" class="sidebar-submenu-panel sidebar-panel-scroll absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden transition-transform duration-300 ease-in-out py-2 px-3 {{ $activeParent === 'customer' ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none' }}" data-parent-id="customer" data-perm="customer">
+        <div class="sidebar-back-wrapper relative group mb-2">
+          <button type="button" class="sidebar-back-btn w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-emerald-100 bg-white/10 hover:bg-white/20 border border-white/15 font-semibold text-sm transition-all duration-200 shadow-sm" data-target="main">
+            <i class="fa-solid fa-chevron-left text-xs text-emerald-300"></i>
+            <span class="truncate">Customer</span>
+          </button>
+          <div class="sidebar-mini-tooltip">
+            Main Menu
+          </div>
+        </div>
+        <ul class="space-y-1">
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-customer') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('admin-dashboard-customer') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-address-card text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>Customer List</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Customer List
+            </div>
+          </li>
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-customer-due-list') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('admin-dashboard-customer-due-list') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-file-invoice text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>Customer Due List</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Customer Due List
+            </div>
+          </li>
+          <li class="relative group">
+            <a href="{{ url('customer-due-collection-page') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('customer-due-collection-page') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-hand-holding-dollar text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>Due Collection List</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Due Collection List
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Panel 6: Expense Submenu Panel -->
+      <div id="submenu-panel-expense" class="sidebar-submenu-panel sidebar-panel-scroll absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden transition-transform duration-300 ease-in-out py-2 px-3 {{ $activeParent === 'expense' ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none' }}" data-parent-id="expense" data-perm="expense">
+        <div class="sidebar-back-wrapper relative group mb-2">
+          <button type="button" class="sidebar-back-btn w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-emerald-100 bg-white/10 hover:bg-white/20 border border-white/15 font-semibold text-sm transition-all duration-200 shadow-sm" data-target="main">
+            <i class="fa-solid fa-chevron-left text-xs text-emerald-300"></i>
+            <span class="truncate">Expense</span>
+          </button>
+          <div class="sidebar-mini-tooltip">
+            Main Menu
+          </div>
+        </div>
+        <ul class="space-y-1">
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-expence-type') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('admin-dashboard-expence-type') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-tags text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>Expense Type</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Expense Type
+            </div>
+          </li>
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-expence-list') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('admin-dashboard-expence-list') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-receipt text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>Expense List</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Expense List
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Panel 7: Sales Return Submenu Panel -->
+      <div id="submenu-panel-sales-return" class="sidebar-submenu-panel sidebar-panel-scroll absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden transition-transform duration-300 ease-in-out py-2 px-3 {{ $activeParent === 'sales-return' ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none' }}" data-parent-id="sales-return" data-perm="pos">
+        <div class="sidebar-back-wrapper relative group mb-2">
+          <button type="button" class="sidebar-back-btn w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-emerald-100 bg-white/10 hover:bg-white/20 border border-white/15 font-semibold text-sm transition-all duration-200 shadow-sm" data-target="main">
+            <i class="fa-solid fa-chevron-left text-xs text-emerald-300"></i>
+            <span class="truncate">Sales Return</span>
+          </button>
+          <div class="sidebar-mini-tooltip">
+            Main Menu
+          </div>
+        </div>
+        <ul class="space-y-1">
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-return-list') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('admin-dashboard-return-list') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-rotate-left text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>Return List</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Sales Return List
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Panel 8: Opening Balance Submenu Panel -->
+      <div id="submenu-panel-opening-balance" class="sidebar-submenu-panel sidebar-panel-scroll absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden transition-transform duration-300 ease-in-out py-2 px-3 {{ $activeParent === 'opening-balance' ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none' }}" data-parent-id="opening-balance" data-perm="expense">
+        <div class="sidebar-back-wrapper relative group mb-2">
+          <button type="button" class="sidebar-back-btn w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-emerald-100 bg-white/10 hover:bg-white/20 border border-white/15 font-semibold text-sm transition-all duration-200 shadow-sm" data-target="main">
+            <i class="fa-solid fa-chevron-left text-xs text-emerald-300"></i>
+            <span class="truncate">Opening Balance</span>
+          </button>
+          <div class="sidebar-mini-tooltip">
+            Main Menu
+          </div>
+        </div>
+        <ul class="space-y-1">
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-opening-balance') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('admin-dashboard-opening-balance') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-scale-balanced text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>Opening Balance List</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Opening Balance List
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Panel 9: Report Submenu Panel -->
+      <div id="submenu-panel-report" class="sidebar-submenu-panel sidebar-panel-scroll absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden transition-transform duration-300 ease-in-out py-2 px-3 {{ $activeParent === 'report' ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none' }}" data-parent-id="report" data-perm="report">
+        <div class="sidebar-back-wrapper relative group mb-2">
+          <button type="button" class="sidebar-back-btn w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-emerald-100 bg-white/10 hover:bg-white/20 border border-white/15 font-semibold text-sm transition-all duration-200 shadow-sm" data-target="main">
+            <i class="fa-solid fa-chevron-left text-xs text-emerald-300"></i>
+            <span class="truncate">Report</span>
+          </button>
+          <div class="sidebar-mini-tooltip">
+            Main Menu
+          </div>
+        </div>
+        <ul class="space-y-1">
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-daily-ledger-report') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('admin-dashboard-daily-ledger-report') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-book-bookmark text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>Daily Income & Expense Ledger (আয়-ব্যয়)</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Daily Ledger Report
+            </div>
+          </li>
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-sales-report') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('admin-dashboard-sales-report') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-chart-line text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>Sales Report</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Sales Report
+            </div>
+          </li>
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-income-expense-report') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('admin-dashboard-income-expense-report') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-chart-column text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>Income & Expense Report</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Income & Expense Report
+            </div>
+          </li>
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-daily-receipt-payment-report') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('admin-dashboard-daily-receipt-payment-report') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-file-waveform text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>Daily Receipt & Payment</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Daily Receipt & Payment
+            </div>
+          </li>
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-personal-transaction-report') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('admin-dashboard-personal-transaction-report') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-user-tag text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>Personal Transaction Report</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Personal Transaction Report
+            </div>
+          </li>
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-stock-out') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-red-200 hover:text-white hover:bg-red-600/30 font-bold transition-all duration-150 {{ request()->is('admin-dashboard-stock-out') ? 'bg-red-600 text-white' : '' }}">
+              <i class="fa-solid fa-triangle-exclamation text-xs text-red-300 w-4 text-center"></i>
+              <span>Low Stock Report (কম স্টক)</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              Low Stock Report
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Panel 10: Role & User Submenu Panel -->
+      <div id="submenu-panel-user-role" class="sidebar-submenu-panel sidebar-panel-scroll absolute inset-0 w-full h-full overflow-y-auto overflow-x-hidden transition-transform duration-300 ease-in-out py-2 px-3 {{ $activeParent === 'user-role' ? 'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none' }}" data-parent-id="user-role" data-perm="user">
+        <div class="sidebar-back-wrapper relative group mb-2">
+          <button type="button" class="sidebar-back-btn w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl text-emerald-100 bg-white/10 hover:bg-white/20 border border-white/15 font-semibold text-sm transition-all duration-200 shadow-sm" data-target="main">
+            <i class="fa-solid fa-chevron-left text-xs text-emerald-300"></i>
+            <span class="truncate">Role & User</span>
+          </button>
+          <div class="sidebar-mini-tooltip">
+            Main Menu
+          </div>
+        </div>
+        <ul class="space-y-1">
+          <li class="relative group">
+            <a href="{{ url('admin-dashboard-user-role') }}" class="flex w-full items-center gap-2.5 px-3 py-2.5 rounded-xl text-[13px] text-slate-200 hover:text-white hover:bg-white/10 transition-all duration-150 {{ request()->is('admin-dashboard-user-role') ? 'active-submenu-link' : '' }}">
+              <i class="fa-solid fa-user-gear text-xs text-emerald-300/80 w-4 text-center"></i>
+              <span>User List & Roles (ইউজার ও পারমিশন)</span>
+            </a>
+            <div class="sidebar-mini-tooltip">
+              User List & Roles
+            </div>
+          </li>
+        </ul>
+      </div>
+
     </div>
 
     <!-- Fixed Bottom Logout Button -->
-    <div class="sidebar-bottom-logout">
+    <div class="sidebar-bottom-logout relative group">
       <a href="#" onclick="userlogout(event)" class="sidebar-logout-btn">
         <i class="fa-solid fa-right-from-bracket icon"></i>
         <span class="text">Log Out</span>
       </a>
+      <div class="sidebar-mini-tooltip">
+        Log Out
+      </div>
     </div>
   </div>
   <!-- Left Sidebar End -->
@@ -1327,6 +2198,169 @@
 
 
 
+
+  <!-- Modern Sliding Drilldown & Collapsed Popover Sidebar Controller -->
+  <script>
+    (function() {
+      // Open Submenu Drilldown Panel
+      window.openSubmenuPanel = function(panelId) {
+        // In collapsed mode (data-sidebar-size="sm"), don't slide inside the 70px icon rail
+        if (document.body.getAttribute('data-sidebar-size') === 'sm') {
+          return;
+        }
+
+        const mainPanel = document.getElementById('sidebar-main-panel');
+        const targetPanel = document.getElementById(panelId);
+        if (!mainPanel || !targetPanel) return;
+
+        // Hide any currently open submenu panels
+        document.querySelectorAll('.sidebar-submenu-panel').forEach(function(p) {
+          if (p !== targetPanel) {
+            p.classList.remove('translate-x-0', 'pointer-events-auto');
+            p.classList.add('translate-x-full', 'pointer-events-none');
+          }
+        });
+
+        // Slide main panel out to the left
+        mainPanel.classList.remove('translate-x-0');
+        mainPanel.classList.add('-translate-x-full', 'pointer-events-none');
+
+        // Slide target panel in from the right
+        targetPanel.classList.remove('translate-x-full', 'pointer-events-none');
+        targetPanel.classList.add('translate-x-0', 'pointer-events-auto');
+      };
+
+      // Close Submenu Panel and Return to Main Menu
+      window.closeSubmenuPanel = function() {
+        const mainPanel = document.getElementById('sidebar-main-panel');
+        if (!mainPanel) return;
+
+        // Slide all submenu panels out to the right
+        document.querySelectorAll('.sidebar-submenu-panel').forEach(function(p) {
+          p.classList.remove('translate-x-0', 'pointer-events-auto');
+          p.classList.add('translate-x-full', 'pointer-events-none');
+        });
+
+        // Slide main panel back in from the left
+        mainPanel.classList.remove('-translate-x-full', 'pointer-events-none');
+        mainPanel.classList.add('translate-x-0');
+      };
+
+      document.addEventListener('DOMContentLoaded', function() {
+        // Bind drilldown trigger buttons
+        document.querySelectorAll('.sidebar-drilldown-trigger').forEach(function(btn) {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('data-target');
+
+            // If sidebar is collapsed (sm): toggle pin on the flyout for touch/click
+            if (document.body.getAttribute('data-sidebar-size') === 'sm') {
+              const parent = this.closest('.has-submenu');
+              if (parent) {
+                const flyout = parent.querySelector('.sidebar-flyout');
+                if (flyout) {
+                  const isPinned = flyout.classList.contains('flyout-pinned');
+                  document.querySelectorAll('.sidebar-flyout').forEach(function(f) {
+                    f.classList.remove('flyout-pinned');
+                  });
+                  document.querySelectorAll('.has-submenu').forEach(function(p) {
+                    p.classList.remove('flyout-open');
+                  });
+                  if (!isPinned) {
+                    flyout.classList.add('flyout-pinned');
+                    parent.classList.add('flyout-open');
+                  }
+                }
+              }
+              return;
+            }
+
+            if (targetId) {
+              openSubmenuPanel(targetId);
+            }
+          });
+        });
+
+        // Bind back buttons
+        document.querySelectorAll('.sidebar-back-btn').forEach(function(btn) {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            closeSubmenuPanel();
+          });
+        });
+
+        // Dismiss pinned and open flyouts on outside click
+        document.addEventListener('click', function(e) {
+          if (!e.target.closest('.has-submenu')) {
+            document.querySelectorAll('.sidebar-flyout.flyout-pinned').forEach(function(f) {
+              f.classList.remove('flyout-pinned');
+            });
+            document.querySelectorAll('.has-submenu.flyout-open').forEach(function(p) {
+              p.classList.remove('flyout-open');
+            });
+          }
+        });
+
+        // Debounced hover & smart vertical viewport positioning for flyouts
+        let activeFlyoutTimer = null;
+        document.querySelectorAll('.has-submenu').forEach(function(item) {
+          item.addEventListener('mouseenter', function() {
+            if (document.body.getAttribute('data-sidebar-size') !== 'sm') return;
+            if (activeFlyoutTimer) clearTimeout(activeFlyoutTimer);
+
+            // Close other unpinned flyouts
+            document.querySelectorAll('.has-submenu').forEach(function(other) {
+              if (other !== item && !other.querySelector('.sidebar-flyout.flyout-pinned')) {
+                other.classList.remove('flyout-open');
+              }
+            });
+
+            item.classList.add('flyout-open');
+
+            const flyout = item.querySelector('.sidebar-flyout');
+            if (!flyout) return;
+            const rect = item.getBoundingClientRect();
+            const flyoutHeight = flyout.offsetHeight || 260;
+            if (rect.top + flyoutHeight > window.innerHeight - 20) {
+              flyout.style.top = 'auto';
+              flyout.style.bottom = '0px';
+            } else {
+              flyout.style.top = '0px';
+              flyout.style.bottom = 'auto';
+            }
+          });
+
+          item.addEventListener('mouseleave', function() {
+            if (document.body.getAttribute('data-sidebar-size') !== 'sm') return;
+            activeFlyoutTimer = setTimeout(function() {
+              if (!item.querySelector('.sidebar-flyout.flyout-pinned')) {
+                item.classList.remove('flyout-open');
+              }
+            }, 180);
+          });
+        });
+
+        // Observer for body data-sidebar-size changes
+        const observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type === 'attributes' && mutation.attributeName === 'data-sidebar-size') {
+              const currentSize = document.body.getAttribute('data-sidebar-size');
+              if (currentSize === 'sm') {
+                // When collapsed: close any pinned or open flyouts
+                document.querySelectorAll('.sidebar-flyout.flyout-pinned').forEach(function(f) {
+                  f.classList.remove('flyout-pinned');
+                });
+                document.querySelectorAll('.has-submenu.flyout-open').forEach(function(p) {
+                  p.classList.remove('flyout-open');
+                });
+              }
+            }
+          });
+        });
+        observer.observe(document.body, { attributes: true });
+      });
+    })();
+  </script>
 
   <script>
     async function userlogout(event) {
@@ -1589,26 +2623,45 @@
             } else {
               let html = '';
               products.forEach(p => {
+                let codeDisplay = "N/A";
+                if (p.product_code) {
+                  try {
+                    const parsed = JSON.parse(p.product_code);
+                    if (Array.isArray(parsed)) {
+                      codeDisplay = parsed.filter(Boolean).join(", ") || "N/A";
+                    } else {
+                      codeDisplay = String(parsed).replace(/[\[\]"']/g, '').trim() || "N/A";
+                    }
+                  } catch (e) {
+                    codeDisplay = String(p.product_code).replace(/[\[\]"']/g, '').trim() || "N/A";
+                  }
+                }
+                const isOutOfStock = (Number(p.quantity) <= 0);
+                const unitText = p.unit_name ? p.unit_name : 'টি';
+
                 html += `
-                                <a href="/admin-dashboard-stock-out" class="text-reset notification-item d-block p-3 border-bottom text-decoration-none">
-                                    <div class="d-flex align-items-center">
-                                        <div class="flex-shrink-0 me-3">
-                                            <div class="rounded-circle bg-danger-subtle text-danger p-2 text-center" style="width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;">
-                                                <i class="fa-solid fa-triangle-exclamation fs-5"></i>
-                                            </div>
-                                        </div>
-                                        <div class="flex-grow-1">
-                                            <div class="d-flex justify-content-between align-items-center mb-1">
-                                                <h6 class="mb-0 fw-bold text-danger fs-6">${p.product_name}</h6>
-                                                <span class="badge bg-danger text-white px-2 py-1" style="font-size: 10px; border-radius: 6px;">কম স্টক!</span>
-                                            </div>
-                                            <p class="mb-0 small text-muted">
-                                                কোড: <strong>${p.product_code}</strong> | স্টক: <strong class="text-danger fs-6">${p.quantity} ${p.unit_name}</strong>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </a>
-                            `;
+                  <a href="/admin-dashboard-stock-out" class="stock-noti-item">
+                    <div class="item-icon-box" style="background: ${isOutOfStock ? '#fef2f2' : '#fffbeb'}; border: 1px solid ${isOutOfStock ? '#fecaca' : '#fef3c7'}; color: ${isOutOfStock ? '#dc2626' : '#d97706'};">
+                      <i class="${isOutOfStock ? 'fa-solid fa-triangle-exclamation' : 'fa-solid fa-boxes-stacked'}"></i>
+                    </div>
+                    <div class="item-body">
+                      <div class="item-row-top">
+                        <span class="item-name" title="${p.product_name}">${p.product_name}</span>
+                        <span class="item-badge ${isOutOfStock ? 'item-badge-danger' : 'item-badge-warning'}">
+                          ${isOutOfStock ? 'স্টক শেষ!' : 'কম স্টক!'}
+                        </span>
+                      </div>
+                      <div class="item-row-bottom">
+                        <span class="item-code" title="${codeDisplay}">
+                          <i class="fa-solid fa-barcode text-muted"></i> ${codeDisplay}
+                        </span>
+                        <span class="item-stock" style="color: ${isOutOfStock ? '#dc2626' : '#ea580c'};">
+                          স্টক: <strong>${p.quantity}</strong> ${unitText}
+                        </span>
+                      </div>
+                    </div>
+                  </a>
+                `;
               });
               listContainer.innerHTML = html;
             }
@@ -1621,6 +2674,46 @@
       }
     }
 
+    // Modern Light / Dark Mode Toggle Function with Icon Switching
+    function toggle_light_mode() {
+      const body = document.body;
+      const html = document.documentElement;
+      const currentMode = body.getAttribute("light-mode") || localStorage.getItem("lightMode") || "light";
+      const newMode = (currentMode === "dark") ? "light" : "dark";
+
+      localStorage.setItem("lightMode", newMode);
+      localStorage.setItem("layout-mode", newMode);
+
+      body.setAttribute("light-mode", newMode);
+      body.setAttribute("data-layout-mode", newMode);
+      html.setAttribute("light-mode", newMode);
+
+      // Sync settings radio buttons if available in sidebar
+      const radioLight = document.getElementById("layout-mode-light");
+      const radioDark = document.getElementById("layout-mode-dark");
+      if (radioLight && radioDark) {
+        if (newMode === "dark") {
+          radioDark.checked = true;
+        } else {
+          radioLight.checked = true;
+        }
+      }
+    }
+
+    // Apply saved theme immediately
+    (function() {
+      const saved = localStorage.getItem("lightMode") || localStorage.getItem("layout-mode") || "light";
+      if (saved === "dark") {
+        document.body.setAttribute("light-mode", "dark");
+        document.body.setAttribute("data-layout-mode", "dark");
+        document.documentElement.setAttribute("light-mode", "dark");
+      } else {
+        document.body.setAttribute("light-mode", "light");
+        document.body.setAttribute("data-layout-mode", "light");
+        document.documentElement.setAttribute("light-mode", "light");
+      }
+    })();
+
     document.addEventListener("DOMContentLoaded", function() {
       loadLowStockNotifications(false);
 
@@ -1631,7 +2724,7 @@
         });
       }
 
-      // Poll silently every 60 seconds for live stock alerts (without annoying continuous sound)
+      // Poll silently every 60 seconds for live stock alerts
       setInterval(() => {
         loadLowStockNotifications(false);
       }, 60000);

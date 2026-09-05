@@ -1995,44 +1995,56 @@
         }
 
         /* ========================================================
-           1. Back to Dashboard Button Hover Fix (Icon & Text always Green)
+           1. Back to Dashboard Button (Primary Green BG & White Text)
            ======================================================== */
+        .nav_back_btn a,
+        .nav_back_btn a.btn {
+            background: linear-gradient(135deg, #15803d 0%, #16a34a 100%) !important;
+            border: none !important;
+            color: #ffffff !important;
+        }
+        .nav_back_btn a i,
+        .nav_back_btn a span,
+        .nav_back_btn a .nav_back_text {
+            color: #ffffff !important;
+        }
         .nav_back_btn a:hover {
-            background: #dcfce7 !important;
-            border-color: #16a34a !important;
-            color: #15803d !important;
+            background: linear-gradient(135deg, #166534 0%, #15803d 100%) !important;
+            color: #ffffff !important;
+            transform: translateY(-1px);
         }
         .nav_back_btn a:hover i,
         .nav_back_btn a:hover span,
         .nav_back_btn a:hover .nav_back_text {
-            color: #15803d !important;
+            color: #ffffff !important;
         }
         body[light-mode="dark"] .nav_back_btn a {
-            background: #1e293b !important;
-            border-color: #334155 !important;
+            background: linear-gradient(135deg, #15803d 0%, #16a34a 100%) !important;
+            border: none !important;
+            color: #ffffff !important;
         }
         body[light-mode="dark"] .nav_back_btn a i,
         body[light-mode="dark"] .nav_back_btn a span {
-            color: #34d399 !important;
+            color: #ffffff !important;
         }
         body[light-mode="dark"] .nav_back_btn a:hover {
-            background: #334155 !important;
-            border-color: #475569 !important;
+            background: linear-gradient(135deg, #166534 0%, #15803d 100%) !important;
+            color: #ffffff !important;
         }
         body[light-mode="dark"] .nav_back_btn a:hover i,
         body[light-mode="dark"] .nav_back_btn a:hover span {
-            color: #34d399 !important;
+            color: #ffffff !important;
         }
 
         /* ========================================================
            2. Modern Sun / Moon Theme Toggle Button (Compact)
            ======================================================== */
         .pos-theme-toggle-btn {
-            width: 26px !important;
-            height: 26px !important;
-            min-width: 26px !important;
-            min-height: 26px !important;
-            border-radius: 6px !important;
+            width: 30px !important;
+            height: 30px !important;
+            min-width: 30px !important;
+            min-height: 30px !important;
+            border-radius: 8px !important;
             background: #f1f5f9 !important;
             border: 1px solid #cbd5e1 !important;
             color: #334155 !important;
@@ -2049,11 +2061,11 @@
         }
         .pos-theme-toggle-btn .icon-moon {
             display: inline-block !important;
-            font-size: 12px !important;
+            font-size: 13px !important;
         }
         .pos-theme-toggle-btn .icon-sun {
             display: none !important;
-            font-size: 12px !important;
+            font-size: 13px !important;
         }
         body[light-mode="dark"] .pos-theme-toggle-btn {
             background: #1e293b !important;
@@ -2075,11 +2087,11 @@
            3. Modern Trendy Fullscreen Button (Compact)
            ======================================================== */
         .pos-fullscreen-btn {
-            width: 26px !important;
-            height: 26px !important;
-            min-width: 26px !important;
-            min-height: 26px !important;
-            border-radius: 6px !important;
+            width: 30px !important;
+            height: 30px !important;
+            min-width: 30px !important;
+            min-height: 30px !important;
+            border-radius: 8px !important;
             background: #f1f5f9 !important;
             border: 1px solid #cbd5e1 !important;
             color: #334155 !important;
@@ -2096,9 +2108,9 @@
         }
         .pos-fullscreen-btn svg,
         .pos-fullscreen-btn i {
-            font-size: 12px !important;
-            width: 12px !important;
-            height: 12px !important;
+            font-size: 13px !important;
+            width: 13px !important;
+            height: 13px !important;
         }
         .pos-fullscreen-btn .icon-fullscreen-enter {
             display: inline-block !important;
@@ -2394,10 +2406,10 @@
         <nav id="navbar" class="mb-2">
             <div class="nav-wrapper py-1 px-2 px-md-3 d-flex align-items-center justify-content-between gap-1 gap-md-2" style="min-height: 42px; border-radius: 12px; flex-wrap: nowrap;">
                 <div class="nav_back_btn p-0 d-flex align-items-center flex-shrink-0">
-                    <a href="{{ url('admin-dashboard') }}" class="btn btn-sm btn-outline-success fw-bold d-inline-flex align-items-center gap-1.5 py-1 px-2.5 shadow-sm" style="border-radius: 20px; font-size: 12px; background: #f0fdf4; border-color: #bbf7d0; height: 32px;">
-                        <i class="fa-solid fa-arrow-left text-success" style="font-size: 12px;"></i>
-                        <span class="nav_back_text text-success m-0 p-0 fw-bold d-none d-sm-inline" style="font-size: 12px;">Back to Dashboard</span>
-                        <span class="nav_back_text text-success m-0 p-0 fw-bold d-inline d-sm-none" style="font-size: 12px;">Back</span>
+                    <a href="{{ url('admin-dashboard') }}" class="btn btn-sm btn-success fw-bold text-white d-inline-flex align-items-center gap-1.5 py-1 px-2.5 shadow-sm" style="border-radius: 20px; font-size: 12px; background: linear-gradient(135deg, #15803d 0%, #16a34a 100%) !important; border: none !important; height: 32px; color: #ffffff !important;">
+                        <i class="fa-solid fa-arrow-left text-white" style="font-size: 12px; color: #ffffff !important;"></i>
+                        <span class="nav_back_text text-white m-0 p-0 fw-bold d-none d-sm-inline" style="font-size: 12px; color: #ffffff !important;">Back to Dashboard</span>
+                        <span class="nav_back_text text-white m-0 p-0 fw-bold d-inline d-sm-none" style="font-size: 12px; color: #ffffff !important;">Back</span>
                     </a>
                 </div>
 

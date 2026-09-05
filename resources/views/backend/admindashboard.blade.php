@@ -22,7 +22,7 @@
                     <span class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill fw-bold">
                         <i class="fa-solid fa-calendar-day me-1"></i> Today: {{ date('d M Y') }}
                     </span>
-                    <a href="/admin-dashboard-pos" class="btn btn-success fw-bold rounded-pill px-4 shadow-sm" style="background: linear-gradient(135deg, #15803d 0%, #16a34a 100%) !important; border: none;">
+                    <a href="/admin-dashboard-pos" class="btn btn-success fw-bold rounded-pill px-4 shadow-sm d-inline-flex align-items-center gap-1.5" style="background: linear-gradient(135deg, #15803d 0%, #16a34a 100%) !important; border: none; padding-top: 8px !important; padding-bottom: 8px !important; font-size: 13px;">
                         <i class="fa-solid fa-cart-shopping me-1"></i> New POS Sale
                     </a>
                 </div>
