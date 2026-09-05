@@ -278,13 +278,13 @@
         #openModalBtns:focus,
         #openModalBtns:active,
         #openModalBtns:focus-visible {
-            height: 28px !important;
-            min-height: 28px !important;
-            max-height: 28px !important;
-            padding: 4px 12px !important;
-            font-size: 11.5px !important;
+            height: 38px !important;
+            min-height: 38px !important;
+            max-height: 38px !important;
+            padding: 8px 16px !important;
+            font-size: 12px !important;
             font-weight: 700 !important;
-            border-radius: 6px !important;
+            border-radius: 8px !important;
             flex-shrink: 0 !important;
             box-sizing: border-box !important;
             display: inline-flex !important;
@@ -333,14 +333,14 @@
         }
 
         .select-dropdown-selected {
-            padding: 4px 8px !important;
-            font-size: 11.5px !important;
+            padding: 6px 12px !important;
+            font-size: 12px !important;
             border: 1px solid #cbd5e1 !important;
-            border-radius: 6px !important;
+            border-radius: 8px !important;
             outline: none !important;
             color: #334155 !important;
             background: #f8fafc !important;
-            height: 28px !important;
+            height: 38px !important;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -405,7 +405,7 @@
             background-color: #f8fafc;
             z-index: 2;
             display: none;
-            font-size: 11.5px !important;
+            font-size: 12px !important;
             color: #0f172a;
             outline: none;
             margin-bottom: 4px;
@@ -424,11 +424,12 @@
         }
 
         .select-dropdown-items #CustomerSelectData .dropdown-item {
-            padding: 5px 8px !important;
+            padding: 6px 10px !important;
             cursor: pointer;
             border-radius: 6px;
-            font-size: 11.5px !important;
-            color: #1e293b;
+            font-size: 13px !important;
+            font-weight: 700 !important;
+            color: #0f172a !important;
             line-height: 1.35;
             transition: all 0.15s ease;
             white-space: normal !important;
@@ -438,11 +439,20 @@
             align-items: center;
             justify-content: space-between;
             gap: 6px;
-            margin-bottom: 2px;
+        }
+
+        .select-dropdown-items #CustomerSelectData .dropdown-item * {
+            font-size: 13px !important;
+            font-weight: 700 !important;
+        }
+
+        .select-dropdown-items #CustomerSelectData .dropdown-item .badge {
+            font-size: 12px !important;
+            font-weight: 700 !important;
         }
 
         .select-dropdown-items #CustomerSelectData .dropdown-item:hover {
-            background: #f0fdf4 !important;
+            background-color: #f0fdf4 !important;
             color: #15803d !important;
         }
 
@@ -476,13 +486,13 @@
             .pos-cart-table-wrapper th {
                 padding-left: 2px !important;
                 padding-right: 2px !important;
-                font-size: 10.5px !important;
+                font-size: 12px !important;
                 letter-spacing: 0px !important;
             }
             .pos-cart-table-wrapper td {
                 padding-left: 2px !important;
                 padding-right: 2px !important;
-                font-size: 11px !important;
+                font-size: 12px !important;
             }
         }
 
@@ -539,9 +549,9 @@
 
         /* 2. Flatpickr Styling & Month Dropdown Fix */
         .pos-date-input {
-            height: 28px !important;
-            font-size: 11.5px !important;
-            border-radius: 6px !important;
+            height: 38px !important;
+            font-size: 12px !important;
+            border-radius: 8px !important;
             background: #f8fafc !important;
             cursor: pointer !important;
             border: 1px solid #cbd5e1 !important;
@@ -904,7 +914,7 @@
 
         .custom-searchable-select .search-wrap input {
             height: 30px;
-            font-size: 11.5px;
+            font-size: 12px;
             border-radius: 6px;
             border: 1px solid #cbd5e1;
             padding-left: 26px;
@@ -1097,7 +1107,7 @@
             }
 
             .store-brand-header h5 {
-                font-size: 11px !important;
+                font-size: 12px !important;
             }
 
             .store-brand-header img {
@@ -1231,7 +1241,7 @@
             top: 0 !important;
             background: #f8fafc !important;
             color: #475569 !important;
-            font-size: 11px !important;
+            font-size: 12px !important;
             font-weight: 800 !important;
             text-transform: uppercase !important;
             letter-spacing: 0.5px !important;
@@ -1264,7 +1274,7 @@
         }
 
         #payment .payments .heading h2 {
-            font-size: 11px !important;
+            font-size: 12px !important;
             font-weight: 800 !important;
             margin-bottom: 3px !important;
         }
@@ -1302,18 +1312,18 @@
         }
 
         #payment .payments .category label h1 {
-            font-size: 10px !important;
+            font-size: 12px !important;
             margin: 0 !important;
             font-weight: 700 !important;
         }
 
         #payment .payments .category label .check {
-            font-size: 10px !important;
+            font-size: 12px !important;
         }
 
         #payment .transaction input {
             height: 24px !important;
-            font-size: 11px !important;
+            font-size: 12px !important;
             padding: 1px 6px !important;
             border-radius: 6px !important;
         }
@@ -1333,13 +1343,13 @@
 
         #payment .totals .subtotal span:first-child,
         #payment .totals .total span:first-child {
-            font-size: 11px !important;
+            font-size: 12px !important;
             font-weight: 700 !important;
         }
 
         #payment .totals input {
             height: 22px !important;
-            font-size: 11px !important;
+            font-size: 12px !important;
             padding: 1px 4px !important;
             width: 75px !important;
             border-radius: 6px !important;
@@ -1700,7 +1710,7 @@
         }
 
         #product-card .card-wrapper .product-id {
-            font-size: 10.5px !important;
+            font-size: 12px !important;
             font-family: var(--bs-font-monospace, monospace) !important;
             color: #0d9488 !important;
             font-weight: 700 !important;
@@ -1746,7 +1756,7 @@
         .pos-cart-table-wrapper table thead th {
             background: #f8fafc !important;
             color: #475569 !important;
-            font-size: 11px !important;
+            font-size: 12px !important;
             font-weight: 800 !important;
             text-transform: uppercase !important;
             letter-spacing: 0.4px !important;
@@ -1772,7 +1782,7 @@
         }
 
         .pos-cart-table-wrapper table tbody tr td {
-            font-size: 11.5px !important;
+            font-size: 12px !important;
             vertical-align: middle !important;
         }
 
@@ -1883,7 +1893,7 @@
         }
 
         .payments .category label h1 {
-            font-size: 11px !important;
+            font-size: 12px !important;
             font-weight: 700 !important;
             color: #1e293b !important;
             margin: 0 !important;
@@ -1901,7 +1911,7 @@
             position: absolute !important;
             top: 2px !important;
             right: 4px !important;
-            font-size: 9px !important;
+            font-size: 12px !important;
             color: #15803d !important;
             display: none !important;
         }
@@ -1929,7 +1939,7 @@
 
         .discount-type-pill label {
             padding: 2px 7px !important;
-            font-size: 11px !important;
+            font-size: 12px !important;
             font-weight: 700 !important;
             color: #64748b !important;
             cursor: pointer !important;
@@ -1985,6 +1995,347 @@
         }
 
         /* ========================================================
+           1. Back to Dashboard Button Hover Fix (Icon & Text always Green)
+           ======================================================== */
+        .nav_back_btn a:hover {
+            background: #dcfce7 !important;
+            border-color: #16a34a !important;
+            color: #15803d !important;
+        }
+        .nav_back_btn a:hover i,
+        .nav_back_btn a:hover span,
+        .nav_back_btn a:hover .nav_back_text {
+            color: #15803d !important;
+        }
+        body[light-mode="dark"] .nav_back_btn a {
+            background: #1e293b !important;
+            border-color: #334155 !important;
+        }
+        body[light-mode="dark"] .nav_back_btn a i,
+        body[light-mode="dark"] .nav_back_btn a span {
+            color: #34d399 !important;
+        }
+        body[light-mode="dark"] .nav_back_btn a:hover {
+            background: #334155 !important;
+            border-color: #475569 !important;
+        }
+        body[light-mode="dark"] .nav_back_btn a:hover i,
+        body[light-mode="dark"] .nav_back_btn a:hover span {
+            color: #34d399 !important;
+        }
+
+        /* ========================================================
+           2. Modern Sun / Moon Theme Toggle Button (Compact)
+           ======================================================== */
+        .pos-theme-toggle-btn {
+            width: 26px !important;
+            height: 26px !important;
+            min-width: 26px !important;
+            min-height: 26px !important;
+            border-radius: 6px !important;
+            background: #f1f5f9 !important;
+            border: 1px solid #cbd5e1 !important;
+            color: #334155 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 0 !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+        }
+        .pos-theme-toggle-btn:hover {
+            background: #e2e8f0 !important;
+            color: #0f172a !important;
+        }
+        .pos-theme-toggle-btn .icon-moon {
+            display: inline-block !important;
+            font-size: 12px !important;
+        }
+        .pos-theme-toggle-btn .icon-sun {
+            display: none !important;
+            font-size: 12px !important;
+        }
+        body[light-mode="dark"] .pos-theme-toggle-btn {
+            background: #1e293b !important;
+            border-color: #334155 !important;
+            color: #facc15 !important;
+        }
+        body[light-mode="dark"] .pos-theme-toggle-btn:hover {
+            background: #334155 !important;
+            color: #fde047 !important;
+        }
+        body[light-mode="dark"] .pos-theme-toggle-btn .icon-moon {
+            display: none !important;
+        }
+        body[light-mode="dark"] .pos-theme-toggle-btn .icon-sun {
+            display: inline-block !important;
+        }
+
+        /* ========================================================
+           3. Modern Trendy Fullscreen Button (Compact)
+           ======================================================== */
+        .pos-fullscreen-btn {
+            width: 26px !important;
+            height: 26px !important;
+            min-width: 26px !important;
+            min-height: 26px !important;
+            border-radius: 6px !important;
+            background: #f1f5f9 !important;
+            border: 1px solid #cbd5e1 !important;
+            color: #334155 !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            padding: 0 !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+        }
+        .pos-fullscreen-btn:hover {
+            background: #e2e8f0 !important;
+            color: #0f172a !important;
+        }
+        .pos-fullscreen-btn svg,
+        .pos-fullscreen-btn i {
+            font-size: 12px !important;
+            width: 12px !important;
+            height: 12px !important;
+        }
+        .pos-fullscreen-btn .icon-fullscreen-enter {
+            display: inline-block !important;
+        }
+        .pos-fullscreen-btn .icon-fullscreen-leave {
+            display: none !important;
+        }
+        .pos-fullscreen-btn.on .icon-fullscreen-enter {
+            display: none !important;
+        }
+        .pos-fullscreen-btn.on .icon-fullscreen-leave {
+            display: inline-block !important;
+        }
+        body[light-mode="dark"] .pos-fullscreen-btn {
+            background: #1e293b !important;
+            border-color: #334155 !important;
+            color: #cbd5e1 !important;
+        }
+        body[light-mode="dark"] .pos-fullscreen-btn:hover {
+            background: #334155 !important;
+            color: #ffffff !important;
+        }
+
+        /* Topbar Center Logo Box Border Removal */
+        .store-brand-header {
+            border: none !important;
+            box-shadow: none !important;
+        }
+        body[light-mode="dark"] .store-brand-header {
+            border: none !important;
+            box-shadow: none !important;
+        }
+
+        /* ========================================================
+           4. Desktop Camera Scan Button Left Margin
+           ======================================================== */
+        @media (min-width: 992px) {
+            .pos-products-topbar .searchbar .col-lg-auto {
+                margin-left: 10px !important;
+            }
+        }
+
+        /* ========================================================
+           5. Payment Method Icons Size Increase (Desktop & Mobile)
+           ======================================================== */
+        .payments .category label .imgContainer,
+        #payment .payments .category label .imgContainer {
+            width: 28px !important;
+            height: 28px !important;
+            min-width: 28px !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+        }
+        .payments .category label .imgContainer img,
+        #payment .payments .category label .imgContainer img {
+            max-width: 100% !important;
+            max-height: 100% !important;
+            width: auto !important;
+            height: auto !important;
+            object-fit: contain !important;
+        }
+        @media (max-width: 991.98px) {
+            .payments .category,
+            #payment .payments .category {
+                gap: 8px !important;
+            }
+            .payments .category label,
+            #payment .payments .category label {
+                padding: 8px 10px !important;
+                min-height: 52px !important;
+            }
+            .payments .category label .imgContainer,
+            #payment .payments .category label .imgContainer {
+                width: 42px !important;
+                height: 42px !important;
+                min-width: 42px !important;
+            }
+            .payments .category label .imgContainer img,
+            #payment .payments .category label .imgContainer img {
+                max-width: 38px !important;
+                max-height: 38px !important;
+            }
+            .payments .category label h1,
+            #payment .payments .category label h1 {
+                font-size: 16px !important;
+                font-weight: 800 !important;
+            }
+            .payments .category label .imgName,
+            #payment .payments .category label .imgName {
+                gap: 8px !important;
+            }
+            .payments .category label .check i,
+            #payment .payments .category label .check i {
+                font-size: 16px !important;
+            }
+        }
+
+        /* Product Search Dropdown Placeholder Icon */
+        .product-search-placeholder {
+            width: 38px !important;
+            height: 38px !important;
+            min-width: 38px !important;
+            border-radius: 8px !important;
+            background: #f0fdf4 !important;
+            border: 1px solid #bbf7d0 !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            color: #15803d !important;
+        }
+        body[light-mode="dark"] .product-search-placeholder {
+            background: #1e293b !important;
+            border-color: #334155 !important;
+            color: #4ade80 !important;
+        }
+        body[light-mode="dark"] .product-search-placeholder i {
+            color: #4ade80 !important;
+        }
+
+        /* ========================================================
+           6. Product Cart Table th, td Padding Synchronization
+           ======================================================== */
+        .pos-cart-table-wrapper table th,
+        .pos-cart-table-wrapper table td {
+            padding: 7px 6px !important;
+        }
+        .pos-cart-table-wrapper table th:first-child,
+        .pos-cart-table-wrapper table td:first-child {
+            padding-left: 14px !important;
+            padding-right: 8px !important;
+        }
+
+        /* ========================================================
+           7. Modal Close / Cancel Buttons in Red Background with White Text
+           ======================================================== */
+        .modal .btn-secondary[data-bs-dismiss="modal"],
+        .modal .btn-close-modal,
+        .modal .btn-cancel,
+        .modal-footer .btn-secondary {
+            background-color: #dc2626 !important;
+            border-color: #dc2626 !important;
+            color: #ffffff !important;
+        }
+        .modal .btn-secondary[data-bs-dismiss="modal"]:hover,
+        .modal .btn-close-modal:hover,
+        .modal .btn-cancel:hover,
+        .modal-footer .btn-secondary:hover {
+            background-color: #b91c1c !important;
+            border-color: #b91c1c !important;
+            color: #ffffff !important;
+        }
+
+        /* ========================================================
+           Modal Heading & Bottom Buttons (38px) & Input Cursor Fix
+           ======================================================== */
+        .modal .modal-header h5,
+        .modal .modal-header h5 *,
+        .modal-title,
+        .modal-title *,
+        #quickAddProductModal .modal-title,
+        #quickAddProductModal .modal-title *,
+        #holdInvoicesModal .modal-title,
+        #holdInvoicesModal .modal-title *,
+        #cameraScanModal .modal-title,
+        #cameraScanModal .modal-title *,
+        .financemodal .heading {
+            color: #ffffff !important;
+        }
+
+        /* Modal Footer & Bottom Buttons uniform 38px height */
+        .modal-footer .btn,
+        .modal-footer button,
+        #quickAddProductModal .modal-body button,
+        #quickAddProductModal .modal-body .btn,
+        #holdInvoicesModal .modal-footer .btn,
+        #cameraScanModal .modal-footer .btn,
+        .financemodal .actions .btn-save,
+        .financemodal .btn-save {
+            height: 38px !important;
+            min-height: 38px !important;
+            max-height: 38px !important;
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            box-sizing: border-box !important;
+        }
+
+        /* Fix modal typeable inputs cursor to text */
+        .modal input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+        .modal textarea,
+        .financemodal input:not([type="button"]):not([type="submit"]):not([type="reset"]):not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+        .financemodal textarea,
+        .financemodal form input,
+        .financemodal form textarea {
+            cursor: text !important;
+            pointer-events: auto !important;
+        }
+
+        /* ========================================================
+           Labels Styled like Product Table Header (th): 12px & Bold (800)
+           ======================================================== */
+        .pos-th-styled-label,
+        #payment .payments .heading h2,
+        #payment .totals .subtotal span:first-child,
+        #payment .totals .total span:first-child {
+            font-size: 12px !important;
+            font-weight: 800 !important;
+            letter-spacing: 0.3px !important;
+            color: #475569 !important;
+        }
+        /* Customer info bar labels: 14px & bold (800) */
+        .row.g-1.mt-1 .input-group-text {
+            font-size: 14px !important;
+            font-weight: 800 !important;
+            letter-spacing: 0.3px !important;
+            color: #475569 !important;
+        }
+        .row.g-1.mt-1 .input-group-text.text-danger,
+        #payment .totals .total span:first-child.text-danger {
+            color: #dc2626 !important;
+        }
+        body[light-mode="dark"] .pos-th-styled-label,
+        body[light-mode="dark"] #payment .payments .heading h2,
+        body[light-mode="dark"] #payment .totals .subtotal span:first-child,
+        body[light-mode="dark"] #payment .totals .total span:first-child {
+            color: #94a3b8 !important;
+        }
+        body[light-mode="dark"] .row.g-1.mt-1 .input-group-text {
+            color: #94a3b8 !important;
+        }
+        body[light-mode="dark"] .row.g-1.mt-1 .input-group-text.text-danger,
+        body[light-mode="dark"] #payment .totals .total span:first-child.text-danger {
+            color: #f87171 !important;
+        }
+
+        /* ========================================================
            Modal & Overlay Z-Index Hierarchy (Overlay Under Modal)
            ======================================================== */
         .modal-backdrop {
@@ -2013,9 +2364,14 @@
 
         .modal .btn-close,
         .modal button,
-        .modal input,
         .modal select,
-        .modal a {
+        .modal a,
+        .modal input[type="button"],
+        .modal input[type="submit"],
+        .modal input[type="reset"],
+        .modal input[type="checkbox"],
+        .modal input[type="radio"],
+        .modal input[type="file"] {
             position: relative !important;
             z-index: 1075 !important;
             pointer-events: auto !important;
@@ -2038,47 +2394,36 @@
         <nav id="navbar" class="mb-2">
             <div class="nav-wrapper py-1 px-2 px-md-3 d-flex align-items-center justify-content-between gap-1 gap-md-2" style="min-height: 42px; border-radius: 12px; flex-wrap: nowrap;">
                 <div class="nav_back_btn p-0 d-flex align-items-center flex-shrink-0">
-                    <a href="{{ url('admin-dashboard') }}" class="btn btn-sm btn-outline-success fw-bold d-inline-flex align-items-center gap-1 py-1 px-2 shadow-sm" style="border-radius: 20px; font-size: 11px; background: #f0fdf4; border-color: #bbf7d0; height: 30px;">
-                        <i class="fa-solid fa-arrow-left text-success" style="font-size: 11px;"></i>
-                        <span class="nav_back_text text-success m-0 p-0 fw-bold d-none d-sm-inline" style="font-size: 11px;">Back to Dashboard</span>
-                        <span class="nav_back_text text-success m-0 p-0 fw-bold d-inline d-sm-none" style="font-size: 11px;">Back</span>
+                    <a href="{{ url('admin-dashboard') }}" class="btn btn-sm btn-outline-success fw-bold d-inline-flex align-items-center gap-1.5 py-1 px-2.5 shadow-sm" style="border-radius: 20px; font-size: 12px; background: #f0fdf4; border-color: #bbf7d0; height: 32px;">
+                        <i class="fa-solid fa-arrow-left text-success" style="font-size: 12px;"></i>
+                        <span class="nav_back_text text-success m-0 p-0 fw-bold d-none d-sm-inline" style="font-size: 12px;">Back to Dashboard</span>
+                        <span class="nav_back_text text-success m-0 p-0 fw-bold d-inline d-sm-none" style="font-size: 12px;">Back</span>
                     </a>
                 </div>
 
-                <div class="store-brand-header d-flex align-items-center gap-1 gap-md-2 px-2 px-md-3 py-1 bg-white border border-success-subtle rounded-pill shadow-sm overflow-hidden">
-                    <img src="{{ asset('backend/assets/img/marss-corporation-logo.svg') }}" alt="AS Logo" style="height: 24px; width: auto; object-fit: contain; flex-shrink: 0;" />
+                <div class="store-brand-header d-flex align-items-center gap-1 gap-md-2 px-2 px-md-3 py-1 bg-white border-0 rounded-pill overflow-hidden" style="border: none !important;">
+                    <img src="{{ asset('backend/assets/icons/favicon.svg') }}" alt="MARSS Icon" style="height: 26px; width: 26px; object-fit: contain; flex-shrink: 0; border-radius: 6px;" />
                     <h5 class="fw-extrabold text-success m-0 p-0 d-flex align-items-center gap-1 text-truncate" style="font-size: 13px; font-family: 'Baloo Da 2', sans-serif; font-weight: 800;">
                         <span class="text-truncate">মার্স কর্পোরেশন (MARSS CORPORATION)</span>
-                        <span class="badge bg-success text-white fw-bold px-1.5 py-0.5 d-none d-md-inline" style="font-size: 9px; border-radius: 8px; font-family: 'Valley Sans', sans-serif;">POS</span>
+                        <span class="badge bg-success text-white fw-bold px-1.5 py-0.5 d-none d-md-inline" style="font-size: 12px; border-radius: 8px; font-family: 'Valley Sans', sans-serif;">POS</span>
                     </h5>
                 </div>
 
-                <div class="profile d-flex align-items-center gap-1 gap-md-2 flex-shrink-0">
-                    <button class="light-mode-button" aria-label="Toggle Light Mode"
-                        onclick="toggle_light_mode()" style="height: 24px; width: 38px;">
-                        <span style="height: 18px; width: 36px; top: 3px;"></span>
-                        <span style="height: 14px; width: 14px; top: 5px;"></span>
+                <div class="profile d-flex align-items-center gap-1.5 gap-md-2 flex-shrink-0">
+                    <button type="button" class="pos-theme-toggle-btn" aria-label="Toggle Light/Dark Mode"
+                        onclick="toggle_light_mode()" title="লাইট/ডার্ক থিম পরিবর্তন">
+                        <i class="fa-regular fa-moon icon-moon"></i>
+                        <i class="fa-regular fa-sun icon-sun"></i>
                     </button>
 
                     <div class="fullscreen">
-                        <button class="js-toggle-fullscreen-btn toggle-fullscreen-btn"
-                            aria-label="Enter fullscreen mode" hidden>
-                            <svg width="22" height="22" class="toggle-fullscreen-svg" viewBox="0 0 30 30"
-                                fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <g class="icon-fullscreen-enter">
-                                    <path
-                                        d="M2 7.5H0V3C0 2.20435 0.31607 1.44129 0.87868 0.87868C1.44129 0.31607 2.20435 0 3 0H7.5V2H2V7.5Z"
-                                        fill="#192045" />
-                                    <path
-                                        d="M30 7.5H28V2H22.5V0H27C27.7956 0 28.5587 0.31607 29.1213 0.87868C29.6839 1.44129 30 2.20435 30 3V7.5Z"
-                                        fill="#192045" />
-                                    <path
-                                        d="M7.5 30H3C2.20435 30 1.44129 29.6839 0.87868 29.1213C0.31607 28.5587 0 27.7956 0 27V22.5H2V28H7.5V30Z"
-                                        fill="#192045" />
-                                    <path
-                                        d="M27 30H22.5V28H28V22.5H30V27C30 27.7956 29.6839 28.5587 29.1213 29.1213C28.5587 29.6839 27.7956 30 27 30Z"
-                                        fill="#192045" />
-                                </g>
+                        <button type="button" class="js-toggle-fullscreen-btn pos-fullscreen-btn"
+                            aria-label="Toggle Fullscreen" title="ফুলস্ক্রিন মোড">
+                            <svg class="icon-fullscreen-enter" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/>
+                            </svg>
+                            <svg class="icon-fullscreen-leave" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 14h6v6M20 10h-6V4M14 10l7-7M3 21l7-7"/>
                             </svg>
                         </button>
                     </div>
@@ -2125,12 +2470,12 @@
                             <a href="#" class="search-icon position-absolute d-flex align-items-center justify-content-center text-white"
                                 onclick="triggerBarcodeSearchManual(event, 'productCodeSearch')"
                                 style="right: 5px; top: 50%; transform: translateY(-50%); width: 28px; height: 28px; background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); border-radius: 6px; z-index: 5;">
-                                <i class="fa-solid fa-magnifying-glass" style="font-size: 11px;"></i>
+                                <i class="fa-solid fa-magnifying-glass" style="font-size: 12px;"></i>
                             </a>
                             <div id="productCodeSearchSuggestions" class="pos-search-suggestions position-absolute start-0 end-0 bg-white border shadow-lg rounded-3 d-none" style="top: 100%; margin-top: 4px; z-index: 1050; max-height: 280px; overflow-y: auto;"></div>
                         </div>
                         <!-- 2 buttons wrapper: on mobile 2 equal side-by-side buttons with top gap, on desktop auto width -->
-                        <div class="col-12 col-lg-auto p-0 mt-2 mt-lg-0 d-flex align-items-center gap-1.5">
+                        <div class="col-12 col-lg-auto p-0 mt-2 mt-lg-0 ms-lg-2 d-flex align-items-center gap-1.5">
                             <button type="button" class="btn btn-primary flex-fill fw-bold text-nowrap d-inline-flex align-items-center justify-content-center gap-1.5 shadow-sm px-3"
                                 onclick="openCameraScanner()"
                                 style="border-radius: 8px; height: 38px; background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); border: none; font-size: 12.5px;">
@@ -2183,16 +2528,16 @@
                         <div class="col-md-7 col-12 mb-1.5 mb-md-0">
                             <div class="d-flex align-items-center gap-1.5">
                                 <div class="select-box-dropdown flex-grow-1">
-                                    <div class="select-dropdown-selected py-0.5 px-2 border rounded-2 d-flex align-items-center justify-content-between" style="font-size: 11.5px; height: 28px; background: #f8fafc; cursor: pointer;">
+                                    <div class="select-dropdown-selected py-0.5 px-2 border rounded-2 d-flex align-items-center justify-content-between" style="font-size: 12px; height: 38px; background: #f8fafc; cursor: pointer; border-radius: 8px !important;">
                                         <span class="text-truncate">Select Customer</span>
-                                        <span class="icon ms-1"><i class="fas fa-angle-down" style="font-size: 10px;"></i></span>
+                                        <span class="icon ms-1"><i class="fas fa-angle-down" style="font-size: 12px;"></i></span>
                                     </div>
                                     <div class="select-dropdown-items">
                                         <input type="text" class="select-search-box" placeholder="Search customer..." style="display: none;">
                                         <div id="CustomerSelectData"></div>
                                     </div>
                                 </div>
-                                <button id="openModalBtns" onclick="openCustomerModal()" type="button" class="btn btn-sm btn-success text-nowrap fw-bold" style="height: 28px !important; min-height: 28px !important; max-height: 28px !important; font-size: 11.5px !important; border-radius: 6px !important; padding: 4px 12px !important; flex-shrink: 0 !important; display: inline-flex !important; align-items: center !important; justify-content: center !important;">
+                                <button id="openModalBtns" onclick="openCustomerModal()" type="button" class="btn btn-sm btn-success text-nowrap fw-bold shadow-sm" style="height: 38px !important; min-height: 38px !important; max-height: 38px !important; font-size: 12px !important; border-radius: 8px !important; padding: 0 16px !important; flex-shrink: 0 !important; display: inline-flex !important; align-items: center !important; justify-content: center !important; background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); border: none;">
                                     + New
                                 </button>
                             </div>
@@ -2201,10 +2546,10 @@
                         <!-- Col 2: Invoice Date (Flatpickr Calendar) -->
                         <div class="col-md-5 col-12">
                             <div class="d-flex align-items-center gap-1">
-                                <span class="text-muted small text-nowrap fw-bold" style="font-size: 10.5px;">তারিখ:</span>
+                                <span class="text-muted small text-nowrap fw-bold" style="font-size: 12px;">তারিখ:</span>
                                 <div class="position-relative flex-grow-1" style="min-width: 105px;">
-                                    <input type="text" id="CustomerDate" class="form-control form-control-sm py-0 px-1.5 fw-bold pos-date-input" style="height: 28px; font-size: 11.5px; border-radius: 6px; background: #f8fafc; cursor: pointer; padding-right: 22px !important;" />
-                                    <i class="fa-regular fa-calendar position-absolute end-0 top-50 translate-middle-y me-2 text-muted" style="font-size: 11px; pointer-events: none;"></i>
+                                    <input type="text" id="CustomerDate" class="form-control form-control-sm py-0 px-1.5 fw-bold pos-date-input" style="height: 38px; font-size: 12px; border-radius: 8px; background: #f8fafc; cursor: pointer; padding-right: 22px !important;" />
+                                    <i class="fa-regular fa-calendar position-absolute end-0 top-50 translate-middle-y me-2 text-muted" style="font-size: 12px; pointer-events: none;"></i>
                                 </div>
                             </div>
                         </div>
@@ -2214,27 +2559,27 @@
                     <div class="row g-1 mt-1 pt-1 border-top align-items-center">
                         <div class="col-md-4 col-6">
                             <div class="input-group input-group-sm">
-                                <span class="input-group-text bg-light py-0 px-1.5 text-muted fw-bold" style="font-size: 9.5px;">নাম</span>
-                                <input type="text" id="CustomerName" readonly class="form-control py-0 px-1.5 fw-bold text-dark" placeholder="কাস্টমার নাম" style="font-size: 10.5px; height: 22px; background: #f8fafc;" />
+                                <span class="input-group-text bg-light py-0 px-1.5 fw-bold pos-th-styled-label" style="font-size: 14px !important; font-weight: 800 !important; color: #475569; letter-spacing: 0.3px;">নাম</span>
+                                <input type="text" id="CustomerName" readonly class="form-control py-0 px-1.5 fw-bold text-dark" placeholder="কাস্টমার নাম" style="font-size: 12px; height: 26px; background: #f8fafc;" />
                                 <input type="hidden" id="CustomerID" value="" />
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="input-group input-group-sm">
-                                <span class="input-group-text bg-light py-0 px-1.5 text-muted fw-bold" style="font-size: 9.5px;">মোবাইল</span>
-                                <input type="text" id="CustomerMobileNumber" readonly class="form-control py-0 px-1.5 fw-bold text-dark" placeholder="মোবাইল" style="font-size: 10.5px; height: 22px; background: #f8fafc;" />
+                                <span class="input-group-text bg-light py-0 px-1.5 fw-bold pos-th-styled-label" style="font-size: 14px !important; font-weight: 800 !important; color: #475569; letter-spacing: 0.3px;">মোবাইল</span>
+                                <input type="text" id="CustomerMobileNumber" readonly class="form-control py-0 px-1.5 fw-bold text-dark" placeholder="মোবাইল" style="font-size: 12px; height: 26px; background: #f8fafc;" />
                             </div>
                         </div>
                         <div class="col-md-3 col-6">
                             <div class="input-group input-group-sm">
-                                <span class="input-group-text bg-light py-0 px-1.5 text-muted fw-bold" style="font-size: 9.5px;">ঠিকানা</span>
-                                <input type="text" id="CustomerAddress" readonly class="form-control py-0 px-1.5 text-dark" placeholder="ঠিকানা" style="font-size: 10.5px; height: 22px; background: #f8fafc;" />
+                                <span class="input-group-text bg-light py-0 px-1.5 fw-bold pos-th-styled-label" style="font-size: 14px !important; font-weight: 800 !important; color: #475569; letter-spacing: 0.3px;">ঠিকানা</span>
+                                <input type="text" id="CustomerAddress" readonly class="form-control py-0 px-1.5 text-dark" placeholder="ঠিকানা" style="font-size: 12px; height: 26px; background: #f8fafc;" />
                             </div>
                         </div>
                         <div class="col-md-2 col-6">
                             <div class="input-group input-group-sm">
-                                <span class="input-group-text bg-danger-subtle text-danger py-0 px-1 fw-bold" style="font-size: 9.5px;">বকেয়া</span>
-                                <input type="text" id="totalPreviousDueAmount" readonly value="0" class="form-control py-0 px-1 fw-bold text-danger text-center" style="font-size: 10.5px; height: 22px; background: #fff5f5;" />
+                                <span class="input-group-text bg-danger-subtle text-danger py-0 px-1 fw-bold pos-th-styled-label" style="font-size: 14px !important; font-weight: 800 !important; color: #dc2626; letter-spacing: 0.3px;">বকেয়া</span>
+                                <input type="text" id="totalPreviousDueAmount" readonly value="0" class="form-control py-0 px-1 fw-bold text-danger text-center" style="font-size: 12px; height: 26px; background: #fff5f5;" />
                             </div>
                         </div>
                     </div>
@@ -2253,7 +2598,7 @@
                             <a href="#" class="search-icon position-absolute d-flex align-items-center justify-content-center text-white"
                                 onclick="triggerBarcodeSearchManual(event, 'productCodeSearchCart')"
                                 style="right: 5px; top: 50%; transform: translateY(-50%); width: 28px; height: 28px; background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); border-radius: 6px; z-index: 5;">
-                                <i class="fa-solid fa-magnifying-glass" style="font-size: 11px;"></i>
+                                <i class="fa-solid fa-magnifying-glass" style="font-size: 12px;"></i>
                             </a>
                             <div id="productCodeSearchCartSuggestions" class="pos-search-suggestions position-absolute start-0 end-0 bg-white border shadow-lg rounded-3 d-none" style="top: 100%; margin-top: 4px; z-index: 1050; max-height: 280px; overflow-y: auto;"></div>
                         </div>
@@ -2266,20 +2611,19 @@
                 </div>
 
                 <!-- Order list table Start (Scrollable Area) -->
-                <div class="pos-cart-table-wrapper flex-grow-1 overflow-auto">
-                    <table class="table align-middle m-0" style="width: 100%; table-layout: fixed;">
+                <div class="pos-cart-table-wrapper flex-grow-1 overflow-auto bg-white border shadow-sm" style="border-radius: 10px; border-color: #e2e8f0 !important; min-height: 180px;">
+                    <table class="table mb-0 w-100" style="table-layout: fixed;">
                         <thead>
-                            <tr>
-                                <th style="width: 28%; text-align: left; padding: 6px 4px;">Product</th>
-                                <th style="width: 21%; text-align: center; padding: 6px 2px;">Quantity</th>
-                                <th style="width: 15%; text-align: center; padding: 6px 2px;">Cost Price</th>
-                                <th style="width: 15%; text-align: center; padding: 6px 2px;">Sell Price</th>
-                                <th style="width: 13%; text-align: center; padding: 6px 2px;">Sub Total</th>
-                                <th style="width: 8%; text-align: center; padding: 6px 2px;">Action</th>
+                            <tr class="align-middle">
+                                <th scope="col" style="width: 26%; text-align: left; padding: 7px 6px 7px 14px !important;">Product</th>
+                                <th scope="col" style="width: 22%; text-align: center; padding: 7px 4px !important;">Quantity</th>
+                                <th scope="col" class="cost-price-header" style="width: 14%; text-align: center; padding: 7px 4px !important;">Cost Price</th>
+                                <th scope="col" style="width: 13%; text-align: center; padding: 7px 4px !important;">Sell Price</th>
+                                <th scope="col" style="width: 15%; text-align: center; padding: 7px 4px !important;">Sub Total</th>
+                                <th scope="col" style="width: 10%; text-align: center; padding: 7px 4px !important;">Action</th>
                             </tr>
                         </thead>
-
-                        <tbody>
+                        <tbody id="cartTableBody">
 
                         </tbody>
                     </table>
@@ -2292,7 +2636,7 @@
                         <div class="col-lg-6 col-12">
                             <div class="payments">
                                 <div class="heading mb-1.5">
-                                    <h2 style="font-size: 12px; font-weight: 700; color: #334155; margin: 0;">Payment Method</h2>
+                                    <h2 style="font-size: 12px; font-weight: 800 !important; color: #475569; margin: 0; text-transform: uppercase; letter-spacing: 0.4px;">Payment Method</h2>
                                 </div>
                                 <form action="#" id="paymentMethodForm">
                                     <div class="category-wrapper">
@@ -2385,24 +2729,24 @@
 
                                     <!-- Sub-Total -->
                                     <div class="subtotal d-flex align-items-center justify-content-between py-1 border-bottom border-light">
-                                        <span class="fw-bold text-secondary" style="font-size: 12px;">Sub-Total</span>
+                                        <span class="fw-bold" style="font-size: 12px; font-weight: 800 !important; color: #475569; text-transform: uppercase; letter-spacing: 0.4px;">Sub-Total</span>
                                         <span style="color: #0284c7; font-size: 14px; font-weight: 800;" id="subTotal">৳ 0.00</span>
                                     </div>
 
                                     <!-- Discount Amount -->
                                     <div class="subtotal d-flex align-items-center justify-content-between py-1 border-bottom border-light">
                                         <div class="d-flex align-items-center gap-1.5">
-                                            <span class="fw-bold text-secondary" style="font-size: 12px; white-space: nowrap;">Discount</span>
-                                            <div class="discount-type-pill d-inline-flex border rounded overflow-hidden" style="border-color: #cbd5e1 !important; height: 22px;">
+                                            <span class="fw-bold" style="font-size: 12px; font-weight: 800 !important; color: #475569; white-space: nowrap; text-transform: uppercase; letter-spacing: 0.4px;">Discount</span>
+                                            <div class="discount-type-pill d-inline-flex border rounded overflow-hidden" style="border-color: #cbd5e1 !important; height: 24px;">
                                                 <input type="radio" name="discountType" id="discountTypeFlat" value="flat" checked onchange="calculateDuePayment()" style="display: none;">
-                                                <label for="discountTypeFlat" title="Solid Amount (৳)" style="padding: 1px 7px; font-size: 11px; cursor: pointer; font-weight: 700; margin: 0; line-height: 18px;">৳</label>
+                                                <label for="discountTypeFlat" title="Solid Amount (৳)" style="padding: 1px 7px; font-size: 12px; cursor: pointer; font-weight: 700; margin: 0; line-height: 20px;">৳</label>
 
                                                 <input type="radio" name="discountType" id="discountTypePercent" value="percent" onchange="calculateDuePayment()" style="display: none;">
-                                                <label for="discountTypePercent" title="Percentage (%)" style="padding: 1px 7px; font-size: 11px; cursor: pointer; font-weight: 700; margin: 0; line-height: 18px;">%</label>
+                                                <label for="discountTypePercent" title="Percentage (%)" style="padding: 1px 7px; font-size: 12px; cursor: pointer; font-weight: 700; margin: 0; line-height: 20px;">%</label>
                                             </div>
                                         </div>
                                         <div class="d-flex align-items-center gap-1">
-                                            <span id="discountCalculatedBadge" class="badge bg-success-subtle text-success border border-success-subtle fw-bold" style="font-size: 10px; display: none; padding: 2px 6px;">= ৳ 0</span>
+                                            <span id="discountCalculatedBadge" class="badge bg-success-subtle text-success border border-success-subtle fw-bold" style="font-size: 12px; display: none; padding: 2px 6px;">= ৳ 0</span>
                                             <input type="number" id="discountAmountInput" oninput="calculateDuePayment()" placeholder="0" min="0" step="any" style="width: 78px; height: 26px; border: 1.5px solid #cbd5e1; border-radius: 6px; font-size: 12px; font-weight: 700; text-align: right; padding: 2px 6px; outline: none;">
                                         </div>
                                     </div>
@@ -2412,20 +2756,20 @@
 
                                     <!-- Paid Amount -->
                                     <div class="subtotal d-flex align-items-center justify-content-between py-1 border-bottom border-light">
-                                        <span class="fw-bold text-secondary" style="font-size: 12px;">Paid Amount</span>
+                                        <span class="fw-bold" style="font-size: 12px; font-weight: 800 !important; color: #475569; text-transform: uppercase; letter-spacing: 0.4px;">Paid Amount</span>
                                         <input type="number" id="paidAmountInput" oninput="calculateDuePayment()" placeholder="0" style="width: 78px; height: 26px; border: 1.5px solid #cbd5e1; border-radius: 6px; font-size: 12px; font-weight: 700; text-align: right; padding: 2px 6px; outline: none;">
                                     </div>
 
                                     <!-- Due Amount -->
                                     <div class="total d-flex align-items-center justify-content-between py-1 border-bottom border-light">
-                                        <span class="fw-bold text-danger" style="font-size: 12px;">Due Amount</span>
+                                        <span class="fw-bold" style="font-size: 12px; font-weight: 800 !important; text-transform: uppercase; letter-spacing: 0.4px; color: #dc2626 !important;">Due Amount</span>
                                         <span style="color: #dc2626; font-size: 15px; font-weight: 800;" id="totalDuePayable">৳ 0.00</span>
                                     </div>
 
                                     <!-- Status -->
                                     <div class="total d-flex align-items-center justify-content-between py-1">
-                                        <span class="fw-bold text-secondary" style="font-size: 12px;">Status</span>
-                                        <span id="paymentStatusDisplay" class="partial-payment-status" style="font-size: 11px; padding: 2px 8px; border-radius: 6px; font-weight: 700;">Partial Paid</span>
+                                        <span class="fw-bold" style="font-size: 12px; font-weight: 800 !important; color: #475569; text-transform: uppercase; letter-spacing: 0.4px;">Status</span>
+                                        <span id="paymentStatusDisplay" class="partial-payment-status" style="font-size: 12px; padding: 2px 8px; border-radius: 6px; font-weight: 700;">Partial Paid</span>
                                     </div>
                                 </div>
                             </form>
@@ -2442,7 +2786,7 @@
                                         <i class="fa-solid fa-pause-circle fs-6" style="color: #0f172a !important;"></i>
                                         <span style="color: #0f172a !important;">হোল্ড</span>
                                     </button>
-                                    <button type="button" onclick="openHoldInvoicesModal()" class="btn btn-outline-warning flex-fill py-1.5 px-2 d-flex align-items-center justify-content-center gap-1.5 fw-bold" style="border-radius: 8px; font-size: 11.5px; height: 38px; border-color: #f59e0b; color: #f59e0b;" title="হোল্ড তালিকা">
+                                    <button type="button" onclick="openHoldInvoicesModal()" class="btn btn-outline-warning flex-fill py-1.5 px-2 d-flex align-items-center justify-content-center gap-1.5 fw-bold" style="border-radius: 8px; font-size: 12px; height: 38px; border-color: #f59e0b; color: #f59e0b;" title="হোল্ড তালিকা">
                                         <i class="fa-solid fa-folder-open" style="color: #f59e0b;"></i>
                                         <span>তালিকা</span>
                                         <span id="heldInvoicesBadge" class="badge bg-danger rounded-pill ms-0.5">0</span>
@@ -2453,7 +2797,7 @@
                             <!-- Box 2: Big Sub-Total / Net Payable Card (Mobile Row 2: Left 50%) -->
                             <div class="col-6 col-lg-4">
                                 <div class="pos-big-subtotal-card py-1 px-1.5 text-center border rounded-2 shadow-xs d-flex flex-column justify-content-center" style="border-radius: 8px; height: 38px;">
-                                    <span class="pos-big-subtotal-label text-muted d-block small fw-bold text-uppercase" style="font-size: 8.5px; letter-spacing: 0.3px; line-height: 1;">মোট বিল (SUB-TOTAL)</span>
+                                    <span class="pos-big-subtotal-label text-muted d-block small fw-bold text-uppercase" style="font-size: 12px; letter-spacing: 0.3px; line-height: 1;">মোট বিল (SUB-TOTAL)</span>
                                     <span id="bigSubTotalDisplay" class="pos-big-subtotal-val fw-bolder text-success" style="font-size: 14px; line-height: 1.2;">৳ 0.00</span>
                                 </div>
                             </div>
@@ -2477,10 +2821,10 @@
                 <div class="d-flex align-items-center gap-2 ps-2">
                     <div class="position-relative">
                         <i class="fa-solid fa-cart-shopping fs-4 text-success"></i>
-                        <span id="mobileCartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 10px;">0</span>
+                        <span id="mobileCartBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 12px;">0</span>
                     </div>
                     <div>
-                        <span class="d-block text-muted" style="font-size: 10px; line-height: 1;">মোট আইটেম</span>
+                        <span class="d-block text-muted" style="font-size: 12px; line-height: 1;">মোট আইটেম</span>
                         <span id="mobileCartTotal" class="fw-bold text-success" style="font-size: 15px;">৳ 0.00</span>
                     </div>
                 </div>
@@ -2496,12 +2840,12 @@
     <div class="modal fade" id="holdInvoicesModal" tabindex="-1" aria-labelledby="holdInvoicesModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content border-0 shadow-lg" style="border-radius: 20px; overflow: hidden; background: #f8fafc;">
-                <div class="modal-header py-3 px-4" style="background: linear-gradient(135deg, #fef3c7 0%, #fffbe6 100%); border-bottom: 2px solid #fde047;">
-                    <h5 class="modal-title fw-bold text-dark m-0 d-flex align-items-center gap-2" id="holdInvoicesModalLabel">
-                        <i class="fa-solid fa-pause-circle text-warning fs-3"></i>
-                        <span>হোল্ডকৃত ইনভয়েস তালিকা (Hold Invoices)</span>
+                <div class="modal-header py-3 px-4" style="background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); border-bottom: none;">
+                    <h5 class="modal-title fw-bold text-white m-0 d-flex align-items-center gap-2" id="holdInvoicesModalLabel" style="color: #ffffff !important;">
+                        <i class="fa-solid fa-pause-circle text-white fs-3"></i>
+                        <span style="color: #ffffff !important;">হোল্ডকৃত ইনভয়েস তালিকা (Hold Invoices)</span>
                     </h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body p-3" style="max-height: 480px; overflow-y: auto;">
                     <div id="heldInvoicesCardList">
@@ -2510,7 +2854,7 @@
                 </div>
                 <div class="modal-footer bg-white py-2 px-3 justify-content-between border-top">
                     <span class="text-muted small"><i class="fa-solid fa-circle-info me-1 text-info"></i> যেকোনো সময় 'লোড করুন' চেপে ড্রাফট ইনভয়েসটি স্ক্রিনে লোড করতে পারবেন।</span>
-                    <button type="button" class="btn btn-secondary px-4 py-2 fw-bold shadow-sm" data-bs-dismiss="modal" style="border-radius: 10px;">বন্ধ করুন</button>
+                    <button type="button" class="btn btn-danger px-4 fw-bold shadow-sm text-white" data-bs-dismiss="modal" style="border-radius: 10px; background-color: #dc2626 !important; border-color: #dc2626 !important; color: #ffffff !important; height: 38px !important; min-height: 38px !important; display: inline-flex; align-items: center; justify-content: center;">বন্ধ করুন</button>
                 </div>
             </div>
         </div>
@@ -2647,10 +2991,10 @@
                         data-mobile="${customer.mobile}"
                         data-address_details="${customer.address_details}"
                         data-previous_due_amount="${activeDue}">
-                        <div class="text-truncate flex-grow-1" style="max-width: 78%; font-size: 11.5px;">
-                            <span class="fw-bold text-dark">${customer.customer_id}</span> - <span>${customer.customer_name}</span> <span class="text-muted small">(${customer.mobile})</span>
+                        <div class="text-truncate flex-grow-1 fw-bold" style="max-width: 76%; font-size: 13px; font-weight: 700;">
+                            <span class="fw-bold text-dark" style="font-size: 13px; font-weight: 700;">${customer.customer_id}</span> - <span class="fw-bold text-dark" style="font-size: 13px; font-weight: 700;">${customer.customer_name}</span> <span class="fw-bold text-secondary" style="font-size: 13px; font-weight: 700;">(${customer.mobile})</span>
                         </div>
-                        ${activeDue > 0 ? `<span class="badge bg-danger-subtle text-danger border border-danger-subtle flex-shrink-0" style="font-size: 9.5px; padding: 2px 5px;">বকেয়া: ৳${activeDue}</span>` : ''}
+                        ${activeDue > 0 ? `<span class="badge bg-danger-subtle text-danger border border-danger-subtle flex-shrink-0 fw-bold" style="font-size: 12px; font-weight: 700; padding: 2px 6px;">বকেয়া: ৳${activeDue}</span>` : ''}
                     </div>`;
                 }).join('');
                 document.getElementById("CustomerSelectData").innerHTML = customerOptions;
@@ -2933,7 +3277,7 @@
 
                 const isOutOfStock = (product.quantity <= 0);
                 const stockBadgeClass = isOutOfStock ? 'out-of-stock' : '';
-                const doorBadge = product.door_side ? `<span class="badge bg-primary-subtle text-primary border border-primary-subtle fw-semibold d-inline-flex align-items-center gap-1" style="font-size: 10px; border-radius: 6px; padding: 2px 6px;"><i class="fa-solid fa-door-open me-1"></i>${product.door_side}</span>` : '';
+                const doorBadge = product.door_side ? `<span class="badge bg-primary-subtle text-primary border border-primary-subtle fw-semibold d-inline-flex align-items-center gap-1" style="font-size: 12px; border-radius: 6px; padding: 2px 6px;"><i class="fa-solid fa-door-open me-1"></i>${product.door_side}</span>` : '';
 
                 const productCard = `
             <div class="col-xl-3 col-md-4 col-6 d-flex align-items-stretch">
@@ -2941,9 +3285,9 @@
                     <div class="product-price ${stockBadgeClass} d-flex align-items-center justify-content-between">
                        <div class="d-flex flex-column">
                          <h1 class="fw-bold text-success m-0" style="font-size:13px;">৳ ${product.sell_price}</h1>
-                         <h1 class="cost-price-hidden small text-danger m-0" style="font-size:10px;">Cost: ৳ ${product.cost_price}</h1>
+                         <h1 class="cost-price-hidden small text-danger m-0" style="font-size:12px;">Cost: ৳ ${product.cost_price}</h1>
                        </div>
-                       <span class="badge ${isOutOfStock ? 'bg-danger-subtle text-danger border-danger' : 'bg-success-subtle text-success border-success'} fw-bold" style="font-size: 11px; border-radius: 12px; padding: 2px 8px;">
+                       <span class="badge ${isOutOfStock ? 'bg-danger-subtle text-danger border-danger' : 'bg-success-subtle text-success border-success'} fw-bold" style="font-size: 12px; border-radius: 12px; padding: 2px 8px;">
                            ${product.quantity} Pcs
                        </span>
                     </div>
@@ -3135,30 +3479,32 @@
                 const isOutOfStock = (product.quantity <= 0);
                 const codeText = formatProductCode(product.product_code);
                 const categoryName = product.category ? (product.category.category_name || product.category.name || "") : "";
-                const categoryBadge = categoryName ? `<span class="badge bg-success-subtle text-success border border-success-subtle fw-semibold" style="font-size: 10px; border-radius: 6px; padding: 2px 5px;"><i class="fa-solid fa-folder me-1"></i>${categoryName}</span>` : "";
-                const doorSideBadge = product.door_side ? `<span class="badge bg-primary-subtle text-primary border border-primary-subtle fw-semibold" style="font-size: 10px; border-radius: 6px; padding: 2px 5px;"><i class="fa-solid fa-door-open me-1"></i>${product.door_side}</span>` : "";
+                const categoryBadge = categoryName ? `<span class="badge bg-success-subtle text-success border border-success-subtle fw-semibold" style="font-size: 12px; border-radius: 6px; padding: 2px 5px;"><i class="fa-solid fa-folder me-1"></i>${categoryName}</span>` : "";
+                const doorSideBadge = product.door_side ? `<span class="badge bg-primary-subtle text-primary border border-primary-subtle fw-semibold" style="font-size: 12px; border-radius: 6px; padding: 2px 5px;"><i class="fa-solid fa-door-open me-1"></i>${product.door_side}</span>` : "";
 
                 itemsHtml += `
             <a href="javascript:void(0)" 
                class="list-group-item list-group-item-action d-flex align-items-center justify-content-between p-2 border-bottom hover-bg-light"
                onclick="selectProductFromSuggestion(${product.id})">
                 <div class="d-flex align-items-center gap-2 overflow-hidden me-2">
-                    <img src="${productImage}" alt="${product.product_name}" style="width: 38px; height: 38px; object-fit: cover; border-radius: 6px; border: 1px solid #e2e8f0; flex-shrink: 0;" />
+                    <div class="product-search-placeholder flex-shrink-0" style="width: 38px; height: 38px; min-width: 38px; border-radius: 8px; background: #f0fdf4; border: 1px solid #bbf7d0; display: flex; align-items: center; justify-content: center; color: #15803d;">
+                        <i class="fa-solid fa-box-open" style="font-size: 18px; color: #15803d;"></i>
+                    </div>
                     <div class="text-truncate">
                         <div class="d-flex align-items-center gap-1 flex-wrap">
                             <span class="fw-bold text-dark text-truncate" style="font-size: 13px;">${product.product_name}</span>
                             ${doorSideBadge}
                             ${categoryBadge}
                         </div>
-                        <div class="text-muted small text-truncate" style="font-size: 11px;">কোড: <span class="fw-semibold text-secondary">${codeText}</span></div>
+                        <div class="text-muted small text-truncate" style="font-size: 12px;">কোড: <span class="fw-semibold text-secondary">${codeText}</span></div>
                     </div>
                 </div>
                 <div class="d-flex align-items-center gap-2 flex-shrink-0 text-end">
-                    <span class="badge ${isOutOfStock ? 'bg-danger-subtle text-danger border-danger' : 'bg-success-subtle text-success border-success'} border fw-bold" style="font-size: 10px; border-radius: 12px; padding: 3px 6px;">
+                    <span class="badge ${isOutOfStock ? 'bg-danger-subtle text-danger border-danger' : 'bg-success-subtle text-success border-success'} border fw-bold" style="font-size: 12px; border-radius: 12px; padding: 3px 6px;">
                         ${product.quantity} Pcs
                     </span>
                     <span class="fw-bold text-success" style="font-size: 13px; min-width: 55px;">৳ ${product.sell_price}</span>
-                    <button type="button" class="btn btn-sm btn-success fw-bold py-1 px-2 shadow-sm" style="font-size: 11px; border-radius: 6px;" onclick="event.stopPropagation(); selectProductFromSuggestion(${product.id});">
+                    <button type="button" class="btn btn-sm btn-success fw-bold py-1 px-2 shadow-sm" style="font-size: 12px; border-radius: 6px;" onclick="event.stopPropagation(); selectProductFromSuggestion(${product.id});">
                         + যোগ
                     </button>
                 </div>
@@ -3168,7 +3514,7 @@
 
             if (matchingProducts.length > 8) {
                 itemsHtml += `
-            <div class="p-2 text-center text-muted small bg-light fw-bold" style="font-size: 11px;">
+            <div class="p-2 text-center text-muted small bg-light fw-bold" style="font-size: 12px;">
                 💡 মোট ${matchingProducts.length} টি পণ্য পাওয়া গেছে
             </div>
         `;
@@ -3294,33 +3640,33 @@
             subTotal = 0; // Reset Sub Total
             // <span class="quantity">${item.quantity}</span>
             cartItems.forEach((item, index) => {
-                const doorTag = item.door_side ? `<span class="badge bg-primary-subtle text-primary border border-primary-subtle fw-semibold d-inline-flex align-items-center gap-1 mt-1" style="font-size: 9px; padding: 1px 5px; border-radius: 4px;"><i class="fa-solid fa-door-open" style="font-size: 8px;"></i> ${item.door_side}</span>` : '';
+                const doorTag = item.door_side ? `<span class="badge bg-primary-subtle text-primary border border-primary-subtle fw-semibold d-inline-flex align-items-center gap-1 mt-1" style="font-size: 12px; padding: 1px 5px; border-radius: 4px;"><i class="fa-solid fa-door-open" style="font-size: 12px;"></i> ${item.door_side}</span>` : '';
                 const row = `
                 <tr style="border-bottom: 1px solid #f1f5f9;">
-                    <td style="padding: 5px 3px; vertical-align: middle; text-align: left; overflow: hidden;">
+                    <td style="padding: 7px 6px 7px 14px !important; vertical-align: middle; text-align: left; overflow: hidden;">
                       <div class="d-flex flex-column align-items-start" style="max-width: 100%;">
-                        <span class="fw-bold text-dark cart-item-title" style="font-size: 11px; line-height: 1.25; word-break: break-word; max-width: 100%;" title="${item.product_name}">${item.product_name}</span>
+                        <span class="fw-bold text-dark cart-item-title" style="font-size: 12px; line-height: 1.25; word-break: break-word; max-width: 100%;" title="${item.product_name}">${item.product_name}</span>
                         ${doorTag}
                       </div>
                     </td>
                     <td style="padding: 5px 2px; vertical-align: middle; text-align: center;">
-                        <div class="quantity-controls" style="display: inline-flex; align-items: center; justify-content: space-between; border: 1.5px solid #cbd5e1; border-radius: 6px; background: #f8fafc; padding: 1px; width: 72px; height: 24px; position: relative; z-index: 10;">
-                            <button type="button" onclick="decreaseQuantity(${index})" style="width: 20px; height: 20px; min-width: 20px; border-radius: 4px; border: none; background: #ffffff; color: #0f172a; font-weight: 800; font-size: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.1); margin: 0; padding: 0;">-</button>
+                        <div class="quantity-controls" style="display: inline-flex; align-items: center; justify-content: space-between; border: 1.5px solid #cbd5e1; border-radius: 6px; background: #f8fafc; padding: 1px; width: 72px; height: 26px; position: relative; z-index: 10;">
+                            <button type="button" onclick="decreaseQuantity(${index})" style="width: 22px; height: 22px; min-width: 22px; border-radius: 4px; border: none; background: #ffffff; color: #0f172a; font-weight: 800; font-size: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.1); margin: 0; padding: 0;">-</button>
                             <input
                                 type="number"
                                 step="any" 
-                                style="width: 26px; background: transparent; border: none; text-align: center; font-weight: 700; font-size: 10.5px; color: #0f172a; padding: 0; outline: none; margin: 0;"
+                                style="width: 26px; background: transparent; border: none; text-align: center; font-weight: 700; font-size: 12px; color: #0f172a; padding: 0; outline: none; margin: 0;"
                                 value="${item.quantity}"
                                 class="quantity"
                                 id="quantity-${index}"
                                 oninput="updateQuantity(${index}, this)"
                             />
-                            <button type="button" onclick="increaseQuantity(${index})" style="width: 20px; height: 20px; min-width: 20px; border-radius: 4px; border: none; background: #ffffff; color: #0f172a; font-weight: 800; font-size: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.1); margin: 0; padding: 0;">+</button>
+                            <button type="button" onclick="increaseQuantity(${index})" style="width: 22px; height: 22px; min-width: 22px; border-radius: 4px; border: none; background: #ffffff; color: #0f172a; font-weight: 800; font-size: 12px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 2px rgba(0,0,0,0.1); margin: 0; padding: 0;">+</button>
                         </div>
                     </td>
                     <td style="padding: 5px 2px; vertical-align: middle; text-align: center;">
                         <div class="cost-price-wrapper" style="position: relative; z-index: 1; display: inline-block;">
-                            <span class="cost-price-placeholder badge bg-light text-muted border px-1 py-0.5" style="font-size: 9px; cursor: pointer;">🔒 ***</span>
+                            <span class="cost-price-placeholder badge bg-light text-muted border px-1 py-0.5" style="font-size: 12px; cursor: pointer;">🔒 ***</span>
                             <input
                                 class="price cost-price-input"
                                 type="number"
@@ -3328,7 +3674,7 @@
                                 value="${item.cost_price}"
                                 id="cost_price-${item.id}"
                                 oninput="updateCostPrice(${item.id}, this)"
-                                style="color: #dc2626 !important; font-weight: 800 !important; width: 48px; height: 24px; font-size: 10.5px; border-radius: 6px; padding: 1px 2px;"
+                                style="color: #dc2626 !important; font-weight: 800 !important; width: 48px; height: 26px; font-size: 12px; border-radius: 6px; padding: 1px 2px;"
                             />
                         </div>
                     </td>
@@ -3340,10 +3686,10 @@
                             value="${item.sellingPrice}"
                             id="sellingPrice-${item.id}"
                             oninput="updateSellingPrice(${item.id}, this)"
-                            style="width: 48px; height: 24px; font-size: 10.5px; border-radius: 6px; border: 1.5px solid #cbd5e1; text-align: center; font-weight: 700; color: #15803d; outline: none; padding: 1px 2px;"
+                            style="width: 48px; height: 26px; font-size: 12px; border-radius: 6px; border: 1.5px solid #cbd5e1; text-align: center; font-weight: 700; color: #15803d; outline: none; padding: 1px 2px;"
                         />
                     </td>
-                    <td id="total-${item.id}" style="padding: 5px 2px; vertical-align: middle; text-align: center; font-weight: 800; font-size: 11px; color: #0f172a;">
+                    <td id="total-${item.id}" style="padding: 5px 2px; vertical-align: middle; text-align: center; font-weight: 800; font-size: 12px; color: #0f172a;">
                         ${(item.sellingPrice * item.quantity).toFixed(2)}
                     </td>
                     <td style="padding: 5px 2px; vertical-align: middle; text-align: center;">
@@ -4040,7 +4386,7 @@
                 </div>
                 <div class="modal-footer bg-light py-2 justify-content-between">
                     <small class="text-muted"><i class="fa-solid fa-bolt text-warning me-1"></i> বারকোড স্ক্যান হলেই অটোমেটিক কার্টে যুক্ত হবে</small>
-                    <button type="button" class="btn btn-secondary px-4 py-2 fw-bold rounded-pill" data-bs-dismiss="modal" onclick="stopCameraScanner()">বন্ধ করুন</button>
+                    <button type="button" class="btn btn-danger px-4 fw-bold rounded-pill text-white" data-bs-dismiss="modal" onclick="stopCameraScanner()" style="background-color: #dc2626 !important; border-color: #dc2626 !important; color: #ffffff !important; height: 38px !important; min-height: 38px !important; display: inline-flex; align-items: center; justify-content: center;">বন্ধ করুন</button>
                 </div>
             </div>
         </div>
@@ -4075,11 +4421,11 @@
                                     <input type="hidden" id="quickCategorySelect" value="">
                                     <div class="select-trigger d-flex align-items-center justify-content-between px-2.5" onclick="toggleCustomDropdown('quickCategoryDropdown')">
                                         <span class="selected-text text-truncate" style="font-size: 12px; font-weight: 600; color: #64748b;">সিলেক্ট করুন</span>
-                                        <i class="fa-solid fa-chevron-down ms-1 text-muted" style="font-size: 10px; transition: transform 0.2s;"></i>
+                                        <i class="fa-solid fa-chevron-down ms-1 text-muted" style="font-size: 12px; transition: transform 0.2s;"></i>
                                     </div>
                                     <div class="select-menu">
                                         <div class="search-wrap">
-                                            <i class="fa-solid fa-magnifying-glass position-absolute text-muted" style="top: 50%; transform: translateY(-50%); left: 10px; font-size: 10px;"></i>
+                                            <i class="fa-solid fa-magnifying-glass position-absolute text-muted" style="top: 50%; transform: translateY(-50%); left: 10px; font-size: 12px;"></i>
                                             <input type="text" placeholder="ক্যাটাগরি খুঁজুন..." oninput="filterCustomDropdown('quickCategoryDropdown', this.value)">
                                         </div>
                                         <div class="select-options-list">
@@ -4096,11 +4442,11 @@
                                     <input type="hidden" id="quickBrandSelect" value="">
                                     <div class="select-trigger d-flex align-items-center justify-content-between px-2.5" onclick="toggleCustomDropdown('quickBrandDropdown')">
                                         <span class="selected-text text-truncate" style="font-size: 12px; font-weight: 600; color: #64748b;">সিলেক্ট করুন</span>
-                                        <i class="fa-solid fa-chevron-down ms-1 text-muted" style="font-size: 10px; transition: transform 0.2s;"></i>
+                                        <i class="fa-solid fa-chevron-down ms-1 text-muted" style="font-size: 12px; transition: transform 0.2s;"></i>
                                     </div>
                                     <div class="select-menu">
                                         <div class="search-wrap">
-                                            <i class="fa-solid fa-magnifying-glass position-absolute text-muted" style="top: 50%; transform: translateY(-50%); left: 10px; font-size: 10px;"></i>
+                                            <i class="fa-solid fa-magnifying-glass position-absolute text-muted" style="top: 50%; transform: translateY(-50%); left: 10px; font-size: 12px;"></i>
                                             <input type="text" placeholder="ব্র্যান্ড খুঁজুন..." oninput="filterCustomDropdown('quickBrandDropdown', this.value)">
                                         </div>
                                         <div class="select-options-list">
@@ -4117,11 +4463,11 @@
                                     <input type="hidden" id="quickUnitSelect" value="">
                                     <div class="select-trigger d-flex align-items-center justify-content-between px-2.5" onclick="toggleCustomDropdown('quickUnitDropdown')">
                                         <span class="selected-text text-truncate" style="font-size: 12px; font-weight: 600; color: #0f172a;">Pcs</span>
-                                        <i class="fa-solid fa-chevron-down ms-1 text-muted" style="font-size: 10px; transition: transform 0.2s;"></i>
+                                        <i class="fa-solid fa-chevron-down ms-1 text-muted" style="font-size: 12px; transition: transform 0.2s;"></i>
                                     </div>
                                     <div class="select-menu">
                                         <div class="search-wrap">
-                                            <i class="fa-solid fa-magnifying-glass position-absolute text-muted" style="top: 50%; transform: translateY(-50%); left: 10px; font-size: 10px;"></i>
+                                            <i class="fa-solid fa-magnifying-glass position-absolute text-muted" style="top: 50%; transform: translateY(-50%); left: 10px; font-size: 12px;"></i>
                                             <input type="text" placeholder="ইউনিট খুঁজুন..." oninput="filterCustomDropdown('quickUnitDropdown', this.value)">
                                         </div>
                                         <div class="select-options-list">
@@ -4142,13 +4488,13 @@
                             <div class="col-md-4">
                                 <label for="quickQuantity" class="form-label fw-bold text-dark mb-1" style="font-size: 12px;">প্রারম্ভিক স্টক (পরিমাণ)</label>
                                 <input type="number" step="any" class="form-control fw-bold text-primary" id="quickQuantity" value="0" style="border-radius: 7px; font-size: 12px; height: 35px;">
-                                <small class="text-muted d-block mt-0.5" style="font-size: 10px;">(স্টক ০ রাখলেও সেল করা যাবে)</small>
+                                <small class="text-muted d-block mt-0.5" style="font-size: 12px;">(স্টক ০ রাখলেও সেল করা যাবে)</small>
                             </div>
                         </div>
 
                         <div class="d-flex justify-content-end gap-2 mt-3 pt-2 border-top">
-                            <button type="button" class="btn btn-secondary px-3 py-1.5 fw-bold rounded-3" data-bs-dismiss="modal" style="font-size: 12.5px;">বাতিল</button>
-                            <button type="submit" class="btn btn-success px-3 py-1.5 fw-bold rounded-3 shadow-sm" style="background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); border: none; font-size: 12.5px;">
+                            <button type="button" class="btn btn-danger px-3 py-1.5 fw-bold rounded-3 text-white" data-bs-dismiss="modal" style="font-size: 12.5px; background-color: #dc2626 !important; border-color: #dc2626 !important; color: #ffffff !important; height: 38px !important; min-height: 38px !important; display: inline-flex; align-items: center; justify-content: center;">বাতিল</button>
+                            <button type="submit" class="btn btn-success px-3 py-1.5 fw-bold rounded-3 shadow-sm" style="background: linear-gradient(135deg, #15803d 0%, #16a34a 100%); border: none; font-size: 12.5px; height: 38px !important; min-height: 38px !important; display: inline-flex; align-items: center; justify-content: center;">
                                 <i class="fa-solid fa-cart-plus me-1"></i> তৈরি করুন & কার্টে যোগ করুন
                             </button>
                         </div>

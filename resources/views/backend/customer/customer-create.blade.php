@@ -118,6 +118,58 @@
         font-size: 12px;
         color: #777;
     }
+
+    .financemodal .close-btn {
+        background-color: #dc2626 !important;
+        border-color: #dc2626 !important;
+        color: #ffffff !important;
+        width: 30px !important;
+        height: 30px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        border-radius: 50% !important;
+        transition: all 0.2s ease !important;
+    }
+
+    .financemodal .close-btn i {
+        color: #ffffff !important;
+        font-size: 14px !important;
+    }
+
+    .financemodal .close-btn:hover {
+        background-color: #b91c1c !important;
+        color: #ffffff !important;
+    }
+
+    .financemodal .modal-content .heading {
+        background: linear-gradient(135deg, #15803d 0%, #16a34a 100%) !important;
+        color: #ffffff !important;
+        padding: 12px 20px !important;
+        margin: -20px -20px 20px -20px !important;
+        border-top-left-radius: 10px !important;
+        border-top-right-radius: 10px !important;
+        font-size: 17px !important;
+        font-weight: 700 !important;
+        text-align: center !important;
+    }
+
+    .financemodal form input,
+    .financemodal form textarea {
+        cursor: text !important;
+    }
+
+    .financemodal .actions .btn-save,
+    .financemodal .btn-save {
+        height: 38px !important;
+        min-height: 38px !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        font-weight: 700 !important;
+        font-size: 14px !important;
+        border-radius: 8px !important;
+    }
 </style>
 
         <!-- Create Customer Modal Start -->
